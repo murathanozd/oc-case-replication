@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.DS_Store
+.env
+# large downloaded logs
+data/ocel/*
+!data/ocel/README.md
+# neo4j / tmp
+*.log
+results/tmp/
