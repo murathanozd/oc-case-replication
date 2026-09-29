@@ -1,0 +1,3 @@
+[submodule "external/eventgraph_tutorial"]
+	path = external/eventgraph_tutorial
+	url = https://github.com/multi-dimensional-process-mining/eventgraph_tutorial.git
