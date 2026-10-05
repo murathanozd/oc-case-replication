@@ -1,0 +1,21 @@
+{
+  "events": 21,
+  "objects": 12,
+  "corr": 41,
+  "rel_ordered_pairs": 46,
+  "rel_unordered_pairs": 23,
+  "df_triples": 29,
+  "global_start_events": [
+    "e1",
+    "e2",
+    "e3",
+    "e4",
+    "e29"
+  ],
+  "global_end_events": [
+    "e28",
+    "e30",
+    "e34"
+  ],
+  "def8_violations": {}
+}

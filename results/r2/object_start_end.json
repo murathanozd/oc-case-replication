@@ -1,0 +1,122 @@
+[
+  {
+    "object": "I1",
+    "type": "Invoice",
+    "start_events": [
+      "e18"
+    ],
+    "end_events": [
+      "e30"
+    ]
+  },
+  {
+    "object": "I2",
+    "type": "Invoice",
+    "start_events": [
+      "e5"
+    ],
+    "end_events": [
+      "e30"
+    ]
+  },
+  {
+    "object": "X1",
+    "type": "Item",
+    "start_events": [
+      "e6"
+    ],
+    "end_events": [
+      "e27"
+    ]
+  },
+  {
+    "object": "X2",
+    "type": "Item",
+    "start_events": [
+      "e6"
+    ],
+    "end_events": [
+      "e27"
+    ]
+  },
+  {
+    "object": "X3",
+    "type": "Item",
+    "start_events": [
+      "e6"
+    ],
+    "end_events": [
+      "e33"
+    ]
+  },
+  {
+    "object": "Y1",
+    "type": "Item",
+    "start_events": [
+      "e19"
+    ],
+    "end_events": [
+      "e27"
+    ]
+  },
+  {
+    "object": "Y2",
+    "type": "Item",
+    "start_events": [
+      "e19"
+    ],
+    "end_events": [
+      "e33"
+    ]
+  },
+  {
+    "object": "O1",
+    "type": "Order",
+    "start_events": [
+      "e1"
+    ],
+    "end_events": [
+      "e28"
+    ]
+  },
+  {
+    "object": "O2",
+    "type": "Order",
+    "start_events": [
+      "e2"
+    ],
+    "end_events": [
+      "e34"
+    ]
+  },
+  {
+    "object": "P1",
+    "type": "Payment",
+    "start_events": [
+      "e29"
+    ],
+    "end_events": [
+      "e30"
+    ]
+  },
+  {
+    "object": "A",
+    "type": "Supplier Order",
+    "start_events": [
+      "e3"
+    ],
+    "end_events": [
+      "e11"
+    ]
+  },
+  {
+    "object": "B",
+    "type": "Supplier Order",
+    "start_events": [
+      "e4"
+    ],
+    "end_events": [
+      "e21"
+    ]
+  }
+]
