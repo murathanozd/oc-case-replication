@@ -199,3 +199,23 @@ on `df_edges.csv` for claim 12(b).
    were already sorted).
 6. **Documentation.** `r1_neo4j/README.md` describes the rerun from a clean machine (versions, `.env`,
    import folder, script order, runtime ≈ 5 s for the whole chain) and how to take the figure screenshots.
+
+## 2026-10-06 – Figures rendered from the result files (`r1_neo4j/05_render_figures.py`)
+
+1. **Rendered, not screenshotted.** Fig. 4–12 are rendered with matplotlib from the R1 result files
+   (`results/r1/*.json`, `df_edges.csv`) instead of taking screenshots. Reason: Neo4j Query automatically
+   connects result nodes, i.e. it draws every stored relationship between the returned nodes. For the
+   filtered cases (Fig. 11, 12) this would show the excluded Supplier Order DF edges. `queries/figures.cypher`
+   is kept for interactive exploration in Neo4j Browser (with "Connect result nodes" switched off).
+   The script is step 05 of the pipeline and does not access the database.
+2. **Reproducibility of the figure files.** The committed figures were first rendered with matplotlib
+   3.10.9; rerunning with the pinned 3.11.2 in `.venv` gives the same content, but slightly different
+   font rendering and image sizes (1–13 px), so the files differed. The committed files are the ones
+   rendered with the pinned version.
+   Two changes to `05_render_figures.py` make reruns byte-identical:
+   - no `CreationDate` in the PDF metadata;
+   - the loop over the objects of an event is sorted. It iterated over a Python `set`, whose order
+     changes per process (string hash randomization), so the drawing order inside the PDFs differed on
+     every run (the PNGs looked the same).
+
+   With both changes, all 20 figure files (10 PDF + 10 PNG) are identical across three runs.

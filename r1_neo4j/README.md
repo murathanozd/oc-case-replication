@@ -44,8 +44,10 @@ The exact record is written to `results/r1/environment.json` by `00_environment.
    python r1_neo4j/02_materialize.py
    python r1_neo4j/03_executions.py
    python r1_neo4j/04_check_claims.py
+   python r1_neo4j/05_render_figures.py
    ```
-   Expected runtime: about 5 s in total (each Step 4 query takes 1–25 ms on the 21-event graph).
+   Expected runtime: about 10 s in total (each Step 4 query takes 1–25 ms on the 21-event graph;
+   rendering the figures takes a few seconds).
 
 **Warning:** `01_build_ekg.py` **deletes everything** in the connected database. Before wiping, it checks
 that the connected DBMS can read the prepared CSV from `NEO4J_IMPORT_DIR`, and aborts otherwise. Use a
@@ -60,9 +62,12 @@ DBMS that holds nothing else.
 | `02_materialize.py` | 3 | `:REL` (OCPM 1 §4.1), `:START` / `:END` (OCPM 2 §2.2); first removes these relationships | `rel_edges.csv`, `start_end.csv`, `materialize_stats.json` |
 | `03_executions.py` | 4 | OCPM 3.1 / 3.3 execution and case queries, each 1 warm-up + 5 timed runs; materializing queries start without `:Execution` nodes | `<name>.json` (common format), `raw/<name>.json`, `runtimes.csv` |
 | `04_check_claims.py` | 5 | checks the paper's 14 claims against the saved results (no DB access) | `claims_table.md`, `claims.json` |
+| `05_render_figures.py` | 6 | renders Fig. 4–12 from the saved results and `df_edges.csv` with matplotlib (no DB access) | `figures/fig<N>.pdf`, `figures/fig<N>.png` |
 
-Each script can be rerun on its own (02–04 need the output of the previous ones). Rerunning the chain
-gives byte-identical result files, except `runtimes.csv` and `environment.json`.
+Each script can be rerun on its own (02–05 need the output of the previous ones). Rerunning the chain
+gives byte-identical result files, except `runtimes.csv` and `environment.json`. The figure files are
+byte-identical only with the pinned matplotlib version (3.11.2); other versions give slightly different
+font rendering and image sizes.
 
 ## Queries
 
@@ -75,17 +80,21 @@ All Cypher is in [`queries/`](queries/) and cites its source in a header comment
   `00_wipe_executions`, `extract_executions`, `ekg_lookup` are ours
 - `figures.cypher` – Neo4j Browser queries for Fig. 4–12 (see below)
 
-## Figures (Neo4j Browser)
+## Figures
 
-After running the scripts (the `:Execution` nodes left by `03_executions.py` are needed for Fig. 6 and 7):
+The figures in `results/r1/figures/` (`fig4` … `fig12`, `fig8_left`, `fig8_right`; PDF for LaTeX,
+PNG for viewing) are **rendered by `05_render_figures.py` from the R1 result files**, not screenshotted.
+Layout: one lane per object (grouped by type), events on the x-axis in time order, DF edges as arrows in
+the lane of their object, a vertical line joining the objects of one event; for the filtered cases
+(Fig. 11, 12) the Supplier Order lanes are grey and their DF edges are omitted.
 
-1. Open Neo4j Browser on the DBMS. In Settings (gear icon), **untick "Connect result nodes"**, so only
-   the returned relationships are drawn (otherwise e.g. the filtered Supplier Order DF edges reappear
-   in Fig. 11/12).
-2. Paste one block of [`queries/figures.cypher`](queries/figures.cypher) at a time, run it, and arrange
-   the graph like the paper's figure. Captions: `:Event` → `Activity` (or `EventID`), `:Entity` → `ID`,
-   `:DF` → `ID`, `:Execution` → `ID`.
-3. Save screenshots as `results/r1/figures/fig<N>.png` (`fig8_left.png`, `fig8_right.png` for Fig. 8).
+Why not screenshots: Neo4j Query (and Neo4j Browser with "Connect result nodes" on) automatically draws
+every stored relationship between returned nodes, so the DF edges that a filtered case excludes would
+reappear in Fig. 11 / 12.
+
+[`queries/figures.cypher`](queries/figures.cypher) remains available for exploring the figures
+interactively in Neo4j Browser (untick "Connect result nodes" in its settings first; Fig. 6 and 7 need the
+`:Execution` nodes left by `03_executions.py`).
 
 The paper's figures label O2's Pack Shipment / Ship events as e31 / e32; in Table 1 and the data they
 are e33 / e34.

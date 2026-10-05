@@ -1,4 +1,3 @@
-Screenshots of the Neo4j Browser graphs for Fig. 4–12 of the paper, taken manually with the blocks in
-`r1_neo4j/queries/figures.cypher` (see `r1_neo4j/README.md`, section "Figures"):
-`fig4.png`, `fig5.png`, `fig6.png`, `fig7.png`, `fig8_left.png`, `fig8_right.png`, `fig9.png`,
-`fig10.png`, `fig11.png`, `fig12.png`.
+Fig. 4–12 of the paper, rendered by `r1_neo4j/05_render_figures.py` from the R1 result files in
+`results/r1/` (PDF for LaTeX, PNG for viewing): `fig4`, `fig5`, `fig6`, `fig7`, `fig8_left`, `fig8_right`,
+`fig9`, `fig10`, `fig11`, `fig12`. Byte-identical on rerun with the pinned matplotlib 3.11.2.
