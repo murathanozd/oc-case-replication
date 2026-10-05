@@ -134,3 +134,27 @@ Original scripts: `external/eventgraph_tutorial/order_process/` (pinned at `31d1
 
 8. **Re-runnability.** Running `01_build_ekg.py` → `02_materialize.py` → `03_executions.py` again gives
    byte-identical result files (apart from `runtimes.csv`).
+
+## 2026-10-05 – Step 5: claim check (`r1_neo4j/04_check_claims.py`)
+
+Result: `results/r1/claims_table.md` (and `claims.json`): 14 claims, 13 *yes*, 1 *partial* (claim 14).
+The script only reads the saved R1 results; the one computation outside Neo4j is a df-reachability check
+on `df_edges.csv` for claim 12(b).
+
+1. **Claim 14 (Fig. 12) is partial.** The paper writes: "Notably, the executions do not contain any invoices
+   or payments as these are not involved in completing an order." The cases D[∗→O1 \ {SupplierOrder}] and
+   D[∗→O2 \ {SupplierOrder}] contain no Payment events, but they do contain e18 and e5 (Create Invoice,
+   correlated to the Order and to I1 / I2).
+2. **Claim 13 (Fig. 11): activity name.** The paper says the cases start "in Place Order"; the activity in
+   the data is "Create Order" ("Place Order" does not occur, only "Place SO").
+3. **Claim 6: typo in the paper.** "each have their own invoice P1 and P2" should be I1 and I2.
+4. **Def. 9 vs. the §4 query (claims 9–11).** Def. 9 allows o_st = o_end, so D[Order→Order] would also
+   contain D[O1→O1] and D[O2→O2]. The paper's "single execution D[O2→O1]" and the total of 13 hold only
+   because the §4 query has `nEnd <> nStart` (with self-pairs O1→O1, O2→O2, P1→P1: 16).
+5. **Def. 10 vs. the OCPM 3.3 queries (claims 12–14).** Def. 10 restricts the other end to objects with a
+   global start/end event; the tutorial queries accept any `:START`/`:END` event. For the unfiltered start
+   case (Fig. 10) the event sets coincide (checked on `df_edges.csv`).
+6. **Open point for R2 – order of filtering in Def. 11 (claims 13, 14).** It is not specified whether
+   global start/end events are determined before or after removing the excluded objects' df-edges. The
+   tutorial's result for D[∗→Order \ {SupplierOrder}] equals the "after" reading; the "before" reading
+   would give only e1 e18 e27 e28 for ∗→O1. Not computed in Neo4j in R1.

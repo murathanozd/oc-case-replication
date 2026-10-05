@@ -281,8 +281,8 @@ def main():
           "to the Order and to I1 / I2) are in the cases, so invoices I1, I2 are in the object layer. The "
           f"cases share only {fmt(shared)} ({', '.join(sorted({activity[e] for e in shared}))}), which "
           "supports \"independent of each other … dependent on the same Receive SO events\".",
-          DEF10_GLOBAL + " " + DEF11_ORDER + " The tutorial's result equals the **after** reading (start "
-          "events e1, e5, e6, e18, e19 are starts of objects, not global starts). The **before** reading "
+          DEF10_GLOBAL + " " + DEF11_ORDER + " The tutorial query starts paths at object start events "
+          "(e1, e2, e5, e6, e18, e19); its event sets equal the **after** reading. The **before** reading "
           "would give only e1 e18 e27 e28 for ∗→O1. Open point for R2 (not computed in R1).")
 
     # ------------------------------------------------------------------------------------------
