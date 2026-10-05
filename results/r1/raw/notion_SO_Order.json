@@ -1,0 +1,13 @@
+{
+  "query_file": "r1_neo4j/queries/executions/notion_SO_Order.cypher",
+  "source": "OCPM 3.1 \u00a73.2 (materialize)",
+  "columns": [],
+  "rows": [],
+  "write_counters": {
+    "labels_added": 4,
+    "relationships_created": 41,
+    "nodes_created": 4,
+    "properties_set": 4
+  },
+  "notifications": []
+}

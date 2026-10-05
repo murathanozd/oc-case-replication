@@ -1,0 +1,511 @@
+{
+  "query_file": "r1_neo4j/queries/executions/notion_SO_Order_paths_fixed.cypher",
+  "source": "OCPM 3.1 \u00a73.1 fixed (\"Order \" -> \"Order\")",
+  "columns": [
+    "p"
+  ],
+  "rows": [
+    {
+      "p": {
+        "path": [
+          "e4",
+          "e7",
+          "e19",
+          "e20",
+          "e27",
+          "e28"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "Y1"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O1"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e4",
+          "e7",
+          "e19",
+          "e20",
+          "e27",
+          "e28"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "Y1"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "Y1"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O1"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e3",
+          "e6",
+          "e10",
+          "e27",
+          "e28"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X1"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X1"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O1"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e3",
+          "e6",
+          "e8",
+          "e10",
+          "e27",
+          "e28"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X1"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O1"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e3",
+          "e6",
+          "e8",
+          "e10",
+          "e27",
+          "e28"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X3"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X1"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O1"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e3",
+          "e6",
+          "e10",
+          "e11",
+          "e27",
+          "e28"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X1"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X2"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O1"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e3",
+          "e6",
+          "e8",
+          "e10",
+          "e11",
+          "e27",
+          "e28"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X2"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O1"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e3",
+          "e6",
+          "e8",
+          "e10",
+          "e11",
+          "e27",
+          "e28"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X3"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X2"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O1"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e3",
+          "e6",
+          "e11",
+          "e27",
+          "e28"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X2"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X2"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O1"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e4",
+          "e7",
+          "e19",
+          "e20",
+          "e21",
+          "e33",
+          "e34"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "Y2"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O2"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e4",
+          "e7",
+          "e19",
+          "e20",
+          "e21",
+          "e33",
+          "e34"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "Y1"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "Y2"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O2"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e4",
+          "e7",
+          "e19",
+          "e21",
+          "e33",
+          "e34"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "Y2"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "Y2"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O2"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e4",
+          "e7",
+          "e33",
+          "e34"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "B"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O2"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O2"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e3",
+          "e6",
+          "e8",
+          "e33",
+          "e34"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X3"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O2"
+          }
+        ]
+      }
+    },
+    {
+      "p": {
+        "path": [
+          "e3",
+          "e6",
+          "e8",
+          "e33",
+          "e34"
+        ],
+        "df": [
+          {
+            "EntityType": "Supplier Order",
+            "ID": "A"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X3"
+          },
+          {
+            "EntityType": "Item",
+            "ID": "X3"
+          },
+          {
+            "EntityType": "Order",
+            "ID": "O2"
+          }
+        ]
+      }
+    }
+  ],
+  "write_counters": {},
+  "notifications": []
+}

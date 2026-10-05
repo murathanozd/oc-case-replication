@@ -1,0 +1,74 @@
+[
+  {
+    "execution_id": "*_O1",
+    "start_object": "*",
+    "end_object": "O1",
+    "start_event": [
+      "e1",
+      "e6",
+      "e18",
+      "e19"
+    ],
+    "end_event": "e28",
+    "events": [
+      "e1",
+      "e6",
+      "e10",
+      "e11",
+      "e18",
+      "e19",
+      "e20",
+      "e27",
+      "e28"
+    ],
+    "objects": [
+      "A",
+      "B",
+      "I1",
+      "O1",
+      "X1",
+      "X2",
+      "X3",
+      "Y1",
+      "Y2"
+    ],
+    "n_paths": 10,
+    "n_distinct_paths": 5
+  },
+  {
+    "execution_id": "*_O2",
+    "start_object": "*",
+    "end_object": "O2",
+    "start_event": [
+      "e2",
+      "e5",
+      "e6",
+      "e19"
+    ],
+    "end_event": "e34",
+    "events": [
+      "e2",
+      "e5",
+      "e6",
+      "e7",
+      "e8",
+      "e19",
+      "e21",
+      "e33",
+      "e34"
+    ],
+    "objects": [
+      "A",
+      "B",
+      "I2",
+      "O2",
+      "X1",
+      "X2",
+      "X3",
+      "Y1",
+      "Y2"
+    ],
+    "n_paths": 7,
+    "n_distinct_paths": 4
+  }
+]

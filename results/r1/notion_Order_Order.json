@@ -1,0 +1,28 @@
+[
+  {
+    "execution_id": "O2_O1",
+    "start_object": "O2",
+    "end_object": "O1",
+    "start_event": "e2",
+    "end_event": "e28",
+    "events": [
+      "e2",
+      "e5",
+      "e7",
+      "e19",
+      "e20",
+      "e27",
+      "e28"
+    ],
+    "objects": [
+      "B",
+      "I2",
+      "O1",
+      "O2",
+      "X1",
+      "X2",
+      "Y1",
+      "Y2"
+    ]
+  }
+]

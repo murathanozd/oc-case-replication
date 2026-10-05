@@ -1,0 +1,62 @@
+[
+  {
+    "execution_id": "O1_*",
+    "start_object": "O1",
+    "end_object": "*",
+    "start_event": "e1",
+    "end_event": [
+      "e27",
+      "e28",
+      "e30"
+    ],
+    "events": [
+      "e1",
+      "e18",
+      "e27",
+      "e28",
+      "e30"
+    ],
+    "objects": [
+      "I1",
+      "I2",
+      "O1",
+      "P1",
+      "X1",
+      "X2",
+      "Y1"
+    ],
+    "n_paths": 7,
+    "n_distinct_paths": 3
+  },
+  {
+    "execution_id": "O2_*",
+    "start_object": "O2",
+    "end_object": "*",
+    "start_event": "e2",
+    "end_event": [
+      "e30",
+      "e33",
+      "e34"
+    ],
+    "events": [
+      "e2",
+      "e5",
+      "e7",
+      "e9",
+      "e30",
+      "e33",
+      "e34"
+    ],
+    "objects": [
+      "B",
+      "I1",
+      "I2",
+      "O2",
+      "P1",
+      "X3",
+      "Y2"
+    ],
+    "n_paths": 6,
+    "n_distinct_paths": 3
+  }
+]

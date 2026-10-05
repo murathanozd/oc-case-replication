@@ -1,0 +1,34 @@
+[
+  {
+    "execution_id": "P1_I1",
+    "start_object": "P1",
+    "end_object": "I1",
+    "start_event": "e29",
+    "end_event": "e30",
+    "events": [
+      "e29",
+      "e30"
+    ],
+    "objects": [
+      "I1",
+      "I2",
+      "P1"
+    ]
+  },
+  {
+    "execution_id": "P1_I2",
+    "start_object": "P1",
+    "end_object": "I2",
+    "start_event": "e29",
+    "end_event": "e30",
+    "events": [
+      "e29",
+      "e30"
+    ],
+    "objects": [
+      "I1",
+      "I2",
+      "P1"
+    ]
+  }
+]

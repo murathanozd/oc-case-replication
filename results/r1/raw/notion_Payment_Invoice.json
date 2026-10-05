@@ -1,0 +1,55 @@
+{
+  "query_file": "r1_neo4j/queries/executions/notion_Payment_Invoice.cypher",
+  "source": "OCPM 3.1 \u00a74.4",
+  "columns": [
+    "e",
+    "df",
+    "e2"
+  ],
+  "rows": [
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e29"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e29",
+        "to": "e30",
+        "EntityType": "Payment",
+        "ID": "P1"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e30"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e29"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e29",
+        "to": "e30",
+        "EntityType": "Payment",
+        "ID": "P1"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e30"
+      }
+    }
+  ],
+  "write_counters": {},
+  "notifications": []
+}

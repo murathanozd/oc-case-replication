@@ -46,7 +46,8 @@ Original scripts: `external/eventgraph_tutorial/order_process/` (pinned at `31d1
    deprecated. Use CALL () { ... }". The query runs correctly. Kept as published.
 
 7. **`ID(e)` in the DF query.** The plan expected a deprecation warning for `ID()`; Neo4j 5.26.19 returned
-   **no** notification for the DF query. Kept as published. On this data all 21 timestamps are distinct,
+   **no** notification for the DF query, also when re-checked with `EXPLAIN` (which always plans the query,
+   see Step 4, item 6). Kept as published. On this data all 21 timestamps are distinct,
    so the `ID(e)` tie-breaker never decides the order of two events.
 
 8. **Python driver version.** `requirements.txt` asks for `neo4j>=5.0`; pip installed 6.4.0.
@@ -87,3 +88,49 @@ Original scripts: `external/eventgraph_tutorial/order_process/` (pinned at `31d1
      if we run it for the optional variants.
    - `:REL` only connects objects that share an event: there is no `:REL` between A and O1/O2, or between
      orders and P1 (P1 is reached only via the invoices).
+
+## 2026-10-05 – Step 4: executions and case notions (`r1_neo4j/03_executions.py`)
+
+1. **Queries run as published.** All queries are in `r1_neo4j/queries/executions/`. A script check
+   confirmed that every file marked "verbatim" equals a code block of the tutorials (ignoring whitespace
+   and comments). For each query, `results/r1/raw/<name>.json` holds the query's own output (paths, rows,
+   or write counters for materializing queries) and `results/r1/<name>.json` the common format.
+
+2. **Typo in OCPM 3.1 Sect. 3.1 (`"Order "` with trailing space).** Run as published
+   (`notion_SO_Order_paths`): **0 paths, no error, no warning** – the query silently returns nothing, as no
+   entity has `EntityType = "Order "`. Fixed copy (`notion_SO_Order_paths_fixed.cypher`, only change
+   `"Order "` → `"Order"`): 15 paths, grouping into the 4 executions A→O1, A→O2, B→O1, B→O2. They have the
+   same event sets as the executions materialized by Sect. 3.2 (`notion_SO_Order`), which has no typo.
+
+3. **OCPM 3.1 Sect. 4.3 (Order → Invoice) has no printed query.** The text says to use
+   `WITH "Order" AS startType, "Invoice" AS endType` in the queries above; `notion_Order_Invoice.cypher`
+   is the Sect. 4.2 retrieval query with these two values. Marked as derived, not verbatim.
+
+4. **Isolating materializing queries.** The tutorial materializes cumulatively (Sect. 2.3 → 3.2 → 4), and
+   `MERGE` reuses existing `:Execution` nodes. We wipe only `:Execution` nodes and their relationships
+   (`00_wipe_executions.cypher`) before each materializing run, so each saved result reflects that query
+   alone. The retrieval queries of Sect. 4.1–4.5 run on the state left by Sect. 4, as in the tutorial.
+   On this data the cumulative and isolated runs give the same executions (all Sect. 2.3/3.2 executions
+   are also global ones).
+
+5. **Common format for path queries (ours).** Sect. 3.1 returns single paths and OCPM 3.3 returns one row
+   per grouping event with a list of paths; neither returns execution IDs or objects. We group paths in
+   Python: Sect. 3.1 by (first, last) event; OCPM 3.3 by the query's own grouping event. The leading Order
+   is the object whose `:START` (Sect. 6.2) or `:END` (Sect. 6.3) is that event; the other side is `*`,
+   and `end_event` (6.2) or `start_event` (6.3) is then the list of all path ends or starts. The OCPM 3.3
+   `collect(p)` contains duplicate paths, e.g. `e30` is the `:END` of I1, I2 and P1, so each path to `e30`
+   appears 3 times. This does not change the event sets; we record `n_paths` and `n_distinct_paths`.
+
+6. **Server notifications depend on the plan cache.** Neo4j only reports notifications when it plans a
+   query, not when it reuses a cached plan, so a re-run can miss them. The scripts therefore record
+   notifications from an `EXPLAIN` of each query. None of the Step 4 queries produces a notification
+   (no deprecation, no performance warning for the unbounded `[:DF*]`).
+
+7. **Timing.** Each query runs once untimed (warm-up: planning, page cache) and then 5 times timed
+   (`results/r1/runtimes.csv`: warm-up, mean, std, and all 5 values, in ms, including result transfer to
+   Python). Materializing queries are timed from a graph without `:Execution` nodes; the wipe is not timed.
+   Without a warm-up the first run dominated (std larger than the mean). All queries take 1–25 ms on this
+   21-event graph.
+
+8. **Re-runnability.** Running `01_build_ekg.py` → `02_materialize.py` → `03_executions.py` again gives
+   byte-identical result files (apart from `runtimes.csv`).

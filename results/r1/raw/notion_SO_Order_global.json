@@ -1,0 +1,643 @@
+{
+  "query_file": "r1_neo4j/queries/executions/notion_SO_Order_global.cypher",
+  "source": "OCPM 3.1 \u00a74.1",
+  "columns": [
+    "e",
+    "df",
+    "e2"
+  ],
+  "rows": [
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e20"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e20",
+        "to": "e27",
+        "EntityType": "Item",
+        "ID": "Y1"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e27"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e27"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e27",
+        "to": "e28",
+        "EntityType": "Order",
+        "ID": "O1"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e28"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e19"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e19",
+        "to": "e20",
+        "EntityType": "Supplier Order",
+        "ID": "B"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e20"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e19"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e19",
+        "to": "e20",
+        "EntityType": "Item",
+        "ID": "Y1"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e20"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e4"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e4",
+        "to": "e7",
+        "EntityType": "Supplier Order",
+        "ID": "B"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e7"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e7"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e7",
+        "to": "e19",
+        "EntityType": "Supplier Order",
+        "ID": "B"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e19"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e27"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e27",
+        "to": "e28",
+        "EntityType": "Order",
+        "ID": "O1"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e28"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e10"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e10",
+        "to": "e27",
+        "EntityType": "Item",
+        "ID": "X1"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e27"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e10"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e10",
+        "to": "e11",
+        "EntityType": "Supplier Order",
+        "ID": "A"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e11"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e11"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e11",
+        "to": "e27",
+        "EntityType": "Item",
+        "ID": "X2"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e27"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e3"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e3",
+        "to": "e6",
+        "EntityType": "Supplier Order",
+        "ID": "A"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e6"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e6"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e6",
+        "to": "e10",
+        "EntityType": "Item",
+        "ID": "X1"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e10"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e6"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e6",
+        "to": "e11",
+        "EntityType": "Item",
+        "ID": "X2"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e11"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e6"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e6",
+        "to": "e8",
+        "EntityType": "Supplier Order",
+        "ID": "A"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e8"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e6"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e6",
+        "to": "e8",
+        "EntityType": "Item",
+        "ID": "X3"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e8"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e8"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e8",
+        "to": "e10",
+        "EntityType": "Supplier Order",
+        "ID": "A"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e10"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e20"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e20",
+        "to": "e21",
+        "EntityType": "Supplier Order",
+        "ID": "B"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e21"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e21"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e21",
+        "to": "e33",
+        "EntityType": "Item",
+        "ID": "Y2"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e33"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e33"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e33",
+        "to": "e34",
+        "EntityType": "Order",
+        "ID": "O2"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e34"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e19"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e19",
+        "to": "e20",
+        "EntityType": "Supplier Order",
+        "ID": "B"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e20"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e19"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e19",
+        "to": "e20",
+        "EntityType": "Item",
+        "ID": "Y1"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e20"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e19"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e19",
+        "to": "e21",
+        "EntityType": "Item",
+        "ID": "Y2"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e21"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e4"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e4",
+        "to": "e7",
+        "EntityType": "Supplier Order",
+        "ID": "B"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e7"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e7"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e7",
+        "to": "e33",
+        "EntityType": "Order",
+        "ID": "O2"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e33"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e7"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e7",
+        "to": "e19",
+        "EntityType": "Supplier Order",
+        "ID": "B"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e19"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e33"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e33",
+        "to": "e34",
+        "EntityType": "Order",
+        "ID": "O2"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e34"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e3"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e3",
+        "to": "e6",
+        "EntityType": "Supplier Order",
+        "ID": "A"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e6"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e6"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e6",
+        "to": "e8",
+        "EntityType": "Supplier Order",
+        "ID": "A"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e8"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e6"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e6",
+        "to": "e8",
+        "EntityType": "Item",
+        "ID": "X3"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e8"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e8"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e8",
+        "to": "e33",
+        "EntityType": "Item",
+        "ID": "X3"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e33"
+      }
+    }
+  ],
+  "write_counters": {},
+  "notifications": []
+}

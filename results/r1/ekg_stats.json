@@ -48,9 +48,10 @@
   "prepared_csv_identical_to_authors": true,
   "server_notifications": [
     {
-      "title": "This feature is deprecated and will be removed in future versions.",
-      "description": "CALL subquery without a variable scope clause is now deprecated. Use CALL () { ... }",
-      "severity": "NotificationSeverity.WARNING",
+      "gql_status": "01N00",
+      "classification": "DEPRECATION",
+      "severity": "WARNING",
+      "description": "warn: feature deprecated. CALL subquery without a variable scope clause is deprecated. Use CALL () { ... }",
       "query": "CALL {LOAD CSV WITH HEADERS FROM \"file:///order_process_event_table_orderhandling_prepared.csv\" as line CREATE (e:Event { Log: \"order_process\", EventID: line.EventID, Activity: line.Activity, timestam"
     }
   ]

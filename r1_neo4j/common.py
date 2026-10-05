@@ -66,13 +66,17 @@ class Runner:
             result = session.run(query, **params)
             records = [r.data() for r in result]
             summary = result.consume()
-        for n in getattr(summary, "summary_notifications", []) or []:
-            entry = {
-                "title": n.title,
-                "description": n.description,
-                "severity": str(getattr(n, "severity_level", "")),
-                "query": " ".join(query.split())[:200],
-            }
+        for entry in notifications_of(summary):
+            entry["query"] = " ".join(query.split())[:200]
             self.notifications.append(entry)
-            print(f"  [server notification] {n.title}: {n.description}")
+            print(f"  [server notification] {entry['gql_status']}: {entry['description']}")
         return records
+
+
+def notifications_of(summary):
+    """Warnings/infos returned by the server (GQL status objects that are notifications).
+    Note: the server only reports them when it plans a query, i.e. not for cached plans;
+    run the query with EXPLAIN to get them reliably."""
+    return [{"gql_status": g.gql_status, "classification": str(g.raw_classification),
+             "severity": str(g.raw_severity), "description": g.status_description}
+            for g in summary.gql_status_objects if g.is_notification]

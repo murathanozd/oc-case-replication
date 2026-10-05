@@ -1,0 +1,13 @@
+{
+  "query_file": "r1_neo4j/queries/executions/exec_A_O1.cypher",
+  "source": "OCPM 3.1 \u00a72.3 (materialize)",
+  "columns": [],
+  "rows": [],
+  "write_counters": {
+    "labels_added": 1,
+    "relationships_created": 11,
+    "nodes_created": 1,
+    "properties_set": 1
+  },
+  "notifications": []
+}
