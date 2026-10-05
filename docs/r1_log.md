@@ -58,3 +58,32 @@ Original scripts: `external/eventgraph_tutorial/order_process/` (pinned at `31d1
 - 41 `:CORR` (Order 9, Supplier Order 10, Item 15, Invoice 5, Payment 2)
 - 29 `:DF` (Order 7, Supplier Order 8, Item 10, Invoice 3, Payment 1)
 - 21 distinct timestamps, no ties
+
+## 2026-10-05 – Step 3: object relations and start/end events (`r1_neo4j/02_materialize.py`)
+
+1. **Re-runnability without a full wipe.** A full wipe would remove the EKG built in Step 2, so this
+   script instead deletes only the relationships it creates (`:REL`, `:START`, `:END`,
+   `queries/materialize/00_reset.cypher`) and then runs the published queries. The full chain
+   `01_build_ekg.py` → `02_materialize.py` produces byte-identical result files on repeated runs.
+
+2. **Queries run as published:** OCPM 1 Sect. 2 (related pairs, query only) and Sect. 4.1 (`:REL`),
+   OCPM 2 Sect. 2.2 (`:START`, `:END`). No changes needed.
+
+3. **Results match the tutorial.** Sect. 2 returns 30 rows (15 undirected pairs, each in both directions),
+   as in the tutorial's table. The 15 materialized `:REL` edges are exactly the 15 pairs in the
+   tutorial's table of Sect. 3. No related pair has equal first timestamps, so the strict `t1 < t2`
+   drops no relation on this data.
+
+4. **One start and one end event per object.** 12 `:START` and 12 `:END` relationships; every object has
+   exactly one of each, so the assumption of the paper's Def. 8 holds on the running example
+   (`results/r1/start_end.csv`).
+
+5. **Observations for later steps (not changed):**
+   - The `:DF {ID:n.ID}` patterns in OCPM 2 match on the object ID only, not on `EntityType`. That is
+     fine here (IDs are unique across types) but would mix objects of different types with the same ID
+     in other logs (relevant for R3).
+   - The query in OCPM 2 Sect. 2.5 ("traces of all objects of a specific type") uses `{ID:objId}`
+     without binding `objId`, so it would fail as published. It is not part of Step 3; we will record it
+     if we run it for the optional variants.
+   - `:REL` only connects objects that share an event: there is no `:REL` between A and O1/O2, or between
+     orders and P1 (P1 is reached only via the invoices).

@@ -1,0 +1,13 @@
+{
+  "related_rows_sect2": 30,
+  "related_pairs_undirected": 15,
+  "rel_edges": 15,
+  "rel_equals_tutorial_table": true,
+  "rel_missing_vs_tutorial": [],
+  "rel_extra_vs_tutorial": [],
+  "related_pairs_without_direction": [],
+  "start_relationships": 12,
+  "end_relationships": 12,
+  "objects_not_exactly_one_start_and_end": [],
+  "server_notifications": []
+}

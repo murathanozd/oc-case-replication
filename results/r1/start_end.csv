@@ -1,0 +1,13 @@
+object,type,start_event,end_event,n_start,n_end
+I1,Invoice,e18,e30,1,1
+I2,Invoice,e5,e30,1,1
+X1,Item,e6,e27,1,1
+X2,Item,e6,e27,1,1
+X3,Item,e6,e33,1,1
+Y1,Item,e19,e27,1,1
+Y2,Item,e19,e33,1,1
+O1,Order,e1,e28,1,1
+O2,Order,e2,e34,1,1
+P1,Payment,e29,e30,1,1
+A,Supplier Order,e3,e11,1,1
+B,Supplier Order,e4,e21,1,1
