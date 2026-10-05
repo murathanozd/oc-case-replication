@@ -6,8 +6,8 @@ Original scripts: `external/eventgraph_tutorial/order_process/` (pinned at `31d1
 ## Environment
 
 - Neo4j 5.26.19 Enterprise (Neo4j Desktop, DBMS `oc-case`), APOC 5.26.19
-- Python 3.11.8 (project-local `.venv`), `neo4j` driver 6.4.0, pandas 3.0.6
-- macOS (Darwin 25.6.0)
+- Python 3.11.8 (project-local `.venv`); packages pinned in `requirements.txt` (neo4j 6.4.0, pandas 3.0.6, networkx 3.6.1, matplotlib 3.11.2, pm4py 2.7.23.8)
+- macOS 26.6.2 (Darwin 25.6.0, arm64); full record in `results/r1/environment.json` (`r1_neo4j/00_environment.py`)
 
 ## 2026-10-05 – Step 1/2: building the event knowledge graph (`r1_neo4j/01_build_ekg.py`)
 
