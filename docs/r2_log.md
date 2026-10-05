@@ -120,3 +120,7 @@ implement the definitions; the following points were not (fully) covered by this
    Order→Payment, Order→Invoice, Payment→Invoice, Order→Order (plain Def. 9);
    `all_global_executions__by_object|by_type__selfpairs|noselfpairs.json`,
    `all_global_executions__by_object__distinct_types.json`; `case_notions_summary.json`.
+9. **D[O2 → O2] is more than O2's behaviour.** Sect. 5.3: "While D[O1 → O1] and D[O2 → O2] give the behavior
+   of each order object". D[O1 → O1] = e1 e18 e27 e28 is exactly O1's trace, but D[O2 → O2] =
+   e2 e5 e7 e19 e20 e21 e33 e34 also contains e19, e20, e21 (B, Y1, Y2), reached via Update SO e7
+   (e7 ⋖_B e19, e21 ⋖_Y2 e33). O2's own trace is e2 e5 e7 e33 e34.
