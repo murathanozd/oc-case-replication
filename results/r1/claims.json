@@ -85,9 +85,9 @@
     "paper": "Sect. 5.2, Fig. 9",
     "expected": "1: O2→O1 containing e7",
     "observed": "1: O2→O1 (e2 e5 e7 e19 e20 e27 e28)",
-    "match": "yes",
-    "note": "e7 = Update SO. Events equal D[e2→e7] ∪ D[e7→e28] as described in the paper: True.",
-    "definition vs. query": "Def. 9 allows o_st = o_end, so by definition D[Order→Order] also contains D[O1→O1] and D[O2→O2] (the paper uses these in Sect. 5.3). The \"exactly 1\" holds only because the §4 query has `nEnd <> nStart`. Def. 7 uses ≤ (transitive closure); the query enumerates `[:DF*]` paths. Equivalent by Lemma 1."
+    "match": "yes (query) / no (Def. 9)",
+    "note": "e7 = Update SO. Events equal D[e2→e7] ∪ D[e7→e28] as described in the paper: True. Under Def. 9 D[Order→Order] has 3 cases: O2→O1, O1→O1, O2→O2.",
+    "definition vs. query": "Sect. 5.2: \"We consider all possible start-to-end case notions as possible pairs of distinct object types\" – yet the same section discusses D[Order→Order], and Sect. 5.3 mentions D[O1→O1] and D[O2→O2]: the paper is internally inconsistent. Def. 9 itself allows o_st = o_end; the §4 query excludes it with `nEnd <> nStart`. Def. 7 uses ≤ (transitive closure); the query enumerates `[:DF*]` paths. Equivalent by Lemma 1."
   },
   {
     "#": 10,
@@ -95,9 +95,9 @@
     "paper": "OCPM 3.1 §4, Sect. 5.2, Fig. 7",
     "expected": "13 = SO→Order 4, Order→Payment 2, Payment→Invoice 2, Order→Invoice 4, Order→Order 1",
     "observed": "13 = Order→Invoice 4, Order→Order 1, Order→Payment 2, Payment→Invoice 2, Supplier Order→Order 4",
-    "match": "yes",
-    "note": "Execution IDs: A_O1, A_O2, B_O1, B_O2, O1_I1, O1_I2, O1_P1, O2_I1, O2_I2, O2_O1, O2_P1, P1_I1, P1_I2.",
-    "definition vs. query": "Count relies on `nEnd <> nStart` in the §4 query (see claim 9): with D[o→o] allowed (Def. 9), O1→O1, O2→O2 and P1→P1 would add 3 more."
+    "match": "yes (query) / no (Def. 9)",
+    "note": "Execution IDs: A_O1, A_O2, B_O1, B_O2, O1_I1, O1_I2, O1_P1, O2_I1, O2_I2, O2_O1, O2_P1, P1_I1, P1_I2. Under Def. 9 the total is 16: the self-pairs O1→O1, O2→O2, P1→P1 (objects with a global start and a global end event) are added.",
+    "definition vs. query": "Sect. 5.2: \"We consider all possible start-to-end case notions as possible pairs of distinct object types\" – yet the same section discusses D[Order→Order], and Sect. 5.3 mentions D[O1→O1] and D[O2→O2]: the paper is internally inconsistent. Def. 9 itself allows o_st = o_end; the §4 query excludes it with `nEnd <> nStart`."
   },
   {
     "#": 11,
@@ -127,7 +127,7 @@
     "observed": "O1_*: e1 e18 e27 e28 e30; O2_*: e2 e5 e7 e9 e30 e33 e34",
     "match": "yes",
     "note": "Paper: \"two simple and clear cases starting in Place Order\" – the activity in the data is \"Create Order\" (e1, e2); \"Place Order\" does not occur (only \"Place SO\"). Both cases contain e30 (Clear Invoice, P1). O2→∗ still contains e7 (Update SO), which is correlated to B: the filter removes B's df-edges, not events shared with B.",
-    "definition vs. query": "(a) Def. 10 restricts the other end to objects with a **global** start/end event (O_end / O_start); the OCPM 3.3 query accepts any `:START`/`:END` event. (c) Def. 11 (filtered) is ambiguous on whether global start/end events are determined **before** or **after** removing the excluded objects' df-edges. Open point for R2 (not computed in R1)."
+    "definition vs. query": "(a) Def. 10 restricts the other end to objects with a **global** start/end event (O_end / O_start); the OCPM 3.3 query accepts any `:START`/`:END` event. (c) Def. 11 (filtered) is ambiguous on whether global start/end events are determined **before** or **after** removing the excluded objects' df-edges. For this start case it makes no difference: the end events reachable in the filtered graph (e28 e30 e34) are global ends in both readings (df-sinks with and without the Supplier Order edges: True), so before/after give the same result for Fig. 11. The ambiguity only affects the end cases (Fig. 12, claim 14)."
   },
   {
     "#": 14,

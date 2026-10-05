@@ -158,3 +158,16 @@ on `df_edges.csv` for claim 12(b).
    global start/end events are determined before or after removing the excluded objects' df-edges. The
    tutorial's result for D[∗→Order \ {SupplierOrder}] equals the "after" reading; the "before" reading
    would give only e1 e18 e27 e28 for ∗→O1. Not computed in Neo4j in R1.
+
+### 2026-10-05 – claims table revised
+
+- Claims 9 and 10 now read **"yes (query) / no (Def. 9)"**. Sect. 5.2 says: "We consider all possible
+  start-to-end case notions as possible pairs of distinct object types", but the same section discusses
+  D[Order→Order], and Sect. 5.3 mentions D[O1→O1] and D[O2→O2], so the paper is internally inconsistent.
+  Under Def. 9: Order→Order has 3 cases (O2→O1, O1→O1, O2→O2), and the total is 16 (adding O1→O1, O2→O2,
+  P1→P1). Computed from `df_edges.csv`/`start_end.csv` in `04_check_claims.py`.
+- Claim 13 (Fig. 11): the end events reachable in the filtered graph (e28, e30, e34) are global ends in both
+  readings, so the before/after filtering readings of Def. 11 give the same result. The Def. 11 ambiguity
+  only affects the end cases (Fig. 12).
+- `claims_table.md` now ends with "Open points for R2": (1) global vs. any start/end events in Def. 10,
+  (2) before/after filtering in Def. 11, (3) self-pairs and "distinct types" in Def. 9.

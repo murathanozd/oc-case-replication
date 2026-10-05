@@ -74,6 +74,27 @@ def def10_start_case(o):
     return out
 
 
+def self_pairs():
+    """Objects o with a global start and a global end event, i.e. D[o -> o] among the global executions
+    when o_st = o_end is allowed (Def. 9)."""
+    return sorted(o for o, r in OBJ.items() if r["start_event"] in GLOBAL_START and r["end_event"] in GLOBAL_END
+                  and r["end_event"] in reach(r["start_event"], SUCC))
+
+
+def filtered_reachable_ends(start, excluded_type):
+    """End points of df-paths from `start` that avoid df-edges of `excluded_type` (Def. 11)."""
+    succ = defaultdict(set)
+    for r in DF:
+        if r["entity_type"] != excluded_type:
+            succ[r["e1"]].add(r["e2"])
+    return {e for e in reach(start, succ) if not succ[e]}
+
+
+DEF9_DISTINCT = ("Sect. 5.2: \"We consider all possible start-to-end case notions as possible pairs of distinct "
+                 "object types\" – yet the same section discusses D[Order→Order], and Sect. 5.3 mentions "
+                 "D[O1→O1] and D[O2→O2]: the paper is internally inconsistent. Def. 9 itself allows "
+                 "o_st = o_end; the §4 query excludes it with `nEnd <> nStart`.")
+
 # ---------------------------------------------------------------- shared wording
 PATHS_VS_CLOSURE = ("Def. 7 uses ≤ (transitive closure); the query enumerates `[:DF*]` paths. "
                     "Equivalent by Lemma 1.")
@@ -193,14 +214,16 @@ def main():
     [x] = o_o if len(o_o) == 1 else [None]
     ok = x is not None and (x["start_object"], x["end_object"]) == ("O2", "O1") and "e7" in evs(x)
     split = x is not None and evs(x) == between("e2", "e7") | between("e7", "e28")
+    selfs = self_pairs()
+    order_self = [o for o in selfs if types[o] == "Order"]
     claim(9, "D[Order→Order]: exactly 1 execution, O2→O1, passing through e7 (Update SO)",
           "Sect. 5.2, Fig. 9", "1: O2→O1 containing e7",
           f"{len(o_o)}: " + "; ".join(f"{y['start_object']}→{y['end_object']} ({fmt(evs(y))})" for y in o_o),
-          "yes" if ok else "no",
-          f"e7 = {activity['e7']}. Events equal D[e2→e7] ∪ D[e7→e28] as described in the paper: {split}.",
-          "Def. 9 allows o_st = o_end, so by definition D[Order→Order] also contains D[O1→O1] and "
-          "D[O2→O2] (the paper uses these in Sect. 5.3). The \"exactly 1\" holds only because the §4 query "
-          "has `nEnd <> nStart`. " + PATHS_VS_CLOSURE)
+          "yes (query) / no (Def. 9)" if ok and len(order_self) == 2 else ("yes" if ok else "no"),
+          f"e7 = {activity['e7']}. Events equal D[e2→e7] ∪ D[e7→e28] as described in the paper: {split}. "
+          f"Under Def. 9 D[Order→Order] has {1 + len(order_self)} cases: O2→O1, "
+          + ", ".join(f"{o}→{o}" for o in order_self) + ".",
+          DEF9_DISTINCT + " " + PATHS_VS_CLOSURE)
 
     # 10 ---------------------------------------------------------------------------------------
     counts = defaultdict(int)
@@ -210,12 +233,14 @@ def main():
           "OCPM 3.1 §4, Sect. 5.2, Fig. 7",
           "13 = SO→Order 4, Order→Payment 2, Payment→Invoice 2, Order→Invoice 4, Order→Order 1",
           f"{len(allx)} = " + ", ".join(f"{s}→{e} {n}" for (s, e), n in sorted(counts.items())),
-          "yes" if len(allx) == 13 and counts == {("Supplier Order", "Order"): 4, ("Order", "Payment"): 2,
-                                                   ("Payment", "Invoice"): 2, ("Order", "Invoice"): 4,
-                                                   ("Order", "Order"): 1} else "no",
-          "Execution IDs: " + ", ".join(sorted(allx_id)) + ".",
-          "Count relies on `nEnd <> nStart` in the §4 query (see claim 9): with D[o→o] allowed (Def. 9), "
-          "O1→O1, O2→O2 and P1→P1 would add 3 more.")
+          ("yes (query) / no (Def. 9)" if selfs else "yes")
+          if len(allx) == 13 and counts == {("Supplier Order", "Order"): 4, ("Order", "Payment"): 2,
+                                            ("Payment", "Invoice"): 2, ("Order", "Invoice"): 4,
+                                            ("Order", "Order"): 1} else "no",
+          "Execution IDs: " + ", ".join(sorted(allx_id)) + f". Under Def. 9 the total is "
+          f"{len(allx) + len(selfs)}: the self-pairs " + ", ".join(f"{o}→{o}" for o in selfs)
+          + " (objects with a global start and a global end event) are added.",
+          DEF9_DISTINCT)
 
     # 11 ---------------------------------------------------------------------------------------
     present = set(counts)
@@ -252,6 +277,9 @@ def main():
 
     # 13 ---------------------------------------------------------------------------------------
     starts = {x["start_event"] for x in sc_f.values()}
+    fig11_ends = set().union(*(filtered_reachable_ends(OBJ[o]["start_event"], "Supplier Order")
+                               for o in ["O1", "O2"]))
+    fig11_ok = fig11_ends <= GLOBAL_END
     claim(13, "D[Order→∗ \\ {SupplierOrder}]: two cases starting in Create Order; invoices of both cleared "
               "by the same payment",
           "Sect. 5.3, Def. 11, Fig. 11", "2 cases starting in Create Order, both containing the same "
@@ -263,7 +291,10 @@ def main():
           f"\"{activity['e1']}\" (e1, e2); \"Place Order\" does not occur (only \"Place SO\"). Both cases "
           f"contain e30 ({activity['e30']}, P1). O2→∗ still contains e7 ({activity['e7']}), which is "
           "correlated to B: the filter removes B's df-edges, not events shared with B.",
-          DEF10_GLOBAL + " " + DEF11_ORDER + " Open point for R2 (not computed in R1).")
+          DEF10_GLOBAL + " " + DEF11_ORDER + f" For this start case it makes no difference: the end events "
+          f"reachable in the filtered graph ({fmt(fig11_ends)}) are global ends in both readings "
+          f"(df-sinks with and without the Supplier Order edges: {fig11_ok}), so before/after give the same "
+          "result for Fig. 11. The ambiguity only affects the end cases (Fig. 12, claim 14).")
 
     # 14 ---------------------------------------------------------------------------------------
     inv = {e for x in ec_f.values() for e in evs(x) if activity[e] in ("Create Invoice", "Update Invoice",
@@ -303,6 +334,17 @@ def main():
     for c in claims:
         summary[c["match"]] += 1
     lines += ["", f"Summary: {len(claims)} claims – " + ", ".join(f"{k}: {v}" for k, v in sorted(summary.items()))]
+    lines += ["", "## Open points for R2", "",
+              "1. **Def. 10 – global vs. any start/end events.** Def. 10 restricts start/end cases to objects "
+              "whose start/end event is global (O_start / O_end); the OCPM 3.3 queries accept any `:START` / "
+              "`:END` event. Same event sets for the unfiltered start case (claim 12); to be checked in general.",
+              "2. **Def. 11 – before/after filtering.** Are global start/end events determined before or after "
+              "removing the excluded objects' df-edges? Same result for the filtered start case (Fig. 11, "
+              "claim 13); differs for the filtered end case (Fig. 12, claim 14): the tutorial matches \"after\", "
+              "\"before\" would give only e1 e18 e27 e28 for ∗→O1.",
+              "3. **Def. 9 – self-pairs and \"distinct types\".** Def. 9 allows o_st = o_end; Sect. 5.2 speaks of "
+              "\"pairs of distinct object types\" but discusses D[Order→Order]; the §4 query excludes "
+              "o_st = o_end. Order→Order: 1 (query) vs. 3 (Def. 9); total 13 vs. 16 (claims 9–11)."]
     with open(RESULTS_DIR / "claims_table.md", "w") as f:
         f.write("\n".join(lines) + "\n")
 
