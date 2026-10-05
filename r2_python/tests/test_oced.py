@@ -45,3 +45,13 @@ def test_operations(running):
     proj = project(running, {"e30"})
     assert proj.objects == {"I1", "I2", "P1"} and proj.events == {"e30"}
     assert {frozenset(p) for p in proj.rel} == {frozenset(p) for p in [("I1", "I2"), ("I1", "P1"), ("I2", "P1")]}
+
+
+def test_union_subset(running):
+    from r2_python.oced import is_subset, union
+    a, b = select(running, {"P1"}), select(running, {"I1"})
+    u = union([a, b])
+    assert is_subset(a, u) and is_subset(b, u) and is_subset(u, running)
+    assert u.events == {"e18", "e29", "e30"} and u.objects == {"P1", "I1"}
+    assert not is_subset(running, u)
+    assert union([]).events == set()

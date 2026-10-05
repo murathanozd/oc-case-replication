@@ -1,0 +1,76 @@
+[
+  {
+    "execution_id": "O1_I1",
+    "start_object": "O1",
+    "end_object": "I1",
+    "start_event": "e1",
+    "end_event": "e30",
+    "events": [
+      "e1",
+      "e18",
+      "e30"
+    ],
+    "objects": [
+      "I1",
+      "I2",
+      "O1",
+      "P1"
+    ]
+  },
+  {
+    "execution_id": "O1_I2",
+    "start_object": "O1",
+    "end_object": "I2",
+    "start_event": "e1",
+    "end_event": "e30",
+    "events": [
+      "e1",
+      "e18",
+      "e30"
+    ],
+    "objects": [
+      "I1",
+      "I2",
+      "O1",
+      "P1"
+    ]
+  },
+  {
+    "execution_id": "O2_I1",
+    "start_object": "O2",
+    "end_object": "I1",
+    "start_event": "e2",
+    "end_event": "e30",
+    "events": [
+      "e2",
+      "e5",
+      "e9",
+      "e30"
+    ],
+    "objects": [
+      "I1",
+      "I2",
+      "O2",
+      "P1"
+    ]
+  },
+  {
+    "execution_id": "O2_I2",
+    "start_object": "O2",
+    "end_object": "I2",
+    "start_event": "e2",
+    "end_event": "e30",
+    "events": [
+      "e2",
+      "e5",
+      "e9",
+      "e30"
+    ],
+    "objects": [
+      "I1",
+      "I2",
+      "O2",
+      "P1"
+    ]
+  }
+]

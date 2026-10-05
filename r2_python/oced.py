@@ -163,3 +163,26 @@ def project(d: OCEDSet, evs) -> OCEDSet:
     """Proj_{E'} D = Res_{O[E'], E'} D. (The directly-follows relation of the result is recomputed from
     the result itself, Def. 3; the paper notes that projection may alter it.)"""
     return restrict(d, O_of(d, evs), evs)
+
+
+def is_subset(d1: OCEDSet, d2: OCEDSet) -> bool:
+    """Sect. 4: D' ⊆ D iff D' is an element-wise subset of D (objects, events, corr, rel, and
+    type / attributes agree on the shared elements)."""
+    return (d1.objects <= d2.objects and d1.events <= d2.events and d1.corr <= d2.corr
+            and d1.rel <= d2.rel and all(d2.type.get(k) == v for k, v in d1.type.items())
+            and all(d2.attrs.get(k) == v for k, v in d1.attrs.items()))
+
+
+def union(sets) -> OCEDSet:
+    """Sect. 4: element-wise union D ∪ D' (and ⋃𝒟 for a finite set 𝒟). Assumes the sets come from the
+    same OCED-set, so type and attributes agree on shared elements. The union of nothing is empty."""
+    sets = list(sets)
+    objs, evs, corr, rel, types, attrs = set(), set(), set(), set(), {}, {}
+    for s in sets:
+        objs |= s.objects
+        evs |= s.events
+        corr |= s.corr
+        rel |= s.rel
+        types.update(s.type)
+        attrs.update(s.attrs)
+    return OCEDSet(frozenset(objs), frozenset(evs), types, frozenset(corr), frozenset(rel), attrs)

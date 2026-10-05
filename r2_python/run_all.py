@@ -6,6 +6,8 @@ import json
 from pathlib import Path
 
 from .behaviour import directly_follows, global_end_events, global_start_events
+from .case_notions import (GLOBAL_BY, behaviour, case_notion, global_executions,
+                           global_objects, type_matrix)
 from .executions import case_record, def8_violations, object_start_end
 from .oced import load_csv, natkey
 
@@ -45,6 +47,41 @@ def main() -> None:
 
     # Step 3: Def. 8 case D[A -> O1] (= D[e3 -> e28], Fig. 5)
     write_json("exec_A_O1", [case_record(d, df, "A", "O1")])
+
+    # Step 4: Def. 9 case notions (A3: self_pairs) and the Sect. 5.2 global restriction (A4)
+    sp_name = {True: "selfpairs", False: "noselfpairs"}
+    notions = [("SO_Order", "Supplier Order", "Order"), ("Order_Payment", "Order", "Payment"),
+               ("Order_Invoice", "Order", "Invoice"), ("Payment_Invoice", "Payment", "Invoice"),
+               ("Order_Order", "Order", "Order")]
+    summary = {"notions": {}, "global": {}}
+    for name, t_st, t_end in notions:
+        for sp in (True, False):
+            recs = case_notion(d, df, t_st, t_end, self_pairs=sp)
+            write_json(f"notion_{name}__{sp_name[sp]}", recs)
+            pairs = [(r["start_object"], r["end_object"]) for r in recs]
+            summary["notions"][f"{name}__{sp_name[sp]}"] = {
+                "cases": len(recs), "case_ids": [r["execution_id"] for r in recs],
+                "behaviour_events": sorted_ev(behaviour(d, df, pairs).events)}
+    for by in GLOBAL_BY:
+        st, en = global_objects(d, df, by)
+        summary["global"][f"by_{by}"] = {"start_objects": st, "end_objects": en}
+        for sp in (True, False):
+            recs = global_executions(d, df, by, self_pairs=sp)
+            write_json(f"all_global_executions__by_{by}__{sp_name[sp]}", recs)
+            summary["global"][f"by_{by}"][sp_name[sp]] = {
+                "executions": len(recs), "per_type_pair": type_matrix(d, recs)}
+    recs = global_executions(d, df, "object", self_pairs=False, distinct_types=True)
+    write_json("all_global_executions__by_object__distinct_types", recs)
+    summary["global"]["by_object"]["distinct_types"] = {
+        "executions": len(recs), "per_type_pair": type_matrix(d, recs)}
+    summary["global"]["by_object_equals_by_type"] = all(
+        global_executions(d, df, "object", sp) == global_executions(d, df, "type", sp) for sp in (True, False))
+    # plain Def. 9 (no Sect. 5.2 restriction) for every pair of object types, without self-pairs
+    all_types = sorted({d.type[o] for o in d.objects})
+    summary["def9_all_type_pairs__noselfpairs"] = {
+        f"{a} -> {b}": [r["execution_id"] for r in case_notion(d, df, a, b, self_pairs=False)]
+        for a in all_types for b in all_types}
+    write_json("case_notions_summary", summary)
     print(f"wrote {OUT}")
 
 

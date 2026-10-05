@@ -1,0 +1,389 @@
+{
+  "notions": {
+    "SO_Order__selfpairs": {
+      "cases": 4,
+      "case_ids": [
+        "A_O1",
+        "A_O2",
+        "B_O1",
+        "B_O2"
+      ],
+      "behaviour_events": [
+        "e3",
+        "e4",
+        "e6",
+        "e7",
+        "e8",
+        "e10",
+        "e11",
+        "e19",
+        "e20",
+        "e21",
+        "e27",
+        "e28",
+        "e33",
+        "e34"
+      ]
+    },
+    "SO_Order__noselfpairs": {
+      "cases": 4,
+      "case_ids": [
+        "A_O1",
+        "A_O2",
+        "B_O1",
+        "B_O2"
+      ],
+      "behaviour_events": [
+        "e3",
+        "e4",
+        "e6",
+        "e7",
+        "e8",
+        "e10",
+        "e11",
+        "e19",
+        "e20",
+        "e21",
+        "e27",
+        "e28",
+        "e33",
+        "e34"
+      ]
+    },
+    "Order_Payment__selfpairs": {
+      "cases": 2,
+      "case_ids": [
+        "O1_P1",
+        "O2_P1"
+      ],
+      "behaviour_events": [
+        "e1",
+        "e2",
+        "e5",
+        "e9",
+        "e18",
+        "e30"
+      ]
+    },
+    "Order_Payment__noselfpairs": {
+      "cases": 2,
+      "case_ids": [
+        "O1_P1",
+        "O2_P1"
+      ],
+      "behaviour_events": [
+        "e1",
+        "e2",
+        "e5",
+        "e9",
+        "e18",
+        "e30"
+      ]
+    },
+    "Order_Invoice__selfpairs": {
+      "cases": 4,
+      "case_ids": [
+        "O1_I1",
+        "O1_I2",
+        "O2_I1",
+        "O2_I2"
+      ],
+      "behaviour_events": [
+        "e1",
+        "e2",
+        "e5",
+        "e9",
+        "e18",
+        "e30"
+      ]
+    },
+    "Order_Invoice__noselfpairs": {
+      "cases": 4,
+      "case_ids": [
+        "O1_I1",
+        "O1_I2",
+        "O2_I1",
+        "O2_I2"
+      ],
+      "behaviour_events": [
+        "e1",
+        "e2",
+        "e5",
+        "e9",
+        "e18",
+        "e30"
+      ]
+    },
+    "Payment_Invoice__selfpairs": {
+      "cases": 2,
+      "case_ids": [
+        "P1_I1",
+        "P1_I2"
+      ],
+      "behaviour_events": [
+        "e29",
+        "e30"
+      ]
+    },
+    "Payment_Invoice__noselfpairs": {
+      "cases": 2,
+      "case_ids": [
+        "P1_I1",
+        "P1_I2"
+      ],
+      "behaviour_events": [
+        "e29",
+        "e30"
+      ]
+    },
+    "Order_Order__selfpairs": {
+      "cases": 3,
+      "case_ids": [
+        "O1_O1",
+        "O2_O1",
+        "O2_O2"
+      ],
+      "behaviour_events": [
+        "e1",
+        "e2",
+        "e5",
+        "e7",
+        "e18",
+        "e19",
+        "e20",
+        "e21",
+        "e27",
+        "e28",
+        "e33",
+        "e34"
+      ]
+    },
+    "Order_Order__noselfpairs": {
+      "cases": 1,
+      "case_ids": [
+        "O2_O1"
+      ],
+      "behaviour_events": [
+        "e2",
+        "e5",
+        "e7",
+        "e19",
+        "e20",
+        "e27",
+        "e28"
+      ]
+    }
+  },
+  "global": {
+    "by_object": {
+      "start_objects": [
+        "A",
+        "B",
+        "O1",
+        "O2",
+        "P1"
+      ],
+      "end_objects": [
+        "I1",
+        "I2",
+        "O1",
+        "O2",
+        "P1"
+      ],
+      "selfpairs": {
+        "executions": 16,
+        "per_type_pair": {
+          "Order -> Invoice": 4,
+          "Order -> Order": 3,
+          "Order -> Payment": 2,
+          "Payment -> Invoice": 2,
+          "Payment -> Payment": 1,
+          "Supplier Order -> Order": 4
+        }
+      },
+      "noselfpairs": {
+        "executions": 13,
+        "per_type_pair": {
+          "Order -> Invoice": 4,
+          "Order -> Order": 1,
+          "Order -> Payment": 2,
+          "Payment -> Invoice": 2,
+          "Supplier Order -> Order": 4
+        }
+      },
+      "distinct_types": {
+        "executions": 12,
+        "per_type_pair": {
+          "Order -> Invoice": 4,
+          "Order -> Payment": 2,
+          "Payment -> Invoice": 2,
+          "Supplier Order -> Order": 4
+        }
+      }
+    },
+    "by_type": {
+      "start_objects": [
+        "A",
+        "B",
+        "O1",
+        "O2",
+        "P1"
+      ],
+      "end_objects": [
+        "I1",
+        "I2",
+        "O1",
+        "O2",
+        "P1"
+      ],
+      "selfpairs": {
+        "executions": 16,
+        "per_type_pair": {
+          "Order -> Invoice": 4,
+          "Order -> Order": 3,
+          "Order -> Payment": 2,
+          "Payment -> Invoice": 2,
+          "Payment -> Payment": 1,
+          "Supplier Order -> Order": 4
+        }
+      },
+      "noselfpairs": {
+        "executions": 13,
+        "per_type_pair": {
+          "Order -> Invoice": 4,
+          "Order -> Order": 1,
+          "Order -> Payment": 2,
+          "Payment -> Invoice": 2,
+          "Supplier Order -> Order": 4
+        }
+      }
+    },
+    "by_object_equals_by_type": true
+  },
+  "def9_all_type_pairs__noselfpairs": {
+    "Invoice -> Invoice": [
+      "I1_I2",
+      "I2_I1"
+    ],
+    "Invoice -> Item": [
+      "I1_X1",
+      "I1_X2",
+      "I1_Y1",
+      "I2_X1",
+      "I2_X2",
+      "I2_X3",
+      "I2_Y1",
+      "I2_Y2"
+    ],
+    "Invoice -> Order": [
+      "I1_O1",
+      "I2_O1",
+      "I2_O2"
+    ],
+    "Invoice -> Payment": [
+      "I1_P1",
+      "I2_P1"
+    ],
+    "Invoice -> Supplier Order": [
+      "I2_B"
+    ],
+    "Item -> Invoice": [],
+    "Item -> Item": [
+      "X1_X2",
+      "X1_X3",
+      "X1_Y1",
+      "X1_Y2",
+      "X2_X1",
+      "X2_X3",
+      "X2_Y1",
+      "X2_Y2",
+      "X3_X1",
+      "X3_X2",
+      "X3_Y1",
+      "X3_Y2",
+      "Y1_X1",
+      "Y1_X2",
+      "Y1_X3",
+      "Y1_Y2",
+      "Y2_X1",
+      "Y2_X2",
+      "Y2_X3",
+      "Y2_Y1"
+    ],
+    "Item -> Order": [
+      "X1_O1",
+      "X1_O2",
+      "X2_O1",
+      "X2_O2",
+      "X3_O1",
+      "X3_O2",
+      "Y1_O1",
+      "Y1_O2",
+      "Y2_O1",
+      "Y2_O2"
+    ],
+    "Item -> Payment": [],
+    "Item -> Supplier Order": [
+      "X1_A",
+      "X2_A",
+      "X3_A",
+      "Y1_B",
+      "Y2_B"
+    ],
+    "Order -> Invoice": [
+      "O1_I1",
+      "O1_I2",
+      "O2_I1",
+      "O2_I2"
+    ],
+    "Order -> Item": [
+      "O1_X1",
+      "O1_X2",
+      "O1_Y1",
+      "O2_X1",
+      "O2_X2",
+      "O2_X3",
+      "O2_Y1",
+      "O2_Y2"
+    ],
+    "Order -> Order": [
+      "O2_O1"
+    ],
+    "Order -> Payment": [
+      "O1_P1",
+      "O2_P1"
+    ],
+    "Order -> Supplier Order": [
+      "O2_B"
+    ],
+    "Payment -> Invoice": [
+      "P1_I1",
+      "P1_I2"
+    ],
+    "Payment -> Item": [],
+    "Payment -> Order": [],
+    "Payment -> Payment": [],
+    "Payment -> Supplier Order": [],
+    "Supplier Order -> Invoice": [],
+    "Supplier Order -> Item": [
+      "A_X1",
+      "A_X2",
+      "A_X3",
+      "A_Y1",
+      "A_Y2",
+      "B_X1",
+      "B_X2",
+      "B_X3",
+      "B_Y1",
+      "B_Y2"
+    ],
+    "Supplier Order -> Order": [
+      "A_O1",
+      "A_O2",
+      "B_O1",
+      "B_O2"
+    ],
+    "Supplier Order -> Payment": [],
+    "Supplier Order -> Supplier Order": []
+  }
+}
