@@ -12,6 +12,27 @@
         "labels": [
           "Event"
         ],
+        "id": "e19"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e19",
+        "to": "e20",
+        "EntityType": "Item",
+        "ID": "Y1"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e20"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
         "id": "e20"
       },
       "df": {
@@ -54,48 +75,6 @@
         "labels": [
           "Event"
         ],
-        "id": "e19"
-      },
-      "df": {
-        "type": "DF",
-        "from": "e19",
-        "to": "e20",
-        "EntityType": "Supplier Order",
-        "ID": "B"
-      },
-      "e2": {
-        "labels": [
-          "Event"
-        ],
-        "id": "e20"
-      }
-    },
-    {
-      "e": {
-        "labels": [
-          "Event"
-        ],
-        "id": "e19"
-      },
-      "df": {
-        "type": "DF",
-        "from": "e19",
-        "to": "e20",
-        "EntityType": "Item",
-        "ID": "Y1"
-      },
-      "e2": {
-        "labels": [
-          "Event"
-        ],
-        "id": "e20"
-      }
-    },
-    {
-      "e": {
-        "labels": [
-          "Event"
-        ],
         "id": "e2"
       },
       "df": {
@@ -110,27 +89,6 @@
           "Event"
         ],
         "id": "e5"
-      }
-    },
-    {
-      "e": {
-        "labels": [
-          "Event"
-        ],
-        "id": "e7"
-      },
-      "df": {
-        "type": "DF",
-        "from": "e7",
-        "to": "e19",
-        "EntityType": "Supplier Order",
-        "ID": "B"
-      },
-      "e2": {
-        "labels": [
-          "Event"
-        ],
-        "id": "e19"
       }
     },
     {
@@ -153,8 +111,51 @@
         ],
         "id": "e7"
       }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e19"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e19",
+        "to": "e20",
+        "EntityType": "Supplier Order",
+        "ID": "B"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e20"
+      }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e7"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e7",
+        "to": "e19",
+        "EntityType": "Supplier Order",
+        "ID": "B"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e19"
+      }
     }
   ],
+  "note": "rows (and lists inside rows) sorted by us; the queries define no order",
   "write_counters": {},
   "notifications": []
 }

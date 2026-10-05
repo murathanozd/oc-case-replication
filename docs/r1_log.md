@@ -133,7 +133,8 @@ Original scripts: `external/eventgraph_tutorial/order_process/` (pinned at `31d1
    21-event graph.
 
 8. **Re-runnability.** Running `01_build_ekg.py` → `02_materialize.py` → `03_executions.py` again gives
-   byte-identical result files (apart from `runtimes.csv`).
+   byte-identical result files (apart from `runtimes.csv`). *Correction (Step 6/7, see below):* this
+   check originally did not cover `results/r1/raw/`, where row order varied between runs.
 
 ## 2026-10-05 – Step 5: claim check (`r1_neo4j/04_check_claims.py`)
 
@@ -171,3 +172,30 @@ on `df_edges.csv` for claim 12(b).
   only affects the end cases (Fig. 12).
 - `claims_table.md` now ends with "Open points for R2": (1) global vs. any start/end events in Def. 10,
   (2) before/after filtering in Def. 11, (3) self-pairs and "distinct types" in Def. 9.
+
+## 2026-10-05 – Steps 6 and 7: figures and documentation
+
+1. **Event IDs in the paper's figures.** Figs. 4, 6, 10, 11, 12 (and the discussion in Sect. 6) label O2's
+   Pack Shipment / Ship events as **e31 / e32**; Table 1 of the paper and the authors' CSV use **e33 / e34**.
+   This is a labelling inconsistency inside the paper; no claim depends on it. We keep the data's IDs.
+2. **Table 1 dates.** Table 1 shows the dates of e6 and e8 as "00-01" (e.g. "00-01 10:00"); the data and
+   Fig. 4 have 4 May (04.05.2021 10:00 / 10:30).
+3. **Fig. 12 shows Create Invoice.** The paper's Fig. 12 itself draws e18 and e5 (Create Invoice) in the end
+   cases, but no I1 / I2 object nodes. Added to the note of claim 14: the text ("do not contain any
+   invoices or payments") contradicts the paper's own figure.
+4. **`queries/figures.cypher` (ours).** One Neo4j Browser block per figure (Fig. 4–12; Fig. 8 split into
+   left/right). Each block returns the DF paths of the figure (built from the cited tutorial query), the
+   `:CORR` edges to the correlated objects, and `:REL` edges between those objects. Fig. 6 and 7 use the
+   `:Execution` nodes left by `03_executions.py`. Checked with the driver: every block runs, and the events
+   it returns equal the event sets in the Step 4 results; the Fig. 11 / 12 blocks return no Supplier
+   Order DF edges.
+   *Neo4j Browser:* "Connect result nodes" must be switched off, otherwise the Browser draws all
+   relationships between the returned nodes (including the filtered Supplier Order DF edges).
+5. **Non-deterministic row order in raw outputs.** A full rerun changed 10 files in `results/r1/raw/`.
+   Only the order of rows (and of paths inside `collect(p)`) differed, since the published queries
+   define no order. `03_executions.py` now sorts rows and path lists canonically before writing (noted in
+   each raw file). Two consecutive full runs now give byte-identical files for all 38 result files
+   (excluding `runtimes.csv`, `environment.json`). The common-format results were not affected (they
+   were already sorted).
+6. **Documentation.** `r1_neo4j/README.md` describes the rerun from a clean machine (versions, `.env`,
+   import folder, script order, runtime ≈ 5 s for the whole chain) and how to take the figure screenshots.

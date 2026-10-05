@@ -49,6 +49,16 @@ def ser(v):
     return v
 
 
+def canonical(v):
+    """Sort lists of rows / paths so that raw files do not depend on Neo4j's (unspecified) result order."""
+    if isinstance(v, dict):
+        return {k: canonical(x) for k, x in v.items() if k != "path"} | (
+            {"path": v["path"]} if "path" in v else {})
+    if isinstance(v, list) and v and all(isinstance(x, dict) for x in v):
+        return sorted((canonical(x) for x in v), key=lambda x: json.dumps(x, sort_keys=True))
+    return v
+
+
 # ---------------------------------------------------------------- running and timing
 class Step4:
     def __init__(self, driver):
@@ -100,7 +110,8 @@ class Step4:
         })
         RAW_DIR.mkdir(parents=True, exist_ok=True)
         raw = {"query_file": f"r1_neo4j/queries/executions/{name}.cypher", "source": source,
-               "columns": keys, "rows": [dict(zip(keys, map(ser, r))) for r in records],
+               "columns": keys, "rows": canonical([dict(zip(keys, map(ser, r))) for r in records]),
+               "note": "rows (and lists inside rows) sorted by us; the queries define no order",
                "write_counters": counters, "notifications": notes}
         with open(RAW_DIR / f"{name}.json", "w") as f:
             json.dump(raw, f, indent=2)

@@ -14,23 +14,23 @@
         "labels": [
           "Entity"
         ],
-        "id": "P1"
+        "id": "O1"
       },
       "s": {
         "type": "START",
-        "from": "P1",
-        "to": "P1_I1"
+        "from": "O1",
+        "to": "O1_I1"
       },
       "x": {
         "labels": [
           "Execution"
         ],
-        "id": "P1_I1"
+        "id": "O1_I1"
       },
       "e": {
         "type": "END",
         "from": "I1",
-        "to": "P1_I1"
+        "to": "O1_I1"
       },
       "yEnd": {
         "labels": [
@@ -74,23 +74,23 @@
         "labels": [
           "Entity"
         ],
-        "id": "O1"
+        "id": "P1"
       },
       "s": {
         "type": "START",
-        "from": "O1",
-        "to": "O1_I1"
+        "from": "P1",
+        "to": "P1_I1"
       },
       "x": {
         "labels": [
           "Execution"
         ],
-        "id": "O1_I1"
+        "id": "P1_I1"
       },
       "e": {
         "type": "END",
         "from": "I1",
-        "to": "O1_I1"
+        "to": "P1_I1"
       },
       "yEnd": {
         "labels": [
@@ -104,23 +104,23 @@
         "labels": [
           "Entity"
         ],
-        "id": "P1"
+        "id": "O1"
       },
       "s": {
         "type": "START",
-        "from": "P1",
-        "to": "P1_I2"
+        "from": "O1",
+        "to": "O1_I2"
       },
       "x": {
         "labels": [
           "Execution"
         ],
-        "id": "P1_I2"
+        "id": "O1_I2"
       },
       "e": {
         "type": "END",
         "from": "I2",
-        "to": "P1_I2"
+        "to": "O1_I2"
       },
       "yEnd": {
         "labels": [
@@ -164,23 +164,23 @@
         "labels": [
           "Entity"
         ],
-        "id": "O1"
+        "id": "P1"
       },
       "s": {
         "type": "START",
-        "from": "O1",
-        "to": "O1_I2"
+        "from": "P1",
+        "to": "P1_I2"
       },
       "x": {
         "labels": [
           "Execution"
         ],
-        "id": "O1_I2"
+        "id": "P1_I2"
       },
       "e": {
         "type": "END",
         "from": "I2",
-        "to": "O1_I2"
+        "to": "P1_I2"
       },
       "yEnd": {
         "labels": [
@@ -194,59 +194,29 @@
         "labels": [
           "Entity"
         ],
-        "id": "O2"
+        "id": "A"
       },
       "s": {
         "type": "START",
-        "from": "O2",
-        "to": "O2_P1"
+        "from": "A",
+        "to": "A_O1"
       },
       "x": {
         "labels": [
           "Execution"
         ],
-        "id": "O2_P1"
+        "id": "A_O1"
       },
       "e": {
         "type": "END",
-        "from": "P1",
-        "to": "O2_P1"
+        "from": "O1",
+        "to": "A_O1"
       },
       "yEnd": {
-        "labels": [
-          "Entity"
-        ],
-        "id": "P1"
-      }
-    },
-    {
-      "yStart": {
         "labels": [
           "Entity"
         ],
         "id": "O1"
-      },
-      "s": {
-        "type": "START",
-        "from": "O1",
-        "to": "O1_P1"
-      },
-      "x": {
-        "labels": [
-          "Execution"
-        ],
-        "id": "O1_P1"
-      },
-      "e": {
-        "type": "END",
-        "from": "P1",
-        "to": "O1_P1"
-      },
-      "yEnd": {
-        "labels": [
-          "Entity"
-        ],
-        "id": "P1"
       }
     },
     {
@@ -319,24 +289,24 @@
       "s": {
         "type": "START",
         "from": "A",
-        "to": "A_O1"
+        "to": "A_O2"
       },
       "x": {
         "labels": [
           "Execution"
         ],
-        "id": "A_O1"
+        "id": "A_O2"
       },
       "e": {
         "type": "END",
-        "from": "O1",
-        "to": "A_O1"
+        "from": "O2",
+        "to": "A_O2"
       },
       "yEnd": {
         "labels": [
           "Entity"
         ],
-        "id": "O1"
+        "id": "O2"
       }
     },
     {
@@ -374,32 +344,63 @@
         "labels": [
           "Entity"
         ],
-        "id": "A"
+        "id": "O1"
       },
       "s": {
         "type": "START",
-        "from": "A",
-        "to": "A_O2"
+        "from": "O1",
+        "to": "O1_P1"
       },
       "x": {
         "labels": [
           "Execution"
         ],
-        "id": "A_O2"
+        "id": "O1_P1"
       },
       "e": {
         "type": "END",
-        "from": "O2",
-        "to": "A_O2"
+        "from": "P1",
+        "to": "O1_P1"
       },
       "yEnd": {
         "labels": [
           "Entity"
         ],
+        "id": "P1"
+      }
+    },
+    {
+      "yStart": {
+        "labels": [
+          "Entity"
+        ],
         "id": "O2"
+      },
+      "s": {
+        "type": "START",
+        "from": "O2",
+        "to": "O2_P1"
+      },
+      "x": {
+        "labels": [
+          "Execution"
+        ],
+        "id": "O2_P1"
+      },
+      "e": {
+        "type": "END",
+        "from": "P1",
+        "to": "O2_P1"
+      },
+      "yEnd": {
+        "labels": [
+          "Entity"
+        ],
+        "id": "P1"
       }
     }
   ],
+  "note": "rows (and lists inside rows) sorted by us; the queries define no order",
   "write_counters": {},
   "notifications": []
 }

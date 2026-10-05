@@ -8,12 +8,160 @@
     {
       "execution": [
         {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "X1"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "X1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e6",
+            "e10",
+            "e27",
+            "e28"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "X1"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "X1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e6",
+            "e10",
+            "e27",
+            "e28"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "X1"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "X1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e6",
+            "e10",
+            "e27",
+            "e28"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "X2"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "X2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e6",
+            "e11",
+            "e27",
+            "e28"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "X2"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "X2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e6",
+            "e11",
+            "e27",
+            "e28"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "X2"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "X2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e6",
+            "e11",
+            "e27",
+            "e28"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "Y1"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "Y1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
           "path": [
             "e19",
             "e20",
             "e27",
             "e28"
-          ],
+          ]
+        },
+        {
           "df": [
             {
               "EntityType": "Item",
@@ -27,168 +175,15 @@
               "EntityType": "Order",
               "ID": "O1"
             }
-          ]
-        },
-        {
+          ],
           "path": [
             "e19",
             "e20",
             "e27",
             "e28"
-          ],
-          "df": [
-            {
-              "EntityType": "Item",
-              "ID": "Y1"
-            },
-            {
-              "EntityType": "Item",
-              "ID": "Y1"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O1"
-            }
           ]
         },
         {
-          "path": [
-            "e6",
-            "e10",
-            "e27",
-            "e28"
-          ],
-          "df": [
-            {
-              "EntityType": "Item",
-              "ID": "X1"
-            },
-            {
-              "EntityType": "Item",
-              "ID": "X1"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O1"
-            }
-          ]
-        },
-        {
-          "path": [
-            "e6",
-            "e10",
-            "e27",
-            "e28"
-          ],
-          "df": [
-            {
-              "EntityType": "Item",
-              "ID": "X1"
-            },
-            {
-              "EntityType": "Item",
-              "ID": "X1"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O1"
-            }
-          ]
-        },
-        {
-          "path": [
-            "e6",
-            "e10",
-            "e27",
-            "e28"
-          ],
-          "df": [
-            {
-              "EntityType": "Item",
-              "ID": "X1"
-            },
-            {
-              "EntityType": "Item",
-              "ID": "X1"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O1"
-            }
-          ]
-        },
-        {
-          "path": [
-            "e6",
-            "e11",
-            "e27",
-            "e28"
-          ],
-          "df": [
-            {
-              "EntityType": "Item",
-              "ID": "X2"
-            },
-            {
-              "EntityType": "Item",
-              "ID": "X2"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O1"
-            }
-          ]
-        },
-        {
-          "path": [
-            "e6",
-            "e11",
-            "e27",
-            "e28"
-          ],
-          "df": [
-            {
-              "EntityType": "Item",
-              "ID": "X2"
-            },
-            {
-              "EntityType": "Item",
-              "ID": "X2"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O1"
-            }
-          ]
-        },
-        {
-          "path": [
-            "e6",
-            "e11",
-            "e27",
-            "e28"
-          ],
-          "df": [
-            {
-              "EntityType": "Item",
-              "ID": "X2"
-            },
-            {
-              "EntityType": "Item",
-              "ID": "X2"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O1"
-            }
-          ]
-        },
-        {
-          "path": [
-            "e18",
-            "e27",
-            "e28"
-          ],
           "df": [
             {
               "EntityType": "Order",
@@ -197,16 +192,20 @@
             {
               "EntityType": "Order",
               "ID": "O1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
             }
-          ]
-        },
-        {
+          ],
           "path": [
             "e1",
             "e18",
             "e27",
             "e28"
-          ],
+          ]
+        },
+        {
           "df": [
             {
               "EntityType": "Order",
@@ -215,11 +214,12 @@
             {
               "EntityType": "Order",
               "ID": "O1"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O1"
             }
+          ],
+          "path": [
+            "e18",
+            "e27",
+            "e28"
           ]
         }
       ]
@@ -227,12 +227,94 @@
     {
       "execution": [
         {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "X3"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "X3"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            }
+          ],
+          "path": [
+            "e6",
+            "e8",
+            "e33",
+            "e34"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "X3"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "X3"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            }
+          ],
+          "path": [
+            "e6",
+            "e8",
+            "e33",
+            "e34"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "X3"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "X3"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            }
+          ],
+          "path": [
+            "e6",
+            "e8",
+            "e33",
+            "e34"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Item",
+              "ID": "Y2"
+            },
+            {
+              "EntityType": "Item",
+              "ID": "Y2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            }
+          ],
           "path": [
             "e19",
             "e21",
             "e33",
             "e34"
-          ],
+          ]
+        },
+        {
           "df": [
             {
               "EntityType": "Item",
@@ -246,37 +328,15 @@
               "EntityType": "Order",
               "ID": "O2"
             }
-          ]
-        },
-        {
+          ],
           "path": [
             "e19",
             "e21",
             "e33",
             "e34"
-          ],
-          "df": [
-            {
-              "EntityType": "Item",
-              "ID": "Y2"
-            },
-            {
-              "EntityType": "Item",
-              "ID": "Y2"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O2"
-            }
           ]
         },
         {
-          "path": [
-            "e5",
-            "e7",
-            "e33",
-            "e34"
-          ],
           "df": [
             {
               "EntityType": "Order",
@@ -289,105 +349,46 @@
             {
               "EntityType": "Order",
               "ID": "O2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
             }
-          ]
-        },
-        {
+          ],
           "path": [
             "e2",
             "e5",
             "e7",
             "e33",
             "e34"
-          ],
-          "df": [
-            {
-              "EntityType": "Order",
-              "ID": "O2"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O2"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O2"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O2"
-            }
           ]
         },
         {
-          "path": [
-            "e6",
-            "e8",
-            "e33",
-            "e34"
-          ],
           "df": [
             {
-              "EntityType": "Item",
-              "ID": "X3"
+              "EntityType": "Order",
+              "ID": "O2"
             },
             {
-              "EntityType": "Item",
-              "ID": "X3"
+              "EntityType": "Order",
+              "ID": "O2"
             },
             {
               "EntityType": "Order",
               "ID": "O2"
             }
-          ]
-        },
-        {
+          ],
           "path": [
-            "e6",
-            "e8",
+            "e5",
+            "e7",
             "e33",
             "e34"
-          ],
-          "df": [
-            {
-              "EntityType": "Item",
-              "ID": "X3"
-            },
-            {
-              "EntityType": "Item",
-              "ID": "X3"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O2"
-            }
-          ]
-        },
-        {
-          "path": [
-            "e6",
-            "e8",
-            "e33",
-            "e34"
-          ],
-          "df": [
-            {
-              "EntityType": "Item",
-              "ID": "X3"
-            },
-            {
-              "EntityType": "Item",
-              "ID": "X3"
-            },
-            {
-              "EntityType": "Order",
-              "ID": "O2"
-            }
           ]
         }
       ]
     }
   ],
+  "note": "rows (and lists inside rows) sorted by us; the queries define no order",
   "write_counters": {},
   "notifications": []
 }

@@ -310,6 +310,8 @@ def main():
           "Paper: \"Notably, the executions do not contain any invoices or payments as these are not involved "
           "in completing an order.\" Observed: no Payment events, but e18 and e5 (Create Invoice, correlated "
           "to the Order and to I1 / I2) are in the cases, so invoices I1, I2 are in the object layer. The "
+          "paper's own Fig. 12 draws e18 and e5 as well (but no I1 / I2 object nodes), so the sentence "
+          "contradicts the figure. The "
           f"cases share only {fmt(shared)} ({', '.join(sorted({activity[e] for e in shared}))}), which "
           "supports \"independent of each other … dependent on the same Receive SO events\".",
           DEF10_GLOBAL + " " + DEF11_ORDER + " The tutorial query starts paths at object start events "

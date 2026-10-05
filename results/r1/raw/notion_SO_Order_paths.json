@@ -5,6 +5,7 @@
     "p"
   ],
   "rows": [],
+  "note": "rows (and lists inside rows) sorted by us; the queries define no order",
   "write_counters": {},
   "notifications": []
 }

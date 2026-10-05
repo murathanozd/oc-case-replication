@@ -12,41 +12,20 @@
         "labels": [
           "Event"
         ],
-        "id": "e9"
+        "id": "e18"
       },
       "df": {
         "type": "DF",
-        "from": "e9",
+        "from": "e18",
         "to": "e30",
         "EntityType": "Invoice",
-        "ID": "I2"
+        "ID": "I1"
       },
       "e2": {
         "labels": [
           "Event"
         ],
         "id": "e30"
-      }
-    },
-    {
-      "e": {
-        "labels": [
-          "Event"
-        ],
-        "id": "e2"
-      },
-      "df": {
-        "type": "DF",
-        "from": "e2",
-        "to": "e5",
-        "EntityType": "Order",
-        "ID": "O2"
-      },
-      "e2": {
-        "labels": [
-          "Event"
-        ],
-        "id": "e5"
       }
     },
     {
@@ -75,14 +54,14 @@
         "labels": [
           "Event"
         ],
-        "id": "e18"
+        "id": "e9"
       },
       "df": {
         "type": "DF",
-        "from": "e18",
+        "from": "e9",
         "to": "e30",
         "EntityType": "Invoice",
-        "ID": "I1"
+        "ID": "I2"
       },
       "e2": {
         "labels": [
@@ -111,8 +90,30 @@
         ],
         "id": "e18"
       }
+    },
+    {
+      "e": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e2"
+      },
+      "df": {
+        "type": "DF",
+        "from": "e2",
+        "to": "e5",
+        "EntityType": "Order",
+        "ID": "O2"
+      },
+      "e2": {
+        "labels": [
+          "Event"
+        ],
+        "id": "e5"
+      }
     }
   ],
+  "note": "rows (and lists inside rows) sorted by us; the queries define no order",
   "write_counters": {},
   "notifications": []
 }
