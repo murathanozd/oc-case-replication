@@ -17,6 +17,68 @@ local copy `docs/paper/paper.pdf` (not committed).
   with R1 only in Step 6 by script. The ambiguities A1–A5 were listed in the R2 plan beforehand.
 - Read besides the paper: `README.md`, `docs/replication_plan.md`, `docs/r2_plan.md` (context, as instructed).
 
+## Summary after Step 5 (status 2026-10-06)
+
+Steps 1–5 of `docs/r2_plan.md` are implemented in `r2_python/` (`oced.py`, `behaviour.py`, `executions.py`,
+`case_notions.py`, `generalized.py`, `run_all.py`); 38 pytest tests pass; `python -m r2_python.run_all`
+regenerates `results/r2/` byte-identically (also with a different `PYTHONHASHSEED`). R1 results have
+not been compared yet (Step 6). Details and reasoning: dated entries below.
+
+### Interpretation choices (not in the plan's A1–A5)
+
+| id | where | choice | alternative | effect on the running example |
+|---|---|---|---|---|
+| I1 | Def. 2 / Sect. 3 | relate only *distinct* objects sharing an event; add both (o, o′) and (o′, o) | literal rule also adds self-loops (o, o) | none (`rel` is not used by Def. 3–11); 23 unordered related pairs |
+| I2 | Def. 9, Def. 10 | a pair (o_st, o_end) is a case only if its execution is non-empty (start(o_st) ≤ end(o_end)) | Def. 9 literally also contains empty D[o_st → o_end] | case counts as in the paper; empty cases add nothing to the behaviour ⋃𝒟 |
+
+### Ambiguities A1–A5
+
+| id | where | default | alternative(s) | result on the running example |
+|---|---|---|---|---|
+| A1 | Def. 3, equal timestamps | `ties="strict"` (paper): tied events unordered; each event followed by *all* events of the object at the next larger timestamp (fan-out/fan-in) | `break_by_id`: total order by (time, natural event id) | no ties: both give the same 29 df-triples |
+| A2 | Def. 6, start/end events | `intended`: e must be correlated to some o ∈ O′ | `literal`: any event without an O′-predecessor | literal start({O1}) = 18 of 21 events (incl. e3, e29), absurd; intended: start({O1}) = {e1} |
+| A3 | Def. 9 vs. Sect. 5.2 | `self_pairs=True` (Def. 9 literally) | `self_pairs=False`; `distinct_types=True` ("pairs of distinct object types") | global executions: 16 / 13 / 12 (self-pairs add O1→O1, O2→O2, P1→P1; distinct types also drops O2→O1) |
+| A4 | Sect. 5.2 "global" restriction | `by="object"` | `by="type"` (all objects of the type qualify) | same: start objects A, B, O1, O2, P1; end objects I1, I2, O1, O2, P1 (a mini test shows they can differ) |
+| A5 | Def. 10/11, global events for filtered cases | `global_on="full"` (before removing X's edges) | `"filtered"` (on df(D, O \ X)) | start case (Fig. 11): no difference; end case (Fig. 12): full ∗→O1 = e1 e18 e27 e28, filtered ∗→O1 = e1 e6 e10 e11 e18 e19 e20 e27 e28 |
+
+Def. 10 variant `any` (every object's end/start event instead of only global ones): same event sets as
+`global` for the unfiltered start and end cases; for the filtered cases it equals the `filtered` reading.
+
+### Findings so far
+
+- **F1 – Fig. 2 vs. the relation rule.** The Sect. 3 rule yields 23 related pairs including same-type pairs
+  (X1–X2, Y1–Y2, I1–I2, …) that Fig. 2 does not draw. No effect on results.
+- **F2 – Sect. 5.2 absence statements depend on the global restriction.** Under plain Def. 9,
+  D[Order → SupplierOrder] = {D[O2 → B]} = e2 e5 e7 e19 e20 e21 (via Update SO e7), and D[I1 → I2], D[I2 → I1]
+  exist. They vanish only because B's end e21 is not a global end and invoices have no global start.
+  D[SupplierOrder → Invoice / Payment] is empty in both cases.
+- **F3 – D[O2 → O2] is not just O2's behaviour.** Sect. 5.3 says D[O1 → O1] and D[O2 → O2] "give the behavior
+  of each order object"; D[O1 → O1] = O1's trace, but D[O2 → O2] = e2 e5 e7 e19 e20 e21 e33 e34 also contains
+  B / Y1 / Y2 events.
+- **F4 – Def. 9 vs. Sect. 5.2 count.** 13 global executions only without self-pairs; 16 under Def. 9 as
+  written; 12 if "distinct object types" is taken literally (A3).
+- **F5 – Def. 11 ambiguity (A5) matters only for the filtered end case** (Fig. 12), not for the filtered
+  start case (Fig. 11).
+- **F6 – Projection reintroduces excluded behaviour.** Filtered cases keep excluded objects that are
+  correlated to included events (B via e7 in O2 → ∗ \ SO and, under `full`, in ∗ → O2 \ SO; A and B in both
+  `filtered` end cases). After projection, ⋖ recomputed on the result contains df-edges of A and B again;
+  e7 ⋖_B e19 is an edge the filter removed, and e6 ⋖_A e10, e19 ⋖_B e21 are not df-edges of D at all.
+- **F7 – Strict ties (A1) create parallel df-edges**, not only missing ones (mini test).
+- **F8 – Literal Def. 6 (A2) is unusable** (start({O1}) = 18 events).
+
+### Review of Steps 1–3 (done before Step 4)
+
+Def. 1–8 and Lemma 1 are implemented as written. Gaps found and handled: Sect. 4 subset/union were missing
+(added); `is_df_path` accepted unknown events and rebuilt its index per call (fixed); events correlated to no
+object are never start/end events under the intended A2 reading (not changed; none in the running example,
+relevant for R3).
+
+### Open before Step 6
+
+- The detailed projection check announced for later (F6) has not been started.
+- Step 6 (comparison with `results/r1/`) not started; `results/r1/` not opened by R2 code.
+- Step 7 (timing, README, `environment.json`) not started.
+
 ## 2026-10-06 – Steps 1–3
 
 ### Step 1 – data model (`r2_python/oced.py`)
