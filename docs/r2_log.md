@@ -270,3 +270,34 @@ test `r2_python/tests/test_projection_check.py`. X = {A, B} (all Supplier Orders
    defined it; to keep the filter's meaning, one would have to keep the filtered ⋖ with the result instead of
    recomputing it, or drop X's objects from the projection. Not changed in R2 (paper's definition kept).
 5. No behaviour of existing code changed; other result files are byte-identical; 41 tests pass.
+
+## 2026-10-06 – Step 6: comparison with R1
+
+`r2_python/compare_r1.py` → `results/r2/comparison.md` (run after `run_all`). **This is the first time R2
+reads `results/r1/`.** Read: all top-level files of `results/r1/` (JSON, CSV, `claims_table.md`) and the three
+`raw/*_view.json` files. Still not opened: `r1_neo4j/` code and queries, `docs/r1_log.md`, `external/`.
+
+1. **Mapping.** Each R1 execution file is matched to the R2 variant with the R1 query's semantics
+   (no self-pairs, global restriction per object, Def. 10 "any", Def. 11 filtered paths) and to the
+   paper's alternatives. Executions are matched by `execution_id` (start/end object). R1's
+   `n_paths` / `n_distinct_paths` are not compared (R2 enumerates no paths).
+2. **Result: 37 comparisons, 0 unexplained differences.** For every R1 file, the R2 variant with the R1
+   query's semantics is equal in executions, events, objects and start/end events.
+   - `exec_A_O1`, all five case notions, `all_global_executions` (13), start/end cases, filtered start/end cases.
+   - DF edges (29), start/end event per object (12), EKG counts, and the DF edges / case nodes returned by
+     the three view queries.
+3. **Differences, all explained:**
+   - `notion_SO_Order_paths` (0 executions): typo `"Order "` in the published query, not an ambiguity.
+   - A3: self-pairs add O1_O1, O2_O2, P1_P1 (13 → 16); "distinct types" drops O2_O1 (13 → 12).
+   - Def. 10 global vs. any: only the recorded other-side start/end events differ, never the event or
+     object sets.
+   - A5: `end_case_Order_noSO__global_full` ("before") is smaller (∗→O1 = e1 e18 e27 e28,
+     ∗→O2 = e2 e5 e7 e33 e34); R1 equals the "after" reading.
+   - `rel`: R1 has 15 pairs, R2 23. R1 ⊆ R2; the 8 extra pairs are all same-type (I1–I2, X1–X2, …),
+     which the tutorial's :REL query does not create (F1). `rel` is not used by Def. 3–11.
+   - A1 and A4 cause no difference here: there are no timestamp ties, and by-object = by-type.
+4. **R1 open points answered with R2 numbers** (section in `comparison.md`):
+   - (1) Def. 10 global = any in event sets for all 8 start/end cases on this log (a property of the data).
+   - (2) A5 matters only for Fig. 12. "After" is the reading of the tutorial and of the paper's text
+     (Receive SO e6/e19 are only in the "after" cases).
+   - (3) 13 / 16 / 12 executions; Order→Order 1 / 3 / 0.
