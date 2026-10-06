@@ -298,6 +298,44 @@ reads `results/r1/`.** Read: all top-level files of `results/r1/` (JSON, CSV, `c
    - A1 and A4 cause no difference here: there are no timestamp ties, and by-object = by-type.
 4. **R1 open points answered with R2 numbers** (section in `comparison.md`):
    - (1) Def. 10 global = any in event sets for all 8 start/end cases on this log (a property of the data).
+     *Corrected below ("Def. 10 global vs. any: proof"): for unfiltered cases this holds for every OCED-set.*
    - (2) A5 matters only for Fig. 12. "After" is the reading of the tutorial and of the paper's text
      (Receive SO e6/e19 are only in the "after" cases).
    - (3) 13 / 16 / 12 executions; Order→Order 1 / 3 / 0.
+
+## 2026-10-06 – Def. 10 global vs. any: proof (correction to Step 6)
+
+The Step 6 answer to R1 open point 1 said the unfiltered equality of "global" and "any" is "a property of this
+data". That is too weak. **For unfiltered cases it holds for every OCED-set** satisfying Def. 8's assumption:
+
+- Start case D[o → ∗]. "global" ⊆ "any" because O_end ⊆ O. Conversely, let i = start(o) ≤ e = end(t) for any
+  object t. The DF graph is acyclic, since timestamps strictly increase along df-edges (also under strict ties).
+  So e reaches a DF-sink g.
+  - g is correlated to some object t': if g ≠ e it has an incoming df-edge; otherwise take t' = t.
+  - g has no df-successor at all, so g = end(t') and g ∈ end(O), hence t' ∈ O_end.
+  - e ≤ g gives E_i^e ⊆ E_i^g, and projection is monotone (O[E'] grows with E'). So D[i → e] ⊆ D[i → g].
+  - Every part of "any" therefore lies in a part of "global", and the unions are equal (events and objects).
+- End case: symmetric. Every event is reached from a DF-source, which is the start of all its objects and a
+  global start.
+- Property test: `r2_python/tests/test_def10_global_any.py` checks start and end cases of every object.
+  It uses 300 random OCED-sets with 3–8 events, 2–4 objects, 1–2 objects per event, and distinct timestamps.
+
+**Filtered cases (Def. 11): data-dependent, and the dependence is through A5.**
+
+- `global_on=full`: fails in general. A sink of df(D, O \ X) may still have df-successors via X, so it is not
+  a global end of D.
+  - Running example: the Fig. 12 end case. ∗→O1 is e1 e18 e27 e28 under `full` and 9 events under `any`.
+  - Minimal start-case counterexample (test `test_counterexample_full`): o: e1 → e2, x: e2 → e3, X = {x}.
+    The only global end of D is e3 = end(x), which is unreachable once x's edge is removed. So D[o → ∗ \ X] = ∅
+    under `global/full` and {e1, e2} under `any` and `global/filtered`.
+  - In the random test, `full` differs from `any` in 155 of 852 filtered checks.
+- `global_on=filtered`: the same argument works on df(D, O \ X) whenever the case's own object o ∉ X.
+  - The filtered sink or source is correlated to a non-excluded object. Its df-edges are all kept, so the
+    sink or source is that object's end or start in D, and it is global in df(D, O \ X).
+  - Property-tested in 852 non-empty filtered cases, with random X, for both start and end cases.
+  - It fails only in the degenerate case o ∈ X (test `test_counterexample_filtered_excluded_own_object`).
+    Example: o: e1, x: e2, X = {x}. D[x → ∗ \ X] = {e2} under `any` and ∅ under `global/filtered`.
+- So for filtered cases, "global" and "any" coincide when global start and end events are taken after
+  filtering, and own objects are not excluded. Otherwise they depend on the data.
+
+`comparison.md` (open point 1) was regenerated with this argument and the counterexamples.

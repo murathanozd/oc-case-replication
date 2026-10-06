@@ -232,17 +232,33 @@ def open_points() -> list[str]:
     bo = g["boundary_objects"]
     return [
         "## Answers to the R1 open points", "",
-        "**1. Def. 10 – global vs. any start/end events.** Same event (and object) sets in every case on the "
-        "running example; only the recorded other-side events differ.",
+        "**1. Def. 10 – global vs. any start/end events.** On the running example, \"global\" and \"any\" give "
+        "the same event and object sets in every case except the filtered end case under `global_on=full`; "
+        "otherwise only the recorded other-side events differ.",
         f"- Unfiltered start cases: global == any: {cmp_['start_case_Order: global == any']}. "
         f"({fmt(c['start_case_Order__global'])}.)",
         f"- Unfiltered end cases: global == any: {cmp_['end_case_Order: global == any']}. "
         f"({fmt(c['end_case_Order__global'])}.)",
         f"- Filtered start cases: global (full) == any: {cmp_['start_case_Order_noSO: global_full == any']}; "
-        f"filtered end cases: global (filtered) == any: {cmp_['end_case_Order_noSO: global_filtered == any']}.",
-        "- Reason: on this log every non-global end (start) event of an object lies on a df-path to (from) a "
-        "global one, so the extra executions of \"any\" are contained in the global ones. This is a property of "
-        "the data, not of Def. 10; R3 will show whether it holds on real logs.", "",
+        f"filtered end cases: global (filtered) == any: {cmp_['end_case_Order_noSO: global_filtered == any']}, "
+        f"global (full) == any: False (A5, see point 2).",
+        "- **Unfiltered, this holds for every OCED-set** (with Def. 8's single start/end events), not only here. "
+        "Start case D[o → ∗]: \"global\" ⊆ \"any\" since O_end ⊆ O. Conversely, let i = start(o) ≤ e = end(t) "
+        "for any object t. The DF graph is acyclic (timestamps strictly increase along df-edges), so e reaches a "
+        "DF-sink g. g has no df-successor for any of its objects, so g = end(t') for every object t' of g (g is "
+        "correlated to one: if g ≠ e it has an incoming df-edge, else take t' = t), and g is a global end, so "
+        "t' ∈ O_end. From e ≤ g follows E_i^e ⊆ E_i^g, and projection is monotone, so D[i → e] ⊆ D[i → g]: every "
+        "part of \"any\" lies inside a part of \"global\". The end case is symmetric: every event is reached from "
+        "a DF-source, which is the start event of all its objects and a global start. Property test: "
+        "`test_def10_global_any.py`, 300 random OCED-sets without ties.",
+        "- **Filtered (Def. 11), it depends on the data and on A5.** With `global_on=full` the sink g' of the "
+        "filtered graph need not be a global end of D (it may still have df-successors via X). On the running "
+        "example this already happens: the Fig. 12 end case is smaller under `full` than under `any`. A minimal "
+        "counterexample for a start case: o: e1 → e2, x: e2 → e3, X = {x}; the only global end of D is e3 = end(x), "
+        "unreachable without x's edge, so D[o → ∗ \\ X] is ∅ under `global/full` but {e1, e2} under `any`. With "
+        "`global_on=filtered` the argument goes through on df(D, O \\ X) as long as the case's own object is not "
+        "in X (also property-tested). It fails only in the degenerate case o ∈ X (o: e1, x: e2, X = {x}: "
+        "D[x → ∗ \\ X] is {e2} under `any`, ∅ under `global/filtered`).", "",
         "**2. Def. 11 – global start/end events before vs. after filtering (A5).**",
         f"- Start case D[Order → ∗ \\ SO] (Fig. 11): no difference "
         f"(full == filtered: {cmp_['start_case_Order_noSO: global_full == global_filtered']}); "
