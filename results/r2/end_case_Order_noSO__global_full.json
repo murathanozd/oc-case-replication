@@ -1,0 +1,61 @@
+[
+  {
+    "execution_id": "*_O1",
+    "start_object": "*",
+    "end_object": "O1",
+    "start_event": [
+      "e1"
+    ],
+    "end_event": "e28",
+    "events": [
+      "e1",
+      "e18",
+      "e27",
+      "e28"
+    ],
+    "objects": [
+      "I1",
+      "O1",
+      "X1",
+      "X2",
+      "Y1"
+    ],
+    "start_objects": [
+      "O1"
+    ],
+    "excluded_objects_in_projection": [],
+    "projection_df_edges_of_excluded_objects": [],
+    "projection_df_edges_not_in_D": []
+  },
+  {
+    "execution_id": "*_O2",
+    "start_object": "*",
+    "end_object": "O2",
+    "start_event": [
+      "e2"
+    ],
+    "end_event": "e34",
+    "events": [
+      "e2",
+      "e5",
+      "e7",
+      "e33",
+      "e34"
+    ],
+    "objects": [
+      "B",
+      "I2",
+      "O2",
+      "X3",
+      "Y2"
+    ],
+    "start_objects": [
+      "O2"
+    ],
+    "excluded_objects_in_projection": [
+      "B"
+    ],
+    "projection_df_edges_of_excluded_objects": [],
+    "projection_df_edges_not_in_D": []
+  }
+]

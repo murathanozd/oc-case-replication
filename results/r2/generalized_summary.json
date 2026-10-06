@@ -1,0 +1,278 @@
+{
+  "X": [
+    "A",
+    "B"
+  ],
+  "boundary_objects": {
+    "O_end__global_full": [
+      "I1",
+      "I2",
+      "O1",
+      "O2",
+      "P1"
+    ],
+    "O_end__global_filtered": [
+      "I1",
+      "I2",
+      "O1",
+      "O2",
+      "P1"
+    ],
+    "O_start__global_full": [
+      "A",
+      "B",
+      "O1",
+      "O2",
+      "P1"
+    ],
+    "O_start__global_filtered": [
+      "O1",
+      "O2",
+      "P1",
+      "X1",
+      "X2",
+      "X3",
+      "Y1",
+      "Y2"
+    ]
+  },
+  "cases": {
+    "start_case_Order__global": {
+      "O1_*": [
+        "e1",
+        "e18",
+        "e27",
+        "e28",
+        "e30"
+      ],
+      "O2_*": [
+        "e2",
+        "e5",
+        "e7",
+        "e9",
+        "e19",
+        "e20",
+        "e21",
+        "e27",
+        "e28",
+        "e30",
+        "e33",
+        "e34"
+      ]
+    },
+    "start_case_Order__any": {
+      "O1_*": [
+        "e1",
+        "e18",
+        "e27",
+        "e28",
+        "e30"
+      ],
+      "O2_*": [
+        "e2",
+        "e5",
+        "e7",
+        "e9",
+        "e19",
+        "e20",
+        "e21",
+        "e27",
+        "e28",
+        "e30",
+        "e33",
+        "e34"
+      ]
+    },
+    "start_case_Order_noSO__global_full": {
+      "O1_*": [
+        "e1",
+        "e18",
+        "e27",
+        "e28",
+        "e30"
+      ],
+      "O2_*": [
+        "e2",
+        "e5",
+        "e7",
+        "e9",
+        "e30",
+        "e33",
+        "e34"
+      ]
+    },
+    "start_case_Order_noSO__global_filtered": {
+      "O1_*": [
+        "e1",
+        "e18",
+        "e27",
+        "e28",
+        "e30"
+      ],
+      "O2_*": [
+        "e2",
+        "e5",
+        "e7",
+        "e9",
+        "e30",
+        "e33",
+        "e34"
+      ]
+    },
+    "start_case_Order_noSO__any": {
+      "O1_*": [
+        "e1",
+        "e18",
+        "e27",
+        "e28",
+        "e30"
+      ],
+      "O2_*": [
+        "e2",
+        "e5",
+        "e7",
+        "e9",
+        "e30",
+        "e33",
+        "e34"
+      ]
+    },
+    "end_case_Order__global": {
+      "*_O1": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e10",
+        "e11",
+        "e18",
+        "e19",
+        "e20",
+        "e27",
+        "e28"
+      ],
+      "*_O2": [
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e19",
+        "e20",
+        "e21",
+        "e33",
+        "e34"
+      ]
+    },
+    "end_case_Order__any": {
+      "*_O1": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e10",
+        "e11",
+        "e18",
+        "e19",
+        "e20",
+        "e27",
+        "e28"
+      ],
+      "*_O2": [
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e19",
+        "e20",
+        "e21",
+        "e33",
+        "e34"
+      ]
+    },
+    "end_case_Order_noSO__global_full": {
+      "*_O1": [
+        "e1",
+        "e18",
+        "e27",
+        "e28"
+      ],
+      "*_O2": [
+        "e2",
+        "e5",
+        "e7",
+        "e33",
+        "e34"
+      ]
+    },
+    "end_case_Order_noSO__global_filtered": {
+      "*_O1": [
+        "e1",
+        "e6",
+        "e10",
+        "e11",
+        "e18",
+        "e19",
+        "e20",
+        "e27",
+        "e28"
+      ],
+      "*_O2": [
+        "e2",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e19",
+        "e21",
+        "e33",
+        "e34"
+      ]
+    },
+    "end_case_Order_noSO__any": {
+      "*_O1": [
+        "e1",
+        "e6",
+        "e10",
+        "e11",
+        "e18",
+        "e19",
+        "e20",
+        "e27",
+        "e28"
+      ],
+      "*_O2": [
+        "e2",
+        "e5",
+        "e6",
+        "e7",
+        "e8",
+        "e19",
+        "e21",
+        "e33",
+        "e34"
+      ]
+    }
+  },
+  "comparisons": {
+    "start_case_Order: global == any": true,
+    "end_case_Order: global == any": true,
+    "start_case_Order_noSO: global_full == global_filtered": true,
+    "start_case_Order_noSO: global_full == any": true,
+    "end_case_Order_noSO: global_full == global_filtered": false,
+    "end_case_Order_noSO: global_filtered == any": true
+  }
+}

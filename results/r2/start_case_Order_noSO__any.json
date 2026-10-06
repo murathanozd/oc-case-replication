@@ -1,0 +1,83 @@
+[
+  {
+    "execution_id": "O1_*",
+    "start_object": "O1",
+    "end_object": "*",
+    "start_event": "e1",
+    "end_event": [
+      "e27",
+      "e28",
+      "e30"
+    ],
+    "events": [
+      "e1",
+      "e18",
+      "e27",
+      "e28",
+      "e30"
+    ],
+    "objects": [
+      "I1",
+      "I2",
+      "O1",
+      "P1",
+      "X1",
+      "X2",
+      "Y1"
+    ],
+    "end_objects": [
+      "I1",
+      "I2",
+      "O1",
+      "P1",
+      "X1",
+      "X2",
+      "Y1"
+    ],
+    "excluded_objects_in_projection": [],
+    "projection_df_edges_of_excluded_objects": [],
+    "projection_df_edges_not_in_D": []
+  },
+  {
+    "execution_id": "O2_*",
+    "start_object": "O2",
+    "end_object": "*",
+    "start_event": "e2",
+    "end_event": [
+      "e30",
+      "e33",
+      "e34"
+    ],
+    "events": [
+      "e2",
+      "e5",
+      "e7",
+      "e9",
+      "e30",
+      "e33",
+      "e34"
+    ],
+    "objects": [
+      "B",
+      "I1",
+      "I2",
+      "O2",
+      "P1",
+      "X3",
+      "Y2"
+    ],
+    "end_objects": [
+      "I1",
+      "I2",
+      "O2",
+      "P1",
+      "X3",
+      "Y2"
+    ],
+    "excluded_objects_in_projection": [
+      "B"
+    ],
+    "projection_df_edges_of_excluded_objects": [],
+    "projection_df_edges_not_in_D": []
+  }
+]

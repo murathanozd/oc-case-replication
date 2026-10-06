@@ -124,3 +124,54 @@ implement the definitions; the following points were not (fully) covered by this
    of each order object". D[O1 → O1] = e1 e18 e27 e28 is exactly O1's trace, but D[O2 → O2] =
    e2 e5 e7 e19 e20 e21 e33 e34 also contains e19, e20, e21 (B, Y1, Y2), reached via Update SO e7
    (e7 ⋖_B e19, e21 ⋖_Y2 e33). O2's own trace is e2 e5 e7 e33 e34.
+
+## 2026-10-06 – `is_df_path` fixed
+
+10. `is_df_path` now rejects empty sequences and sequences containing unknown events, and uses an
+    (e, e′) → objects index built once per DF relation (`DF.by_pair`) instead of rebuilding it per call.
+    A single known event is still a df-path (k = 1, Def. 6). Test `test_is_df_path_edge_cases`.
+
+## 2026-10-06 – Step 5: start/end cases and filtering (`r2_python/generalized.py`)
+
+11. **Def. 10.** O_end = {o | end(o) ⊆ end(O)} (objects whose end event is a global end), O_start
+    correspondingly; D[o → ∗] = ⋃{D[o → o_end] | o_end ∈ O_end}, D[∗ → o] = ⋃{D[o_st → o] | o_st ∈ O_start};
+    only non-empty parts (I2); o itself is not excluded from O_end / O_start. Lifted to types: one case per
+    object of the type. Variant `any`: every object as end (start) object, i.e. every object's end (start)
+    event, global or not.
+12. **Def. 11.** E_i^o|X̄ = descendants ∩ ancestors in df(D, O \ X), i.e. on the DF graph without the
+    df-edges (e, x, e′), x ∈ X (`behaviour.without_objects`), then projection onto the *original* D, so all
+    objects correlated to included events stay, also those in X. X = all Supplier Order objects {A, B}.
+    start(o) / end(o) of each object are always taken from the full DF graph.
+13. **A5 – global_on.** `full`: global starts/ends = start(O) / end(O) on the full DF graph; `filtered`:
+    start(O \ X) / end(O \ X) on df(D, O \ X). Under `filtered`, e6 (start of X1–X3) and e19 (start of Y1, Y2)
+    become global starts (their only incoming edges e3 ⋖_A e6, e7 ⋖_B e19 are removed), so
+    O_start = {O1, O2, P1, X1, X2, X3, Y1, Y2} instead of {A, B, O1, O2, P1}. O_end is {I1, I2, O1, O2, P1}
+    in both readings. Taking the global events over all objects O instead of O \ X on the filtered graph
+    would also admit e3, e4 (A, B, which have no edges left); this changes nothing here (their filtered
+    executions to O1, O2 are empty).
+14. **Results.**
+    - Start cases D[Order → ∗] (Fig. 10): `global` and `any` give the same event sets
+      (O1: e1 e18 e27 e28 e30; O2: e2 e5 e7 e9 e19 e20 e21 e27 e28 e30 e33 e34); `any` adds non-global end
+      events (e27 for O1; e21, e27, e33 for O2) that lie inside the same event sets.
+    - End cases D[∗ → Order] (unfiltered): `global` and `any` give the same event sets; `any` adds start events
+      e5, e6, e18, e19.
+    - **Filtered start case D[Order → ∗ \ {SupplierOrder}] (Fig. 11): A5 changes nothing** (same O_end):
+      O1: e1 e18 e27 e28 e30; O2: e2 e5 e7 e9 e30 e33 e34. `any` gives the same event sets.
+    - **Filtered end case D[∗ → Order \ {SupplierOrder}] (Fig. 12): A5 matters.**
+      `full`: ∗→O1 = e1 e18 e27 e28, ∗→O2 = e2 e5 e7 e33 e34.
+      `filtered`: ∗→O1 = e1 e6 e10 e11 e18 e19 e20 e27 e28, ∗→O2 = e2 e5 e6 e7 e8 e19 e21 e33 e34.
+      `any` gives the same event sets as `filtered`.
+15. **Excluded objects in the projection.** Start cases (both readings): B in O2→∗ via e7 (Update SO).
+    End case `full`: B in ∗→O2 via e7. End case `filtered`: A and B in both cases
+    (∗→O1: A via e6 e10 e11, B via e19 e20; ∗→O2: A via e6 e8, B via e7 e19 e21).
+16. **Projection reintroduces excluded behaviour.** Def. 11 projects onto D, and ⋖ of the projection is
+    recomputed (Sect. 4: "projection may alter ⋖"). In the `filtered` end cases the projected sets again
+    contain df-edges of A and B: ∗→O1 has e6 ⋖_A e10, e10 ⋖_A e11, e19 ⋖_B e20; ∗→O2 has e6 ⋖_A e8,
+    e7 ⋖_B e19, e19 ⋖_B e21. Two of them are not df-edges of D at all (e6 ⋖_A e10, because e8 is not in the
+    projection; e19 ⋖_B e21, because e20 is not), and e7 ⋖_B e19 is exactly an edge the filter removed
+    (both endpoints are included through other paths). So a filtered case "without behaviour of X" still
+    carries X's events and, after projection, some of X's df-edges. Recorded per case in the result files
+    (`excluded_objects_in_projection`, `projection_df_edges_of_excluded_objects`, `projection_df_edges_not_in_D`).
+17. **Outputs:** `start_case_Order__global|any`, `end_case_Order__global|any`,
+    `start_case_Order_noSO__global_full|global_filtered|any`, `end_case_Order_noSO__…` (same variants),
+    `generalized_summary.json` (boundary objects per reading, event sets, and which variants coincide).

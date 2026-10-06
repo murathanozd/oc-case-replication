@@ -92,3 +92,12 @@ def test_tie_mini():
     b = directly_follows(d, "break_by_id")
     assert {(x, y) for x, _, y in b.triples} == {("e1", "e2"), ("e2", "e3"), ("e3", "e4")}
     assert leq(b, "e2", "e3")
+
+
+def test_is_df_path_edge_cases(running_df):
+    assert not is_df_path(running_df, [])
+    assert not is_df_path(running_df, ["nope"])                 # unknown event
+    assert not is_df_path(running_df, ["e1", "nope"])
+    assert is_df_path(running_df, ["e1"])                       # k = 1: a df-path (Def. 6, vacuously)
+    assert not is_df_path(running_df, ["e1", "e28"])            # not directly following
+    assert is_df_path(running_df, ["e6", "e8"], {"X3"}) and not is_df_path(running_df, ["e6", "e8"], {"O1"})

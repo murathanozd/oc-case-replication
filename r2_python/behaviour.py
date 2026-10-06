@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from collections import defaultdict, deque
 from dataclasses import dataclass
+from functools import cached_property
 from itertools import groupby
 
 from .oced import OCEDSet, natkey
@@ -24,6 +25,14 @@ class DF:
     succ: dict[str, frozenset[str]]               # event-level graph: e -> {e' | ∃o: e ⋖_o e'}
     pred: dict[str, frozenset[str]]
     ties: str
+
+    @cached_property
+    def by_pair(self) -> dict[tuple[str, str], frozenset[str]]:
+        """(e, e') -> {o | e ⋖_o e'}; built once per DF."""
+        idx = defaultdict(set)
+        for a, o, b in self.triples:
+            idx[(a, b)].add(o)
+        return {k: frozenset(v) for k, v in idx.items()}
 
     def edges(self, objs=None, excluded=None):
         """DF triples whose object is in `objs` (all if None) and not in `excluded`."""
@@ -98,13 +107,14 @@ def is_df_path(df: DF, seq, objs=None) -> bool:
     """Def. 6: ⟨e1, ..., ek⟩ ∈ df(D, O') iff for 1 ≤ i < k there is o_i ∈ O' with e_i ⋖_{o_i} e_{i+1}.
     objs=None means O' = O (all objects)."""
     seq = list(seq)
-    if not seq:
+    if not seq or any(e not in df.succ for e in seq):      # empty or unknown events: not a df-path
         return False
-    by_pair = defaultdict(set)
-    for a, o, b in df.triples:
-        by_pair[(a, b)].add(o)
-    return all(by_pair[(a, b)] and (objs is None or by_pair[(a, b)] & set(objs))
-               for a, b in zip(seq, seq[1:]))
+    objs = None if objs is None else set(objs)
+    for a, b in zip(seq, seq[1:]):
+        os = df.by_pair.get((a, b), frozenset())
+        if not os or (objs is not None and not os & objs):
+            return False
+    return True
 
 
 def start_events(d: OCEDSet, df: DF, objs=None, reading: str = "intended") -> set[str]:
@@ -160,3 +170,16 @@ def oced_graph(d: OCEDSet, df: DF):
              | {("rel", a, b) for (a, b) in d.rel}
              | {("df", e, o, f) for (e, o, f) in df.triples})
     return nodes, edges
+
+
+def without_objects(df: DF, excluded) -> DF:
+    """The DF relation restricted to df-edges of objects not in `excluded`, i.e. df(D, O \\ X) of Def. 6/11:
+    df-paths in the result are exactly the df-paths of D that use no edge (e, x, e') with x ∈ X."""
+    excluded = set(excluded)
+    triples = frozenset(t for t in df.triples if t[1] not in excluded)
+    succ, pred = defaultdict(set), defaultdict(set)
+    for a, _, b in triples:
+        succ[a].add(b)
+        pred[b].add(a)
+    return DF(triples, {e: frozenset(succ[e]) for e in df.succ},
+              {e: frozenset(pred[e]) for e in df.pred}, df.ties)

@@ -1,0 +1,140 @@
+[
+  {
+    "execution_id": "*_O1",
+    "start_object": "*",
+    "end_object": "O1",
+    "start_event": [
+      "e1",
+      "e6",
+      "e19"
+    ],
+    "end_event": "e28",
+    "events": [
+      "e1",
+      "e6",
+      "e10",
+      "e11",
+      "e18",
+      "e19",
+      "e20",
+      "e27",
+      "e28"
+    ],
+    "objects": [
+      "A",
+      "B",
+      "I1",
+      "O1",
+      "X1",
+      "X2",
+      "X3",
+      "Y1",
+      "Y2"
+    ],
+    "start_objects": [
+      "O1",
+      "X1",
+      "X2",
+      "X3",
+      "Y1",
+      "Y2"
+    ],
+    "excluded_objects_in_projection": [
+      "A",
+      "B"
+    ],
+    "projection_df_edges_of_excluded_objects": [
+      [
+        "e6",
+        "A",
+        "e10"
+      ],
+      [
+        "e10",
+        "A",
+        "e11"
+      ],
+      [
+        "e19",
+        "B",
+        "e20"
+      ]
+    ],
+    "projection_df_edges_not_in_D": [
+      [
+        "e6",
+        "A",
+        "e10"
+      ]
+    ]
+  },
+  {
+    "execution_id": "*_O2",
+    "start_object": "*",
+    "end_object": "O2",
+    "start_event": [
+      "e2",
+      "e6",
+      "e19"
+    ],
+    "end_event": "e34",
+    "events": [
+      "e2",
+      "e5",
+      "e6",
+      "e7",
+      "e8",
+      "e19",
+      "e21",
+      "e33",
+      "e34"
+    ],
+    "objects": [
+      "A",
+      "B",
+      "I2",
+      "O2",
+      "X1",
+      "X2",
+      "X3",
+      "Y1",
+      "Y2"
+    ],
+    "start_objects": [
+      "O2",
+      "X1",
+      "X2",
+      "X3",
+      "Y1",
+      "Y2"
+    ],
+    "excluded_objects_in_projection": [
+      "A",
+      "B"
+    ],
+    "projection_df_edges_of_excluded_objects": [
+      [
+        "e6",
+        "A",
+        "e8"
+      ],
+      [
+        "e7",
+        "B",
+        "e19"
+      ],
+      [
+        "e19",
+        "B",
+        "e21"
+      ]
+    ],
+    "projection_df_edges_not_in_D": [
+      [
+        "e19",
+        "B",
+        "e21"
+      ]
+    ]
+  }
+]

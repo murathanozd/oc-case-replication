@@ -9,6 +9,7 @@ from .behaviour import directly_follows, global_end_events, global_start_events
 from .case_notions import (GLOBAL_BY, behaviour, case_notion, global_executions,
                            global_objects, type_matrix)
 from .executions import case_record, def8_violations, object_start_end
+from .generalized import boundary_objects, excluded_objects, type_records
 from .oced import load_csv, natkey
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -82,6 +83,38 @@ def main() -> None:
         f"{a} -> {b}": [r["execution_id"] for r in case_notion(d, df, a, b, self_pairs=False)]
         for a in all_types for b in all_types}
     write_json("case_notions_summary", summary)
+
+    # Step 5: Def. 10 start/end cases of Orders ("global" = Def. 10, "any" = every object's end/start
+    # event), unfiltered and filtered by X = Supplier Order objects (Def. 11, A5: global_on full/filtered)
+    X = excluded_objects(d, types=["Supplier Order"])
+    gsum = {"X": sorted(X, key=natkey), "boundary_objects": {}, "cases": {}}
+    for side in ("start", "end"):
+        other = "end" if side == "start" else "start"
+        for variant in ("global", "any"):
+            recs = type_records(d, df, side, "Order", variant=variant)
+            write_json(f"{side}_case_Order__{variant}", recs)
+            gsum["cases"][f"{side}_case_Order__{variant}"] = {r["execution_id"]: r["events"] for r in recs}
+        for variant, go in (("global", "full"), ("global", "filtered"), ("any", "full")):
+            name = f"{side}_case_Order_noSO__{variant}" + (f"_{go}" if variant == "global" else "")
+            recs = type_records(d, df, side, "Order", variant=variant, X=X, global_on=go)
+            write_json(name, recs)
+            gsum["cases"][name] = {r["execution_id"]: r["events"] for r in recs}
+        for go in ("full", "filtered"):
+            gsum["boundary_objects"][f"O_{other}__global_{go}"] = boundary_objects(d, df, other, "global", X, go)
+    c = gsum["cases"]
+    gsum["comparisons"] = {
+        "start_case_Order: global == any": c["start_case_Order__global"] == c["start_case_Order__any"],
+        "end_case_Order: global == any": c["end_case_Order__global"] == c["end_case_Order__any"],
+        "start_case_Order_noSO: global_full == global_filtered":
+            c["start_case_Order_noSO__global_full"] == c["start_case_Order_noSO__global_filtered"],
+        "start_case_Order_noSO: global_full == any":
+            c["start_case_Order_noSO__global_full"] == c["start_case_Order_noSO__any"],
+        "end_case_Order_noSO: global_full == global_filtered":
+            c["end_case_Order_noSO__global_full"] == c["end_case_Order_noSO__global_filtered"],
+        "end_case_Order_noSO: global_filtered == any":
+            c["end_case_Order_noSO__global_filtered"] == c["end_case_Order_noSO__any"],
+    }
+    write_json("generalized_summary", gsum)
     print(f"wrote {OUT}")
 
 
