@@ -77,8 +77,8 @@ relevant for R3).
 
 - The detailed projection check announced for later (F6) has not been started. *(Done afterwards, see
   "Projection check" below.)*
-- Step 6 (comparison with `results/r1/`) not started; `results/r1/` not opened by R2 code.
-- Step 7 (timing, README, `environment.json`) not started.
+- Step 6 (comparison with `results/r1/`) not started; `results/r1/` not opened by R2 code. *(Done, see below.)*
+- Step 7 (timing, README, `environment.json`) not started. *(Done, see below.)*
 
 ## 2026-10-06 – Steps 1–3
 
@@ -339,3 +339,42 @@ data". That is too weak. **For unfiltered cases it holds for every OCED-set** sa
   filtering, and own objects are not excluded. Otherwise they depend on the data.
 
 `comparison.md` (open point 1) was regenerated with this argument and the counterexamples.
+
+## 2026-10-06 – Step 7: tests, timing, documentation
+
+- **Tests** (`python -m pytest r2_python`, 45 passing). The plan's list is covered:
+  - partial-order properties and the properties stated after Def. 7;
+  - Lemma 1 against networkx (both tie modes);
+  - hand-made mini sets: a timestamp tie, an object with two start events, converging objects, the A4 split,
+    and the Def. 10/11 counterexamples;
+  - the sanity numbers (21 / 12 / 41);
+  - the Def. 10 property test on random sets and the projection check.
+- **Timing** (`python -m r2_python.timing` → `results/r2/runtimes.csv`): 1 warm-up and 5 timed runs per
+  computation.
+  - Every Def. 7–11 computation takes under 1 ms on the 21-event log. The projection check (all event pairs)
+    takes about 40 ms.
+  - R1's Neo4j queries took 1–25 ms each, but that includes the driver round trip, so the numbers are not
+    comparable as speed. They are the baseline for R3.
+- **`run_all`** now also writes `comparison.md` and `environment.json`, so one command regenerates all of
+  `results/r2/` except `runtimes.csv`.
+  - The whole run takes about 0.2 s.
+  - Two runs with different `PYTHONHASHSEED` gave byte-identical files.
+  - No computation changed: all previously committed result files are unchanged.
+- **`r2_python/README.md`**: replaced the two-line placeholder from the initial commit with run instructions,
+  the module layout, and I1–I2 / A1–A5 / Def. 10 with defaults and alternatives.
+- **`results/r2/environment.json`**: Python 3.11.8, the package versions from `requirements.txt`, and
+  macOS 26.6.2 arm64. The implementation uses only the standard library; networkx and pytest are used in tests.
+- **What R2 read besides the paper:** `docs/r2_plan.md`. From Step 6 on, also `results/r1/` (files listed
+  in the Step 6 entry).
+  - Not opened: `r1_neo4j/` and `external/`.
+  - Independence caveat (see the session note): the same assistant did R1 in this session.
+
+### Definition of done
+
+- [x] `python -m r2_python.run_all` regenerates `results/r2/` from the raw CSV in well under a second,
+  byte-identical across runs (except `runtimes.csv`, written by `timing`).
+- [x] `pytest r2_python` passes (45 tests).
+- [x] `comparison.md` covers every R1 result file; 37 comparisons, every difference explained, none unexplained.
+- [x] The three R1 open points are answered with R2 numbers. For open point 1 there is a general proof for
+  unfiltered cases, plus counterexamples for filtered ones.
+- [x] Everything committed and pushed to `murathan-r2`.

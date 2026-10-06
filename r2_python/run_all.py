@@ -1,4 +1,7 @@
-"""Regenerate results/r2/ from the raw CSV:  python -m r2_python.run_all"""
+"""Regenerate results/r2/ from the raw CSV:  python -m r2_python.run_all
+
+Writes every result file, then comparison.md (Step 6, reads results/r1/) and environment.json.
+runtimes.csv is written separately by  python -m r2_python.timing  (machine-dependent)."""
 
 from __future__ import annotations
 
@@ -121,6 +124,11 @@ def main() -> None:
     with open(OUT / "projection_check.md", "w", encoding="utf-8") as f:
         f.write(projection_report(d, df, X))
     print(f"wrote {OUT}")
+
+    # Step 6 / 7 (imported here: both modules import this one)
+    from . import compare_r1, environment
+    compare_r1.main()
+    environment.main()
 
 
 if __name__ == "__main__":
