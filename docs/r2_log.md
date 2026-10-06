@@ -75,7 +75,8 @@ relevant for R3).
 
 ### Open before Step 6
 
-- The detailed projection check announced for later (F6) has not been started.
+- The detailed projection check announced for later (F6) has not been started. *(Done afterwards, see
+  "Projection check" below.)*
 - Step 6 (comparison with `results/r1/`) not started; `results/r1/` not opened by R2 code.
 - Step 7 (timing, README, `environment.json`) not started.
 
@@ -237,3 +238,35 @@ implement the definitions; the following points were not (fully) covered by this
 17. **Outputs:** `start_case_Order__global|any`, `end_case_Order__global|any`,
     `start_case_Order_noSO__global_full|global_filtered|any`, `end_case_Order_noSO__…` (same variants),
     `generalized_summary.json` (boundary objects per reading, event sets, and which variants coincide).
+
+## 2026-10-06 – Projection check (F6, before Step 6)
+
+`r2_python/projection_check.py`, output `results/r2/projection_check.md` (written by `run_all`),
+test `r2_python/tests/test_projection_check.py`. X = {A, B} (all Supplier Orders), ties `strict`.
+
+1. **Def. 7 is convex, so projection keeps ⋖.** E_i^o = {e | i ≤ e ≤ o} is convex wrt. ≤ of D: if
+   e ≤ e' ≤ e'' with e, e'' ∈ E_i^o then i ≤ e' ≤ o, so e' ∈ E_i^o. Hence for any object, no event of it lies
+   between two included events without being included, and ⋖ recomputed on Proj_{E_i^o} D equals ⋖ of D
+   restricted to E_i^o. Checked for all 107 event pairs i ≤ o and all 95 non-empty Def. 8 cases
+   (self-pairs included): all convex, no extra and no missing df-edge.
+2. **Def. 11 is not convex in D.** E_i^o|X̄ is convex only wrt. ≤ of df(D, O \ X) (all 68 filtered event-pair
+   executions are). Wrt. ≤ of D, 15 of 68 are not: events reachable between two included events only through
+   A's or B's df-edges are dropped (e8, e10 of A; e19–e21 / e20 of B). The projection keeps every object
+   correlated to an included event, including A and B, and ⋖ recomputed on it then
+   - links events across the dropped ones: **spurious** edges, not df-edges of D
+     (e6 ⋖_A e11 dropping e8 e10; e6 ⋖_A e10 dropping e8; e19 ⋖_B e21 dropping e20);
+   - brings back df-edges of D on excluded objects: **reintroduced** edges (e6 ⋖_A e8, e10 ⋖_A e11,
+     e19 ⋖_B e20).
+   Of the 69 non-empty filtered Def. 8 cases, 23 have spurious and 29 reintroduced edges. Non-convexity is
+   necessary but not sufficient for a spurious edge (D[O2 → O2 \ X] drops e19–e21 but has none: no included
+   object has events on both sides). No df-edge of the filtered graph is ever lost by the projection.
+3. **Unions (Def. 10 + 11).** The Step 5 filtered start cases (Fig. 11) are clean in all variants. The filtered
+   end cases (Fig. 12) under `global_on="filtered"` and `any` have spurious e6 ⋖_A e10 (∗→O1), e19 ⋖_B e21
+   (∗→O2), and reintroduced e10 ⋖_A e11, e19 ⋖_B e20 (∗→O1), e6 ⋖_A e8, e7 ⋖_B e19 (∗→O2). e7 ⋖_B e19 occurs in
+   no single filtered Def. 8 case: it comes from the union of two parts. Under `global_on="full"` the end
+   cases are clean (B is in ∗→O2 via e7, but has only that one event there). This confirms F6.
+4. **Conclusion for the report:** convexity holds for Def. 7 but not for Def. 11, which is why the spurious
+   edges appear. A filtered case, taken as an OCED-set (Proj onto D), does not have the behaviour that
+   defined it; to keep the filter's meaning, one would have to keep the filtered ⋖ with the result instead of
+   recomputing it, or drop X's objects from the projection. Not changed in R2 (paper's definition kept).
+5. No behaviour of existing code changed; other result files are byte-identical; 41 tests pass.

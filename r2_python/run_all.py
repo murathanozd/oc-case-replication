@@ -11,6 +11,7 @@ from .case_notions import (GLOBAL_BY, behaviour, case_notion, global_executions,
 from .executions import case_record, def8_violations, object_start_end
 from .generalized import boundary_objects, excluded_objects, type_records
 from .oced import load_csv, natkey
+from .projection_check import report as projection_report
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "running_example" / "order_process_event_table_orderhandling.csv"
@@ -115,6 +116,10 @@ def main() -> None:
             c["end_case_Order_noSO__global_filtered"] == c["end_case_Order_noSO__any"],
     }
     write_json("generalized_summary", gsum)
+
+    # Projection check (F6): convexity of Def. 7 vs. Def. 11
+    with open(OUT / "projection_check.md", "w", encoding="utf-8") as f:
+        f.write(projection_report(d, df, X))
     print(f"wrote {OUT}")
 
 
