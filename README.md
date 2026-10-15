@@ -37,13 +37,24 @@ report/                 LNCS report sources
 
 ## Setup
 
+Requires **Python 3.11 or newer** (`pandas==3.0.6` does not install on 3.10 or older).
+
 ```bash
-git clone --recurse-submodules <this repo>
-python3 -m venv .venv && source .venv/bin/activate
+git clone --recurse-submodules https://github.com/murathanozd/oc-case-replication.git
+cd oc-case-replication
+python3 --version          # must be 3.11+
+python3 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-R1 additionally needs a local Neo4j 5.x instance with the APOC plugin.
+If you cloned without `--recurse-submodules`, run `git submodule update --init` (R1 needs
+`external/eventgraph_tutorial`).
+
+R1 additionally needs a local Neo4j 5.x DBMS with the APOC plugin and a `.env` file with its
+password and import folder. **Step-by-step instructions: [`r1_neo4j/README.md`](r1_neo4j/README.md#rerun-from-a-clean-machine).**
+
+`04_check_claims.py` and `05_render_figures.py` read only the committed result files, so they run
+without Neo4j (useful to check the setup first).
 
 ## Data and code sources
 

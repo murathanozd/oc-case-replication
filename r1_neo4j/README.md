@@ -65,9 +65,10 @@ DBMS that holds nothing else.
 | `05_render_figures.py` | 6 | renders Fig. 4–12 from the saved results and `df_edges.csv` with matplotlib (no DB access) | `figures/fig<N>.pdf`, `figures/fig<N>.png` |
 
 Each script can be rerun on its own (02–05 need the output of the previous ones). Rerunning the chain
-gives byte-identical result files, except `runtimes.csv` and `environment.json`. The figure files are
-byte-identical only with the pinned matplotlib version (3.11.2); other versions give slightly different
-font rendering and image sizes.
+gives byte-identical result files, except `runtimes.csv` and `environment.json`. The figure PDFs are
+byte-identical with the pinned matplotlib version (3.11.2); the PNGs are pixel-identical but their bytes can
+differ across operating systems (checked on Linux against the committed macOS files). Other matplotlib
+versions give slightly different font rendering and image sizes.
 
 ## Queries
 
