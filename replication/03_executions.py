@@ -21,9 +21,10 @@ from collections import defaultdict
 
 from neo4j.graph import Node, Path, Relationship
 
-from common import RESULTS_DIR, Runner, get_driver, load_cypher, notifications_of
+from common import DATASET, RESULTS_DIR, Runner, get_driver, load_cypher, notifications_of
 
-RUNS = 5
+RUNS = 30
+WARMUP = 5
 RAW_DIR = RESULTS_DIR / "raw"
 
 
@@ -58,6 +59,11 @@ def canonical(v):
         return sorted((canonical(x) for x in v), key=lambda x: json.dumps(x, sort_keys=True))
     return v
 
+def summarize(ms):
+    q = statistics.quantiles(ms, n=4)
+    return {"median_ms": round(statistics.median(ms), 2), "q1_ms": round(q[0], 2),
+            "q3_ms": round(q[2], 2), "min_ms": round(min(ms), 2),
+            "mean_ms": round(statistics.mean(ms), 2), "std_ms": round(statistics.stdev(ms), 2)}
 
 # ---------------------------------------------------------------- running and timing
 class Step4:
@@ -81,8 +87,9 @@ class Step4:
             keys = result.keys()
             summary = result.consume()
         elapsed = (time.perf_counter() - t0) * 1000
+        server = summary.result_available_after + summary.result_consumed_after  # ms, server side
         counters = {k: v for k, v in vars(summary.counters).items() if v and not k.startswith("_")}
-        return records, keys, counters, elapsed
+        return records, keys, counters, elapsed, server
 
     def explain_notifications(self, query):
         # EXPLAIN always plans the query, so notifications are reported even if the plan is cached
@@ -94,30 +101,34 @@ class Step4:
         timed runs; return the records of the last run."""
         [query] = load_cypher(f"executions/{name}")
         notes = self.explain_notifications(query)
+        client_ms, server_ms, outputs = [], [], set()
         times = []
-        for i in range(RUNS + 1):
+        for i in range(WARMUP + RUNS):
             if materializing:
                 self.wipe()
-            records, keys, counters, elapsed = self.run_once(query)
-            if i == 0:
-                warmup = elapsed
-            else:
-                times.append(elapsed)
-        self.runtimes.append({
-            "name": name, "source": source, "rows": len(records), "warmup_ms": round(warmup, 2),
-            "mean_ms": round(statistics.mean(times), 2), "std_ms": round(statistics.stdev(times), 2),
-            "runs_ms": ";".join(f"{t:.2f}" for t in times),
-        })
+            records, keys, counters, elapsed, server = self.run_once(query)
+            rows = canonical([dict(zip(keys, map(ser, r))) for r in records])
+            outputs.add(json.dumps([rows, counters], sort_keys=True, default=str))
+            if i >= WARMUP:
+                client_ms.append(elapsed)
+                server_ms.append(server)
+
+        row = {"name": name, "source": source, "rows": len(records), "runs": RUNS,
+               "warmup_runs": WARMUP, "same_output_every_run": len(outputs) == 1}
+        row.update({f"client_{k}": v for k, v in summarize(client_ms).items()})
+        row.update({f"server_{k}": v for k, v in summarize(server_ms).items()})
+        row["client_runs_ms"] = ";".join(f"{t:.2f}" for t in client_ms)
+        self.runtimes.append(row)
         RAW_DIR.mkdir(parents=True, exist_ok=True)
-        raw = {"query_file": f"r1_neo4j/queries/executions/{name}.cypher", "source": source,
-               "columns": keys, "rows": canonical([dict(zip(keys, map(ser, r))) for r in records]),
+        raw = {"query_file": f"replication/queries/executions/{name}.cypher", "source": source,
+               "columns": keys, "rows": rows,
                "note": "rows (and lists inside rows) sorted by us; the queries define no order",
                "write_counters": counters, "notifications": notes}
         with open(RAW_DIR / f"{name}.json", "w") as f:
             json.dump(raw, f, indent=2)
         flag = f" [{len(notes)} notification(s)]" if notes else ""
-        print(f"{name:32s} rows={len(records):3d}  {statistics.mean(times):8.2f} ms "
-              f"(sd {statistics.stdev(times):.2f}){flag}")
+        print(f"{name:32s} rows={len(records):3d}  client median {row['client_median_ms']:8.2f} ms, "
+              f"server median {row['server_median_ms']:8.2f} ms{flag}")
         return records
 
     # ------------------------------------------------------------ conversion to the common format
@@ -181,6 +192,51 @@ def save(name, executions):
     with open(RESULTS_DIR / f"{name}.json", "w") as f:
         json.dump(executions, f, indent=2)
 
+def run_paper_queries(s4):
+    # OCPM 3.1 Sect. 2.3: execution A -> O1
+    s4.run_timed("exec_A_O1", "OCPM 3.1 §2.3 (materialize)", materializing=True)
+    s4.run_timed("exec_A_O1_view", "OCPM 3.1 §2.3 (view)")
+    save("exec_A_O1", s4.extract(xid="A_O1"))
+
+    # OCPM 3.1 Sect. 3.1: as published ("Order " typo) and fixed
+    recs = s4.run_timed("notion_SO_Order_paths", "OCPM 3.1 §3.1 as published")
+    save("notion_SO_Order_paths", s4.from_paths(recs, "Supplier Order", "Order "))
+    recs = s4.run_timed("notion_SO_Order_paths_fixed", "OCPM 3.1 §3.1 fixed (\"Order \" -> \"Order\")")
+    save("notion_SO_Order_paths_fixed", s4.from_paths(recs, "Supplier Order", "Order"))
+
+    # OCPM 3.1 Sect. 3.2/3.3: Supplier Order -> Order
+    s4.run_timed("notion_SO_Order", "OCPM 3.1 §3.2 (materialize)", materializing=True)
+    s4.run_timed("notion_SO_Order_view", "OCPM 3.1 §3.3 (view)")
+    save("notion_SO_Order", s4.extract("Supplier Order", "Order"))
+
+    # OCPM 3.1 Sect. 4: all executions between global start/end events, then 4.1-4.5
+    s4.run_timed("all_global_executions", "OCPM 3.1 §4 (materialize)", materializing=True)
+    s4.run_timed("all_global_executions_view", "OCPM 3.1 §4 (view)")
+    save("all_global_executions", s4.extract())
+    for name, st, et, src in [
+        ("notion_SO_Order_global", "Supplier Order", "Order", "OCPM 3.1 §4.1"),
+        ("notion_Order_Payment", "Order", "Payment", "OCPM 3.1 §4.2"),
+        ("notion_Order_Invoice", "Order", "Invoice", "OCPM 3.1 §4.3 (types from text)"),
+        ("notion_Payment_Invoice", "Payment", "Invoice", "OCPM 3.1 §4.4"),
+        ("notion_Order_Order", "Order", "Order", "OCPM 3.1 §4.5"),
+    ]:
+        s4.run_timed(name, src)
+        save(name, s4.extract(st, et))
+
+    # OCPM 3.3 Sect. 6.2/6.3: start/end cases of Orders (not materialized)
+    for name, group_by, src in [
+        ("start_case_Order", "start", "OCPM 3.3 §6.2 (first query)"),
+        ("start_case_Order_noSO", "start", "OCPM 3.3 §6.2 (excl. Supplier Order)"),
+        ("end_case_Order", "end", "OCPM 3.3 §6.3 (first query)"),
+        ("end_case_Order_noSO", "end", "OCPM 3.3 §6.3 (excl. Supplier Order)"),
+    ]:
+        recs = s4.run_timed(name, src)
+        save(name, s4.from_path_groups(recs, group_by, "Order"))
+
+def run_generic(s4):
+    s4.run_timed("all_global_executions", "materialize", materializing=True)
+    s4.run_timed("all_global_executions_view", "view")
+    save("all_global_executions", s4.extract())
 
 def main():
     driver = get_driver()
@@ -191,50 +247,16 @@ def main():
         s4 = Step4(driver)
         print(f"Each query run {RUNS}x; materializing queries start without :Execution nodes.\n")
 
-        # OCPM 3.1 Sect. 2.3: execution A -> O1
-        s4.run_timed("exec_A_O1", "OCPM 3.1 §2.3 (materialize)", materializing=True)
-        s4.run_timed("exec_A_O1_view", "OCPM 3.1 §2.3 (view)")
-        save("exec_A_O1", s4.extract(xid="A_O1"))
+        if DATASET == "running_example":
+            run_paper_queries(s4)
+        else:
+            run_generic(s4)
 
-        # OCPM 3.1 Sect. 3.1: as published ("Order " typo) and fixed
-        recs = s4.run_timed("notion_SO_Order_paths", "OCPM 3.1 §3.1 as published")
-        save("notion_SO_Order_paths", s4.from_paths(recs, "Supplier Order", "Order "))
-        recs = s4.run_timed("notion_SO_Order_paths_fixed", "OCPM 3.1 §3.1 fixed (\"Order \" -> \"Order\")")
-        save("notion_SO_Order_paths_fixed", s4.from_paths(recs, "Supplier Order", "Order"))
-
-        # OCPM 3.1 Sect. 3.2/3.3: Supplier Order -> Order
-        s4.run_timed("notion_SO_Order", "OCPM 3.1 §3.2 (materialize)", materializing=True)
-        s4.run_timed("notion_SO_Order_view", "OCPM 3.1 §3.3 (view)")
-        save("notion_SO_Order", s4.extract("Supplier Order", "Order"))
-
-        # OCPM 3.1 Sect. 4: all executions between global start/end events, then 4.1-4.5
-        s4.run_timed("all_global_executions", "OCPM 3.1 §4 (materialize)", materializing=True)
-        s4.run_timed("all_global_executions_view", "OCPM 3.1 §4 (view)")
-        save("all_global_executions", s4.extract())
-        for name, st, et, src in [
-            ("notion_SO_Order_global", "Supplier Order", "Order", "OCPM 3.1 §4.1"),
-            ("notion_Order_Payment", "Order", "Payment", "OCPM 3.1 §4.2"),
-            ("notion_Order_Invoice", "Order", "Invoice", "OCPM 3.1 §4.3 (types from text)"),
-            ("notion_Payment_Invoice", "Payment", "Invoice", "OCPM 3.1 §4.4"),
-            ("notion_Order_Order", "Order", "Order", "OCPM 3.1 §4.5"),
-        ]:
-            s4.run_timed(name, src)
-            save(name, s4.extract(st, et))
-
-        # OCPM 3.3 Sect. 6.2/6.3: start/end cases of Orders (not materialized)
-        for name, group_by, src in [
-            ("start_case_Order", "start", "OCPM 3.3 §6.2 (first query)"),
-            ("start_case_Order_noSO", "start", "OCPM 3.3 §6.2 (excl. Supplier Order)"),
-            ("end_case_Order", "end", "OCPM 3.3 §6.3 (first query)"),
-            ("end_case_Order_noSO", "end", "OCPM 3.3 §6.3 (excl. Supplier Order)"),
-        ]:
-            recs = s4.run_timed(name, src)
-            save(name, s4.from_path_groups(recs, group_by, "Order"))
     finally:
         driver.close()
 
-    with open(RESULTS_DIR / "runtimes.csv", "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["name", "source", "rows", "warmup_ms", "mean_ms", "std_ms", "runs_ms"])
+    with open(RESULTS_DIR / "runtimes.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=list(s4.runtimes[0]))
         w.writeheader()
         w.writerows(s4.runtimes)
     print(f"\nWrote results to {RESULTS_DIR} (raw query output in {RAW_DIR})")
