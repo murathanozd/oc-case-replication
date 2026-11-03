@@ -1,10 +1,11 @@
-"""R1 Step 2: build the event knowledge graph of the running example.
+"""R1 Step 2: build the event knowledge graph for the configured dataset.
 
-Port of the authors' scripts in external/eventgraph_tutorial/order_process/:
+For the running example, this ports the authors' scripts in external/eventgraph_tutorial/order_process/:
   0_prepare_log_for_import.py  -> prepare_log()
   1_import_events.py           -> import_events()
   2_build_event_knowledge_graph.py -> build_ekg()
-The query logic is unchanged; queries live in r1_neo4j/queries/ekg/*.cypher.
+For scientific publications, the OCEL export is first reduced to timestamped event rows.
+The query logic is unchanged; queries live in replication/queries/ekg/*.cypher.
 Deviations (connection from env vars, CSV via the DBMS import/ folder, full wipe first)
 are logged in docs/r1_log.md.
 
@@ -22,37 +23,32 @@ from collections import Counter
 
 import pandas as pd
 
-from common import NEO4J_IMPORT_DIR, NEO4J_URI, R1_DIR, REPO_ROOT, RESULTS_DIR, Runner, get_driver, load_cypher
+from common import CFG, NEO4J_IMPORT_DIR, NEO4J_URI, R1_DIR, RESULTS_DIR, Runner, get_driver, load_cypher
+from preprocessing import prepare_event_table
 
-INPUT_FILE = REPO_ROOT / "data" / "running_example" / "order_process_event_table_orderhandling.csv"
+INPUT_FILE = CFG["input"]
 PREPARED_DIR = R1_DIR / "prepared"
-PREPARED_NAME = "order_process_event_table_orderhandling_prepared.csv"
-AUTHORS_PREPARED = (REPO_ROOT / "external" / "eventgraph_tutorial" / "order_process"
-                    / "prepared_logs" / PREPARED_NAME)
-
-# Same config as model_entities_from_attributes in 2_build_event_knowledge_graph.py
-MODEL_ENTITIES_FROM_ATTRIBUTES = [
-    ["Order", "Order", ""],
-    ["Supplier Order", "SupplierOrder", ""],
-    ["Item", "Item", ""],
-    ["Invoice", "Invoice", ""],
-    ["Payment", "Payment", ""],
-]
-
-EXPECTED_EVENTS = 21
-EXPECTED_ENTITIES = {"O1", "O2", "A", "B", "X1", "X2", "X3", "Y1", "Y2", "I1", "I2", "P1"}
-
+PREPARED_NAME = CFG["prepared_name"]
+AUTHORS_PREPARED = CFG["authors_prepared"]
+MODEL_ENTITIES_FROM_ATTRIBUTES = CFG["entities"]
+EXPECTED_EVENTS = CFG["expected_events"]
+EXPECTED_ENTITIES = CFG["expected_entities"]
 
 # --------------------------------------------------------------------------------------
 # 1. Prepare the CSV (port of PrepareOrderHandling in 0_prepare_log_for_import.py)
 # --------------------------------------------------------------------------------------
 def prepare_log(input_file, output_path, file_name):
-    csvLog = pd.read_csv(os.path.realpath(input_file), keep_default_na=True)
+    if CFG.get("preprocessor") == "scientific_publications":
+        csvLog, _, counts = prepare_event_table(input_file)
+        print(f"Source rows: {counts['source_rows']}; imported events: {counts['events']}; "
+              f"skipped object-only rows: {counts['non_event_rows']}; "
+              f"skipped object-relation rows: {counts['object_relation_rows']}")
+    else:
+        csvLog = pd.read_csv(os.path.realpath(input_file), keep_default_na=True)
     csvLog.drop_duplicates(keep='first', inplace=True)
     csvLog = csvLog.reset_index(drop=True)
 
-    csvLog = csvLog.rename(columns={'event': 'Activity', 'time': 'timestamp', 'User': 'Actor',
-                                    'Supplier Order': 'SupplierOrder', 'Order Details': 'Order_Details'})
+    csvLog = csvLog.rename(columns=CFG["rename"])
 
     sampleList = []
     for index, row in csvLog.iterrows():
@@ -62,11 +58,12 @@ def prepare_log(input_file, output_path, file_name):
     header = list(csvLog)
     logSamples = pd.DataFrame(sampleList, columns=header)
 
-    logSamples['timestamp'] = pd.to_datetime(logSamples['timestamp'], format='%d.%m.%Y %H:%M:%S')
+    logSamples['timestamp'] = pd.to_datetime(logSamples['timestamp'], format=CFG["date_format"])
 
     logSamples.fillna(0)  # no-op in the original as well (result not assigned)
     logSamples['timestamp'] = logSamples['timestamp'].map(
-        lambda x: x.strftime('%Y-%m-%dT%H:%M:%S.%f')[0:-3] + '+0100')
+        lambda x: x.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3]
+        + (x.strftime('%z') if x.tzinfo is not None else '+0100'))
     logSamples.sort_values(['timestamp'], inplace=True)
 
     os.makedirs(output_path, exist_ok=True)
@@ -111,7 +108,7 @@ def check_target_dbms(runner):
     except Exception as exc:
         raise SystemExit(f"Connected DBMS at {NEO4J_URI} cannot read {PREPARED_NAME} from its import "
                          f"folder - probably not the oc-case DBMS. Aborting before wiping.\n{exc}")
-    if row["n"] != EXPECTED_EVENTS:
+    if EXPECTED_EVENTS is not None and row["n"] != EXPECTED_EVENTS:
         raise SystemExit(f"Import file has {row['n']} rows, expected {EXPECTED_EVENTS}. Aborting.")
 
 
@@ -165,9 +162,9 @@ def sanity_checks(runner, prepared_matches_authors):
     entity_ids = {r["id"] for r in entities}
     stats = {
         "events": n_events,
-        "events_ok": n_events == EXPECTED_EVENTS,
+        "events_ok": EXPECTED_EVENTS is None or n_events == EXPECTED_EVENTS,
         "entities": len(entities),
-        "entities_ok": entity_ids == EXPECTED_ENTITIES and len(entities) == len(EXPECTED_ENTITIES),
+        "entities_ok": EXPECTED_ENTITIES is None or (entity_ids == EXPECTED_ENTITIES and len(entities) == len(EXPECTED_ENTITIES)),
         "entities_by_type": {t: sorted(r["id"] for r in entities if r["type"] == t)
                              for t in sorted({r["type"] for r in entities})},
         "corr": n_corr,
@@ -184,7 +181,7 @@ def sanity_checks(runner, prepared_matches_authors):
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     with open(RESULTS_DIR / "ekg_stats.json", "w") as f:
         json.dump(stats, f, indent=2)
-    with open(RESULTS_DIR / "df_edges.csv", "w", newline="") as f:
+    with open(RESULTS_DIR / "df_edges.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["e1", "e2", "entity_type", "object_id", "t1", "t2"])
         for r in df_edges:
@@ -211,7 +208,7 @@ def main():
     t0 = time.time()
     prepare_log(INPUT_FILE, PREPARED_DIR, PREPARED_NAME)
     prepared_file = PREPARED_DIR / PREPARED_NAME
-    prepared_matches_authors = filecmp.cmp(prepared_file, AUTHORS_PREPARED, shallow=False)
+    prepared_matches_authors = filecmp.cmp(prepared_file, AUTHORS_PREPARED, shallow=False) if AUTHORS_PREPARED else None
     print(f"Prepared {prepared_file} (identical to authors' file: {prepared_matches_authors})")
 
     copy_to_import_dir(prepared_file)
