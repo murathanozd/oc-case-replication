@@ -3,7 +3,7 @@
 ## Context
 
 Repo: `~/TUe/GitHub/oc-case-replication` (remote `github.com/murathanozd/oc-case-replication`).
-We replicate the running example of Fahland & Montali, *What is an Object-Centric Case? An Exploration* (LNCS 16480, 2026).
+We replicate the running example of Fahland & Montali, _What is an Object-Centric Case? An Exploration_ (LNCS 16480, 2026).
 The authors' implementation is the submodule `external/eventgraph_tutorial` (pinned at `31d19b8`), tutorials:
 
 - `order_process/tutorial-your-first-event-knowledge-graph.md` (+ scripts `0_prepare_log_for_import.py`, `1_import_events.py`, `2_build_event_knowledge_graph.py`)
@@ -20,7 +20,7 @@ Object types used in the paper: Order, Supplier Order, Item, Invoice, Payment (N
 
 ## Rules for this work
 
-- Work only in `r1_neo4j/`, `results/r1/` and `docs/`. Never edit files inside `external/`.
+- Work only in `replication/`, `results/r1/` and `docs/`. Never edit files inside `external/`.
 - Scripts in Python 3 with the `neo4j` driver; Cypher queries in separate `.cypher` files so they can be cited in the report.
 - Connection settings from environment variables `NEO4J_URI` (default `bolt://localhost:7687`), `NEO4J_USER` (default `neo4j`), `NEO4J_PASSWORD`. Never hard-code the password.
 - Every script must be re-runnable from scratch (start by wiping the database).
@@ -40,11 +40,11 @@ Object types used in the paper: Order, Supplier Order, Item, Invoice, Payment (N
 - **Typo in OCPM 3.1, Sect. 3.1:** `"Order " AS endType` has a trailing space, so it returns nothing. Run it as published once, record the empty result, then run the corrected version.
 - Neo4j 5 may warn about deprecated `ID(e)` (used for tie-breaking in the DF query). Keep it, but note the warning.
 
-## Step 2 – Build the event knowledge graph (`r1_neo4j/01_build_ekg.py`)
+## Step 2 – Build the event knowledge graph (`replication/01_build_ekg.py`)
 
 Port (do not rewrite the logic of) `0_prepare_log_for_import.py`, `1_import_events.py`, `2_build_event_knowledge_graph.py`:
 
-1. Prepare the CSV (rename columns, ISO timestamps with `+0100`, sort by time) → `r1_neo4j/prepared/order_process_event_table_orderhandling_prepared.csv`.
+1. Prepare the CSV (rename columns, ISO timestamps with `+0100`, sort by time) → `replication/prepared/order_process_event_table_orderhandling_prepared.csv`.
 2. Wipe DB, import `:Event` nodes, split comma-separated values into lists.
 3. Create `:Entity` nodes and `:CORR` for the 5 types only (Order, Supplier Order, Item, Invoice, Payment).
 4. Create generic `:DF` relationships with properties `EntityType` and `ID` (the `option_df_typed = False` variant).
@@ -54,32 +54,32 @@ Port (do not rewrite the logic of) `0_prepare_log_for_import.py`, `1_import_even
    - number of `:CORR` and `:DF` relationships, and the DF edge list `(e1, e2, objectID)` → `results/r1/df_edges.csv`
    - number of events per timestamp (flag any ties)
 
-## Step 3 – Materialize relations, start/end events (`r1_neo4j/02_materialize.py`)
+## Step 3 – Materialize relations, start/end events (`replication/02_materialize.py`)
 
 - `:REL` between objects (OCPM 1, Sect. 4.1) → export `results/r1/rel_edges.csv`.
 - `:START` / `:END` per object (OCPM 2, Sect. 2.2) → export `results/r1/start_end.csv` (object, start event, end event). Flag objects with more than one start or end event (the paper's Def. 8 assumes exactly one).
 
-## Step 4 – Executions and case notions (`r1_neo4j/03_executions.py` + `queries/*.cypher`)
+## Step 4 – Executions and case notions (`replication/03_executions.py` + `queries/*.cypher`)
 
 For every query below, save the raw result to `results/r1/<name>.json` in one common format:
 `[{ "execution_id", "start_object", "end_object", "start_event", "end_event", "events": [sorted event ids], "objects": [sorted object ids of correlated events] }]`.
 
-| name | source | paper reference |
-|---|---|---|
-| `exec_A_O1` | OCPM 3.1 §2.2/2.3 | Fig. 5, D[e3→e28] / D[A→O1] |
-| `notion_SO_Order` | OCPM 3.1 §3.2 | Def. 9, Fig. 6 |
-| `all_global_executions` | OCPM 3.1 §4 | Fig. 7 |
-| `notion_Order_Payment`, `notion_Order_Invoice`, `notion_Payment_Invoice`, `notion_Order_Order` | OCPM 3.1 §4.1–4.5 | Fig. 8, Fig. 9 |
-| `start_case_Order` | OCPM 3.3 §6.2 (first query) | Def. 10, Fig. 10 |
-| `start_case_Order_noSO` | OCPM 3.3 §6.2 (filtered) | Def. 11, Fig. 11 |
-| `end_case_Order` | OCPM 3.3 §6.3 (first query) | Def. 10 |
-| `end_case_Order_noSO` | OCPM 3.3 §6.3 (filtered) | Fig. 12 |
+| name                                                                                           | source                      | paper reference             |
+| ---------------------------------------------------------------------------------------------- | --------------------------- | --------------------------- |
+| `exec_A_O1`                                                                                    | OCPM 3.1 §2.2/2.3           | Fig. 5, D[e3→e28] / D[A→O1] |
+| `notion_SO_Order`                                                                              | OCPM 3.1 §3.2               | Def. 9, Fig. 6              |
+| `all_global_executions`                                                                        | OCPM 3.1 §4                 | Fig. 7                      |
+| `notion_Order_Payment`, `notion_Order_Invoice`, `notion_Payment_Invoice`, `notion_Order_Order` | OCPM 3.1 §4.1–4.5           | Fig. 8, Fig. 9              |
+| `start_case_Order`                                                                             | OCPM 3.3 §6.2 (first query) | Def. 10, Fig. 10            |
+| `start_case_Order_noSO`                                                                        | OCPM 3.3 §6.2 (filtered)    | Def. 11, Fig. 11            |
+| `end_case_Order`                                                                               | OCPM 3.3 §6.3 (first query) | Def. 10                     |
+| `end_case_Order_noSO`                                                                          | OCPM 3.3 §6.3 (filtered)    | Fig. 12                     |
 
 Also time each query (5 runs, mean and std) → `results/r1/runtimes.csv`.
 
 Optional (if time): OCPM 3.2 activity variants and object variants → `results/r1/variants.json`.
 
-## Step 5 – Claim check (`r1_neo4j/04_check_claims.py`)
+## Step 5 – Claim check (`replication/04_check_claims.py`)
 
 Encode the paper's claims as checks against the saved JSON and write `results/r1/claims_table.md` with columns: `#`, `claim`, `paper (section/figure)`, `expected`, `observed`, `match (yes/no/partial)`, `note`.
 
@@ -100,21 +100,21 @@ Claims from the paper:
 13. D[Order→∗ \ {SupplierOrder}] (Fig. 11): two cases starting in Create Order, invoices of both cleared by the same payment.
 14. D[∗→Order \ {SupplierOrder}] (Fig. 12): contains no Invoice or Payment events; both cases depend on the Receive SO events.
 
-For each claim also note whether the query matches the paper's *definition* or only its *figure* (e.g. Def. 10 restricts end objects to global ends, the tutorial query in OCPM 3.3 §6.2 accepts any `:END` event). Do not resolve these differences in R1 — only record them; R2 will test them.
+For each claim also note whether the query matches the paper's _definition_ or only its _figure_ (e.g. Def. 10 restricts end objects to global ends, the tutorial query in OCPM 3.3 §6.2 accepts any `:END` event). Do not resolve these differences in R1 — only record them; R2 will test them.
 
 ## Step 6 – Figures
 
-Write the Neo4j Browser queries that reproduce Fig. 4–12 into `r1_neo4j/queries/figures.cypher` (one block per figure, commented with the figure number). I will take the screenshots manually and save them as `results/r1/figures/fig<N>.png`.
+Write the Neo4j Browser queries that reproduce Fig. 4–12 into `replication/queries/figures.cypher` (one block per figure, commented with the figure number). I will take the screenshots manually and save them as `results/r1/figures/fig<N>.png`.
 
 ## Step 7 – Documentation
 
-- `r1_neo4j/README.md`: exact steps to rerun R1 from a clean machine (versions, env vars, import folder, script order, expected runtime).
+- `replication/README.md`: exact steps to rerun R1 from a clean machine (versions, env vars, import folder, script order, expected runtime).
 - `docs/r1_log.md`: dated log of everything that did not work as described, what we changed, and why. This becomes the "Experiment execution" section of the report.
 - `results/r1/environment.json`: Neo4j version, APOC version, Python version, neo4j driver version, OS.
 
 ## Definition of done
 
-- `python r1_neo4j/01_build_ekg.py && python r1_neo4j/02_materialize.py && python r1_neo4j/03_executions.py && python r1_neo4j/04_check_claims.py` runs end-to-end on a fresh DB.
+- `python replication/01_build_ekg.py && python replication/02_materialize.py && python replication/03_executions.py && python replication/04_check_claims.py` runs end-to-end on a fresh DB.
 - `results/r1/claims_table.md` has a row for each of the 14 claims with an observed value.
 - `docs/r1_log.md` lists all deviations.
 - Everything committed and pushed.
