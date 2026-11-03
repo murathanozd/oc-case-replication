@@ -23,6 +23,7 @@ def main():
     try:
         runner = Runner(driver, verbose=False)
         [dbms] = runner.run("CALL dbms.components() YIELD name, versions, edition "
+                            "WHERE name = 'Neo4j Kernel' "
                             "RETURN name, versions[0] AS version, edition")
         [apoc] = runner.run("RETURN apoc.version() AS version")
     finally:
