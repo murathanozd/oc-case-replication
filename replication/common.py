@@ -5,12 +5,11 @@ import os
 from pathlib import Path
 
 from neo4j import GraphDatabase
+from dataset_config import DATASETS
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-R1_DIR = REPO_ROOT / "r1_neo4j"
+R1_DIR = REPO_ROOT / "replication"
 QUERY_DIR = R1_DIR / "queries"
-RESULTS_DIR = REPO_ROOT / "results" / "r1"
-
 
 def load_dotenv(path=REPO_ROOT / ".env"):
     """Minimal .env reader (KEY=VALUE lines). Real environment variables take precedence."""
@@ -23,8 +22,11 @@ def load_dotenv(path=REPO_ROOT / ".env"):
         key, value = line.split("=", 1)
         os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
 
-
 load_dotenv()
+
+DATASET = os.environ.get("DATASET", "ocel_scientific_publications")  # CHANGE DATASET HERE
+CFG = DATASETS[DATASET]
+RESULTS_DIR = REPO_ROOT / "results" / DATASET
 
 NEO4J_URI = os.environ.get("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.environ.get("NEO4J_USER", "neo4j")

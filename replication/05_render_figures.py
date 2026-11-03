@@ -20,7 +20,7 @@ Layout ("object lanes"):
     an execution lies on such a path).
   * start / end events of the execution are drawn with a black ring.
 
-Run from the repository root:  python r1_neo4j/05_render_figures.py
+Run from the repository root:  python replication/05_render_figures.py
 Writes PDF (for LaTeX) and PNG (for quick viewing) to results/r1/figures/.
 """
 
@@ -37,9 +37,11 @@ import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.lines import Line2D  # noqa: E402
 from matplotlib.transforms import offset_copy  # noqa: E402
 
+from common import DATASET
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "running_example" / "order_process_event_table_orderhandling.csv"
-RES = ROOT / "results" / "r1"
+RES = ROOT / "results" / "running_example"
 OUT = RES / "figures"
 
 TYPES = ["Order", "Supplier Order", "Item", "Invoice", "Payment"]
@@ -245,6 +247,10 @@ def fig7(execs):
 
 # ---------------------------------------------------------------------- main
 if __name__ == "__main__":
+    if DATASET != "running_example":
+        print("Skipping paper figures: they are defined only for the running_example dataset.")
+        raise SystemExit(0)
+
     EV, CORR, OTYPE = load_events()
     DF = load_df()
 
