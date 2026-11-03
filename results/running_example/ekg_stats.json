@@ -1,0 +1,65 @@
+{
+  "events": 21,
+  "events_ok": true,
+  "entities": 12,
+  "entities_ok": true,
+  "entities_by_type": {
+    "Invoice": [
+      "I1",
+      "I2"
+    ],
+    "Item": [
+      "X1",
+      "X2",
+      "X3",
+      "Y1",
+      "Y2"
+    ],
+    "Order": [
+      "O1",
+      "O2"
+    ],
+    "Payment": [
+      "P1"
+    ],
+    "Supplier Order": [
+      "A",
+      "B"
+    ]
+  },
+  "corr": 41,
+  "corr_by_type": {
+    "Invoice": 5,
+    "Item": 15,
+    "Order": 9,
+    "Payment": 2,
+    "Supplier Order": 10
+  },
+  "df": 29,
+  "df_by_type": {
+    "Invoice": 3,
+    "Item": 10,
+    "Order": 7,
+    "Payment": 1,
+    "Supplier Order": 8
+  },
+  "distinct_timestamps": 21,
+  "timestamp_ties": [],
+  "prepared_csv_identical_to_authors": true,
+  "server_notifications": [
+    {
+      "gql_status": "01N00",
+      "classification": "DEPRECATION",
+      "severity": "WARNING",
+      "description": "warn: feature deprecated. CALL subquery without a variable scope clause is deprecated. Use CALL () { ... }",
+      "query": "CALL {LOAD CSV WITH HEADERS FROM \"file:///order_process_event_table_orderhandling_prepared.csv\" as line CREATE (e:Event { Log: \"order_process\", EventID: line.EventID, Activity: line.Activity, timestam"
+    },
+    {
+      "gql_status": "01N01",
+      "classification": "DEPRECATION",
+      "severity": "WARNING",
+      "description": "warn: feature deprecated with replacement. id is deprecated. It is replaced by elementId or consider using an application-generated id.",
+      "query": "MATCH (n:Entity) MATCH (n)<-[:CORR]-(e) WITH n, e AS nodes ORDER BY e.timestamp, ID(e) WITH n, collect(nodes) AS event_node_list UNWIND range(0, size(event_node_list)-2) AS i WITH n, event_node_list[i"
+    }
+  ]
+}

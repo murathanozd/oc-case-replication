@@ -1,0 +1,281 @@
+{
+  "query_file": "replication/queries/executions/start_case_Order_noSO.cypher",
+  "source": "OCPM 3.3 \u00a76.2 (excl. Supplier Order)",
+  "columns": [
+    "execution"
+  ],
+  "rows": [
+    {
+      "execution": [
+        {
+          "df": [
+            {
+              "EntityType": "Invoice",
+              "ID": "I1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e1",
+            "e18",
+            "e30"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Invoice",
+              "ID": "I1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e1",
+            "e18",
+            "e30"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Invoice",
+              "ID": "I1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e1",
+            "e18",
+            "e30"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e1",
+            "e18",
+            "e27",
+            "e28"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e1",
+            "e18",
+            "e27"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e1",
+            "e18",
+            "e27"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O1"
+            }
+          ],
+          "path": [
+            "e1",
+            "e18",
+            "e27"
+          ]
+        }
+      ]
+    },
+    {
+      "execution": [
+        {
+          "df": [
+            {
+              "EntityType": "Invoice",
+              "ID": "I2"
+            },
+            {
+              "EntityType": "Invoice",
+              "ID": "I2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            }
+          ],
+          "path": [
+            "e2",
+            "e5",
+            "e9",
+            "e30"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Invoice",
+              "ID": "I2"
+            },
+            {
+              "EntityType": "Invoice",
+              "ID": "I2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            }
+          ],
+          "path": [
+            "e2",
+            "e5",
+            "e9",
+            "e30"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Invoice",
+              "ID": "I2"
+            },
+            {
+              "EntityType": "Invoice",
+              "ID": "I2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            }
+          ],
+          "path": [
+            "e2",
+            "e5",
+            "e9",
+            "e30"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            }
+          ],
+          "path": [
+            "e2",
+            "e5",
+            "e7",
+            "e33",
+            "e34"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            }
+          ],
+          "path": [
+            "e2",
+            "e5",
+            "e7",
+            "e33"
+          ]
+        },
+        {
+          "df": [
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            },
+            {
+              "EntityType": "Order",
+              "ID": "O2"
+            }
+          ],
+          "path": [
+            "e2",
+            "e5",
+            "e7",
+            "e33"
+          ]
+        }
+      ]
+    }
+  ],
+  "note": "rows (and lists inside rows) sorted by us; the queries define no order",
+  "write_counters": {},
+  "notifications": []
+}

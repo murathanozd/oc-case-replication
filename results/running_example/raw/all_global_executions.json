@@ -1,0 +1,14 @@
+{
+  "query_file": "replication/queries/executions/all_global_executions.cypher",
+  "source": "OCPM 3.1 \u00a74 (materialize)",
+  "columns": [],
+  "rows": [],
+  "note": "rows (and lists inside rows) sorted by us; the queries define no order",
+  "write_counters": {
+    "labels_added": 13,
+    "relationships_created": 109,
+    "nodes_created": 13,
+    "properties_set": 13
+  },
+  "notifications": []
+}
