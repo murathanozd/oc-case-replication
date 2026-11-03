@@ -1,0 +1,23 @@
+{
+  "neo4j": {
+    "name": "Neo4j Kernel",
+    "version": "2026.09.0",
+    "edition": "enterprise"
+  },
+  "apoc": "2026.09.0",
+  "python": "3.13.12",
+  "packages": {
+    "neo4j": "6.4.0",
+    "pandas": "3.0.0",
+    "numpy": "2.4.2",
+    "networkx": "3.6.1",
+    "matplotlib": "3.10.8",
+    "pm4py": "2.7.19.8"
+  },
+  "os": {
+    "system": "Windows",
+    "macos": null,
+    "kernel": "11",
+    "machine": "AMD64"
+  }
+}
