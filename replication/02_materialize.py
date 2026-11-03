@@ -11,7 +11,7 @@ import csv
 import json
 import sys
 
-from common import RESULTS_DIR, Runner, get_driver, load_cypher
+from common import DATASET, RESULTS_DIR, Runner, get_driver, load_cypher
 
 # Directed relations listed in tutorial-ocpm-relations.md, Sect. 3 (n1.ID, n2.ID)
 TUTORIAL_REL = {
@@ -26,7 +26,7 @@ def main():
     try:
         runner = Runner(driver)
         if runner.run("MATCH (e:Event) RETURN count(e) AS n")[0]["n"] == 0:
-            raise SystemExit("No :Event nodes - run r1_neo4j/01_build_ekg.py first.")
+            raise SystemExit("No :Event nodes - run replication/01_build_ekg.py first.")
 
         for q in load_cypher("materialize/00_reset"):
             runner.run(q)
@@ -63,12 +63,12 @@ def main():
     }
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    with open(RESULTS_DIR / "rel_edges.csv", "w", newline="") as f:
+    with open(RESULTS_DIR / "rel_edges.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["n1", "type1", "t1", "n2", "type2", "t2"])
         for r in rel:
             w.writerow([r["n1"], r["type1"], r["t1"], r["n2"], r["type2"], r["t2"]])
-    with open(RESULTS_DIR / "start_end.csv", "w", newline="") as f:
+    with open(RESULTS_DIR / "start_end.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["object", "type", "start_event", "end_event", "n_start", "n_end"])
         for r in start_end:
@@ -90,7 +90,8 @@ def main():
     print("Objects with != 1 start or end event: "
           + (", ".join(f"{r['object']} (starts {r['starts']}, ends {r['ends']})" for r in multi) if multi else "none"))
     print(f"\nWrote rel_edges.csv, start_end.csv, materialize_stats.json to {RESULTS_DIR}")
-    return 0 if stats["rel_equals_tutorial_table"] else 1
+    
+    return 0 if (DATASET != "running_example" or stats["rel_equals_tutorial_table"]) else 1
 
 
 if __name__ == "__main__":
