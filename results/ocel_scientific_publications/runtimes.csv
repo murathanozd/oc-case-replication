@@ -1,0 +1,3 @@
+name,source,rows,runs,warmup_runs,same_output_every_run,client_median_ms,client_q1_ms,client_q3_ms,client_min_ms,client_mean_ms,client_std_ms,server_median_ms,server_q1_ms,server_q3_ms,server_min_ms,server_mean_ms,server_std_ms,client_runs_ms
+all_global_executions_reach,"ours, same result as OCPM 3.1 §4 (materialize)",0,5,1,True,85694.71,85073.68,87823.22,84600.59,86297.7,1508.13,85690,85070.5,87818.5,84598,86293.6,1507.17,87259.43;85694.71;84600.59;88387.01;85546.78
+all_global_executions_view,view,4838,5,1,True,377.75,353.27,386.43,351.59,371.43,17.05,35,33.0,50.0,33,40.2,11.88,377.75;354.94;351.59;384.50;388.37

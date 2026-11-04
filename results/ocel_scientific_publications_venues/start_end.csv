@@ -1,0 +1,210 @@
+object,type,start_event,end_event,n_start,n_end
+Aachen,City,e796,e1524,1,1
+Amantea,City,e1054,e1055,1,1
+Amsterdam,City,e610,e614,1,1
+Astana,City,e1697,e1699,1,1
+Athens,City,e1234,e1235,1,1
+Barcelona,City,e1785,e1789,1,1
+Beijing,City,e884,e885,1,1
+Beni Mellal,City,e1290,e1291,1,1
+Bled,City,e1532,e1533,1,1
+Bolzano,City,e1818,e1828,1,1
+Brisbane,City,e604,e605,1,1
+Calabria,City,e1122,e1123,1,1
+Campione d'Italia,City,e783,e874,1,1
+Campobasso,City,e1383,e1385,1,1
+Colorado Springs,City,e1596,e1597,1,1
+Copenhagen,City,e2080,e2083,1,1
+Corfu,City,e1910,e1912,1,1
+Dubai,City,e1620,e1621,1,1
+Dublin,City,e2149,e2153,1,1
+Eindhoven,City,e1710,e1714,1,1
+Enschede,City,e693,e694,1,1
+Essen,City,e1308,e1309,1,1
+Florence,City,e1922,e1926,1,1
+Funchal,City,e509,e510,1,1
+Graz,City,e1236,e1237,1,1
+Grenoble,City,e1595,e1598,1,1
+Guimarães,City,e2039,e2040,1,1
+Hammamet,City,e684,e685,1,1
+Helsinki,City,e791,e795,1,1
+Heraklion,City,e1509,e1510,1,1
+Istanbul,City,e2160,e2161,1,1
+Kazan,City,e803,e804,1,1
+Krakow,City,e2070,e2071,1,1
+Limassol,City,e1151,e2048,1,1
+Lisbon,City,e1965,e1966,1,1
+Ljubljana,City,e1212,e1214,1,1
+London,City,e781,e782,1,1
+Lugano,City,e800,e802,1,1
+Luxor,City,e537,e539,1,1
+Madrid,City,e1302,e1434,1,1
+Melbourne,City,e1679,e1680,1,1
+Milano,City,e1058,e1059,1,1
+Münster,City,e1811,e1812,1,1
+Nanjing,City,e1036,e1038,1,1
+Nantes,City,e1405,e1406,1,1
+Nice,City,e1430,e1431,1,1
+Online,City,e1843,e1844,1,1
+Oslo,City,e808,e1535,1,1
+Paris,City,e764,e966,1,1
+Pohang,City,e1436,e1437,1,1
+Poznan,City,e606,e607,1,1
+Poznań,City,e2155,e2156,1,1
+Rennes,City,e1780,e1781,1,1
+Rhodes,City,e1538,e1539,1,1
+Riga,City,e986,e987,1,1
+Riva del Garda,City,e979,e980,1,1
+Rome,City,e1414,e1971,1,1
+Santiago de Compostela,City,e2085,e2086,1,1
+Seattle,City,e1415,e1419,1,1
+Seville,City,e1449,e2173,1,1
+Singapore (City),City,e960,e1974,1,1
+St. John's,City,e1708,e1709,1,1
+Stockholm,City,e1126,e1439,1,1
+Tallinn,City,e862,e1411,1,1
+Tartu,City,e1134,e1137,1,1
+Thessaloniki,City,e1040,e1041,1,1
+Torino,City,e1048,e1050,1,1
+Tunis,City,e2092,e2093,1,1
+Utrecht,City,e1943,e1948,1,1
+Vancouver,City,e982,e983,1,1
+Vienna,City,e1152,e2074,1,1
+Vilnius,City,e868,e870,1,1
+Wadern,City,e969,e972,1,1
+Zaragoza,City,e1917,e1918,1,1
+ACSD 2019,Conference,e1492,e1523,1,1
+ADBIS 2019,Conference,e1505,e1533,1,1
+BDC 2015,Conference,e1130,e1153,1,1
+BIOSTEC 2008,Conference,e419,e510,1,1
+BIR 2015,Conference,e1119,e1137,1,1
+BIS 2009,Conference,e535,e607,1,1
+BIS 2012,Conference,e855,e870,1,1
+BIS 2020,Conference,e1548,e1597,1,1
+BIS 2025,Conference,e2119,e2156,1,1
+BPM 2021,Conference,e1655,e1698,1,1
+BPM 2022,Conference,e1772,e1812,1,1
+BPM 2023,Conference,e1894,e1948,1,1
+BPM 2024,Conference,e2022,e2071,1,1
+BPM 2025,Conference,e2128,e2173,1,1
+BPMDS 2009,Conference,e594,e613,1,1
+BPMDS 2015,Conference,e1113,e1127,1,1
+BPMDS 2016,Conference,e1201,e1213,1,1
+BPMDS 2017,Conference,e1279,e1309,1,1
+BPMDS 2021,Conference,e1660,e1680,1,1
+BPMDS 2023,Conference,e1892,e1918,1,1
+BPMDS 2024,Conference,e2021,e2129,1,1
+CAiSE 2009,Conference,e530,e614,1,1
+CAiSE 2010,Conference,e632,e685,1,1
+CAiSE 2011,Conference,e699,e782,1,1
+CAiSE 2014,Conference,e989,e1041,1,1
+CAiSE 2015,Conference,e1061,e1129,1,1
+CAiSE 2016,Conference,e1148,e1214,1,1
+CAiSE 2018,Conference,e1323,e1411,1,1
+CAiSE 2020,Conference,e1542,e1598,1,1
+CAiSE 2024,Conference,e1970,e2048,1,1
+CBI 2017,Conference,e1272,e1291,1,1
+CCGRID 2017,Conference,e1231,e1303,1,1
+CIDM 2011,Conference,e697,e765,1,1
+CIDM 2013,Conference,e887,e961,1,1
+CONCUR 2011,Conference,e760,e799,1,1
+CSCWD 2015,Conference,e1060,e1123,1,1
+CoopIS 2022,Conference,e1791,e1820,1,1
+CoopIS 2023,Conference,e1924,e1964,1,1
+DASFAA 2009,Conference,e525,e605,1,1
+ECAI 2024,Conference,e2034,e2086,1,1
+ECMS 2023,Conference,e1890,e1926,1,1
+ECOWS 2011,Conference,e766,e802,1,1
+EDOC 2011,Conference,e757,e795,1,1
+EDOC 2012,Conference,e859,e885,1,1
+EDOC 2013,Conference,e959,e983,1,1
+EDOC 2018,Conference,e1399,e1439,1,1
+EDOC 2022,Conference,e1788,e1821,1,1
+EDOC 2024,Conference,e2035,e2074,1,1
+EMNLP 2023,Conference,e1920,e1974,1,1
+ENASE 2019,Conference,e1448,e1510,1,1
+ER 2021,Conference,e1664,e1709,1,1
+ER 2023,Conference,e1911,e1966,1,1
+ESEM 2014,Conference,e1031,e1050,1,1
+FACS 2018,Conference,e1413,e1437,1,1
+FASE 2012,Conference,e806,e863,1,1
+HCSE 2018,Conference,e1409,e1431,1,1
+ICPM 2021,Conference,e1675,e1714,1,1
+ICPM 2022,Conference,e1793,e1828,1,1
+ICPM 2024,Conference,e2042,e2083,1,1
+ICSME 2018,Conference,e1387,e1434,1,1
+ICSOC 2020,Conference,e1605,e1621,1,1
+ICSOC 2022,Conference,e1799,e1842,1,1
+ICSOC 2023,Conference,e1931,e1971,1,1
+ICSOC 2024,Conference,e2052,e2093,1,1
+ICSSP 2014,Conference,e1024,e1038,1,1
+ICSSP 2015,Conference,e1132,e1135,1,1
+ICT4S 2025,Conference,e2124,e2153,1,1
+ICTAC 2021,Conference,e1670,e1699,1,1
+ICWS 2018,Conference,e1382,e1419,1,1
+IDA 2022,Conference,e1715,e1781,1,1
+IE 2018,Conference,e1373,e1416,1,1
+INFUS 2025,Conference,e2126,e2161,1,1
+ISDA 2022,Conference,e1817,e1844,1,1
+ODBASE 2014,Conference,e1039,e1055,1,1
+ODBASE 2019,Conference,e1525,e1539,1,1
+OPODIS 2008,Conference,e517,e539,1,1
+PaCT 2011,Conference,e754,e804,1,1
+Petri Nets 2019,Conference,e1493,e1524,1,1
+PoEM 2011,Conference,e785,e809,1,1
+PoEM 2013,Conference,e971,e987,1,1
+RCIS 2013,Conference,e948,e966,1,1
+RCIS 2018,Conference,e1376,e1406,1,1
+RCIS 2020,Conference,e1581,e1594,1,1
+RCIS 2021,Conference,e1649,e1671,1,1
+RCIS 2022,Conference,e1759,e1789,1,1
+RCIS 2023,Conference,e1888,e1912,1,1
+RCIS 2024,Conference,e2017,e2040,1,1
+RCIS 2025,Conference,e2120,e2146,1,1
+SANER 2018,Conference,e1319,e1385,1,1
+SEFM 2019,Conference,e1512,e1535,1,1
+SIMPDA 2011,Conference,e773,e786,1,1
+SIMPDA 2012,Conference,e864,e874,1,1
+SIMPDA 2013,Conference,e967,e980,1,1
+SIMPDA 2014,Conference,e1051,e1059,1,1
+SIMPDA 2015,Conference,e1140,e1154,1,1
+SIMPDA 2016,Conference,e1230,e1277,1,1
+SIMPDA 2018,Conference,e1435,e1450,1,1
+SPIN 2010,Conference,e678,e694,1,1
+SSCI 2016,Conference,e1216,e1235,1,1
+WESOACS 2022,Conference,e1816,e1839,1,1
+eBISS 2013,Conference,e955,e972,1,1
+Australia,Country,e604,e1680,1,1
+Austria,Country,e1152,e2074,1,1
+Canada,Country,e982,e1709,1,1
+China,Country,e884,e1038,1,1
+Cyprus,Country,e1151,e2048,1,1
+Denmark,Country,e2080,e2083,1,1
+Egypt,Country,e537,e539,1,1
+Estonia,Country,e862,e1411,1,1
+Finland,Country,e791,e795,1,1
+France,Country,e764,e1781,1,1
+Germany,Country,e796,e1812,1,1
+Greece,Country,e1040,e1912,1,1
+Ireland,Country,e2149,e2153,1,1
+Italy,Country,e783,e1971,1,1
+Kazakhstan,Country,e1697,e1699,1,1
+Korea,Country,e1436,e1437,1,1
+Latvia,Country,e986,e987,1,1
+Lithuania,Country,e868,e870,1,1
+Morocco,Country,e1290,e1291,1,1
+Norway,Country,e808,e1535,1,1
+Poland,Country,e606,e2156,1,1
+Portugal,Country,e509,e2040,1,1
+Russia,Country,e803,e804,1,1
+Singapore (Country),Country,e960,e1974,1,1
+Slovenia,Country,e1212,e1533,1,1
+Spain,Country,e1302,e2173,1,1
+Sweden,Country,e1126,e1439,1,1
+Switzerland,Country,e800,e802,1,1
+The Netherlands,Country,e610,e1964,1,1
+Tunisia,Country,e684,e2093,1,1
+Turkey,Country,e2160,e2161,1,1
+USA,Country,e1415,e1597,1,1
+United Arab Emirates,Country,e1620,e1621,1,1
+United Kingdom,Country,e781,e782,1,1
