@@ -64,7 +64,8 @@ def prepare_log(input_file, output_path, file_name):
     logSamples['timestamp'] = logSamples['timestamp'].map(
         lambda x: x.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3]
         + (x.strftime('%z') if x.tzinfo is not None else '+0100'))
-    logSamples.sort_values(['timestamp'], inplace=True)
+    # stable (ours): the default sort may order rows with equal timestamps differently per platform
+    logSamples.sort_values(['timestamp'], inplace=True, kind='stable')
 
     os.makedirs(output_path, exist_ok=True)
     logSamples.to_csv(os.path.join(output_path, file_name), index=False)
