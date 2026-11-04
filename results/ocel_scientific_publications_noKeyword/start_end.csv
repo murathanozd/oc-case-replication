@@ -34,7 +34,7 @@ Kazan,City,e803,e804,1,1
 Krakow,City,e2070,e2071,1,1
 Limassol,City,e1151,e2048,1,1
 Lisbon,City,e1965,e1966,1,1
-Ljubljana,City,e1212,e1214,1,1
+Ljubljana,City,e1211,e1214,1,1
 London,City,e781,e782,1,1
 Lugano,City,e800,e802,1,1
 Luxor,City,e537,e539,1,1
@@ -198,7 +198,7 @@ Poland,Country,e606,e2156,1,1
 Portugal,Country,e509,e2040,1,1
 Russia,Country,e803,e804,1,1
 Singapore (Country),Country,e960,e1974,1,1
-Slovenia,Country,e1212,e1533,1,1
+Slovenia,Country,e1211,e1533,1,1
 Spain,Country,e1302,e2173,1,1
 Sweden,Country,e1126,e1439,1,1
 Switzerland,Country,e800,e802,1,1
@@ -1878,20 +1878,20 @@ W97522753,Paper,e263,e263,1,1
 W98533621,Paper,e63,e63,1,1
 A Ton Valstar,Researcher,e28,e28,1,1
 A. H. Cordes,Researcher,e2157,e2157,1,1
-A. Hirnschall,Researcher,e139,e128,1,1
+A. Hirnschall,Researcher,e128,e139,1,1
 A. J. M. M. Weijters,Researcher,e519,e519,1,1
 A. Johannes Pretorius,Researcher,e375,e533,1,1
-A. Rozinat,Researcher,e256,e1003,1,1
-A. Savchenko,Researcher,e1329,e1627,1,1
+A. Rozinat,Researcher,e242,e1003,1,1
+A. Savchenko,Researcher,e1329,e1635,1,1
 A. Valstar,Researcher,e27,e27,1,1
 A. W. Waltmans,Researcher,e2,e5,1,1
 A.J. Moleman,Researcher,e658,e658,1,1
-A.J.M.M. Weijters,Researcher,e107,e976,1,1
+A.J.M.M. Weijters,Researcher,e102,e976,1,1
 A.T.M. Aerts,Researcher,e32,e32,1,1
 AJ Arjan Mooij,Researcher,e923,e923,1,1
 Aarnout Brombacher,Researcher,e444,e522,1,1
 Aaron Küsters,Researcher,e1823,e2173,1,1
-Abderrahmane Maaradji,Researcher,e1268,e1241,1,1
+Abderrahmane Maaradji,Researcher,e1241,e1268,1,1
 Abdurrahman Alshareef,Researcher,e651,e1136,1,1
 Abel Armas-Cervantes Luciano,Researcher,e1518,e1518,1,1
 Adam Burke,Researcher,e1795,e2031,1,1
@@ -1911,9 +1911,9 @@ Alessandro Pepino,Researcher,e998,e998,1,1
 Alessandro Sperduti,Researcher,e853,e1528,1,1
 Alessandro Stefanini,Researcher,e1763,e1763,1,1
 Alexander Ageev,Researcher,e1351,e1351,1,1
-Alexander Dreiling,Researcher,e249,e770,1,1
-Alexander Panchenko,Researcher,e1329,e1627,1,1
-Alexander Ponomarev,Researcher,e1477,e1583,1,1
+Alexander Dreiling,Researcher,e226,e770,1,1
+Alexander Panchenko,Researcher,e1329,e1635,1,1
+Alexander Ponomarev,Researcher,e1470,e1583,1,1
 Alexander Schnitzler,Researcher,e1623,e1688,1,1
 Alexander Serebrenik,Researcher,e392,e538,1,1
 Alexandre Goossens,Researcher,e1756,e1864,1,1
@@ -1922,38 +1922,38 @@ Alfred Kobsa,Researcher,e492,e492,1,1
 Alfredo Bolt,Researcher,e1069,e1536,1,1
 Ali Norouzifar,Researcher,e1898,e2180,1,1
 Ali Sunyaev,Researcher,e1841,e1841,1,1
-Alifah Syamsiyah,Researcher,e1180,e1350,1,1
+Alifah Syamsiyah,Researcher,e1164,e1365,1,1
 Alisa Kovtunova,Researcher,e1486,e1486,1,1
 Alistair Barros,Researcher,e80,e1301,1,1
-Amedeo Napoli,Researcher,e1329,e1627,1,1
+Amedeo Napoli,Researcher,e1329,e1635,1,1
 Amin Farhang,Researcher,e1550,e1550,1,1
 Amit Sheth,Researcher,e31,e523,1,1
-An Binh Tran,Researcher,e1477,e1583,1,1
+An Binh Tran,Researcher,e1470,e1583,1,1
 Ana Karla Alves de Medeiros,Researcher,e154,e1003,1,1
 Anahita Farhang Ghahfarokhi,Researcher,e1555,e2118,1,1
 Anastasiia Pika,Researcher,e892,e1586,1,1
-Andrea Burattin,Researcher,e853,e1763,1,1
+Andrea Burattin,Researcher,e843,e1763,1,1
 Andrea Delgado,Researcher,e2084,e2084,1,1
 Andreas Fritsch,Researcher,e2138,e2150,1,1
 Andreas Gützlaff,Researcher,e1579,e1579,1,1
 Andreas Meister,Researcher,e2118,e2118,1,1
-Andreas Oberweis,Researcher,e92,e82,1,1
-Andreas Solti,Researcher,e936,e1592,1,1
+Andreas Oberweis,Researcher,e82,e92,1,1
+Andreas Solti,Researcher,e915,e1592,1,1
 Andreas Wombacher,Researcher,e521,e521,1,1
 Andreas Wortmann,Researcher,e1703,e1768,1,1
 Andrei Yakovlev,Researcher,e944,e944,1,1
 Andrew Pery,Researcher,e1692,e1725,1,1
-Andrey Kutuzov,Researcher,e1558,e1627,1,1
+Andrey Kutuzov,Researcher,e1558,e1635,1,1
 Andriy Nikolov,Researcher,e366,e556,1,1
-Andrés Felipe Posada-Moreno,Researcher,e1870,e1976,1,1
+Andrés Felipe Posada-Moreno,Researcher,e1863,e1976,1,1
 Angelina Prima Kurniati,Researcher,e1763,e1763,1,1
 Angelique Brosens-Kessels,Researcher,e1412,e1452,1,1
 Angelique Koopman,Researcher,e1141,e1141,1,1
 Anja F. Syring,Researcher,e1481,e1530,1,1
 Anna Cavallini,Researcher,e494,e494,1,1
-Anna Kalenkova,Researcher,e1008,e1627,1,1
+Anna Kalenkova,Researcher,e1004,e1627,1,1
 Annalisa Appice,Researcher,e1787,e1787,1,1
-Antal van den Bosch,Researcher,e104,e343,1,1
+Antal van den Bosch,Researcher,e102,e343,1,1
 Anthony J. Grasso,Researcher,e262,e262,1,1
 Antoine van den Beemt,Researcher,e1445,e1445,1,1
 Anton Antonov,Researcher,e2075,e2172,1,1
@@ -1963,7 +1963,7 @@ Aparna Joshi,Researcher,e1878,e1961,1,1
 Aqeel Ahmed Siddiqui,Researcher,e2111,e2111,1,1
 Arie van Deursen,Researcher,e890,e1065,1,1
 Arik Senderovich,Researcher,e1176,e1176,1,1
-Ario Santoso,Researcher,e1357,e1343,1,1
+Ario Santoso,Researcher,e1343,e1357,1,1
 Arjan J. Mooij,Researcher,e553,e984,1,1
 Armin Heinzl,Researcher,e1208,e1447,1,1
 Armin Stein,Researcher,e1592,e1592,1,1
@@ -1972,16 +1972,16 @@ Artale Alessandro,Researcher,e1459,e1459,1,1
 Artem Polyvyanyy,Researcher,e1189,e2090,1,1
 Arthur H. M. ter Hofstede,Researcher,e51,e2031,1,1
 Arthur H.M.,Researcher,e462,e462,1,1
-Arya Adriansyah,Researcher,e730,e1027,1,1
+Arya Adriansyah,Researcher,e719,e1027,1,1
 Autilia Vitiello,Researcher,e1295,e1295,1,1
-Avigdor Gal,Researcher,e207,e1380,1,1
+Avigdor Gal,Researcher,e194,e1380,1,1
 Avishai Mandelbaum,Researcher,e1176,e1176,1,1
 Aylin Koca,Researcher,e444,e522,1,1
 Azzurra Pini,Researcher,e1238,e1300,1,1
 B. R. T. M. Witlox,Researcher,e91,e91,1,1
 Banja Luka,Researcher,e845,e845,1,1
 Barbara Hammer,Researcher,e705,e705,1,1
-Barbara Weber,Researcher,e492,e2060,1,1
+Barbara Weber,Researcher,e472,e2060,1,1
 Barry Norton,Researcher,e365,e365,1,1
 Bart F. A. Hompes,Researcher,e1053,e1612,1,1
 Bart Jacobs,Researcher,e890,e890,1,1
@@ -2008,7 +2008,7 @@ Cameron Pitsch,Researcher,e1823,e1902,1,1
 Carlos Fernández-Llatas,Researcher,e1763,e1763,1,1
 Carlos Pedrinaci,Researcher,e365,e464,1,1
 Carlotta Domeniconi,Researcher,e705,e705,1,1
-Carmen Bratosin,Researcher,e407,e804,1,1
+Carmen Bratosin,Researcher,e370,e804,1,1
 Carsten Hentrich,Researcher,e288,e288,1,1
 Caspar Mensing,Researcher,e2099,e2099,1,1
 Casper Stoel,Researcher,e853,e853,1,1
@@ -2021,38 +2021,38 @@ Chiara Ghidini,Researcher,e1265,e1906,1,1
 Chris Hinde,Researcher,e705,e705,1,1
 Chrismarie Enslin,Researcher,e1851,e1978,1,1
 Christian Bartelheimer,Researcher,e1592,e1592,1,1
-Christian Brecher,Researcher,e1643,e1976,1,1
+Christian Brecher,Researcher,e1643,e1979,1,1
 Christian Hopmann,Researcher,e1851,e1978,1,1
 Christian Huemer,Researcher,e1219,e1219,1,1
 Christian Kohlschmidt,Researcher,e1795,e1880,1,1
 Christian Peukert,Researcher,e1684,e1804,1,1
 Christian Pichler,Researcher,e729,e1219,1,1
 Christian Rennert,Researcher,e1983,e2178,1,1
-Christian Stahl,Researcher,e410,e1052,1,1
+Christian Stahl,Researcher,e364,e1052,1,1
 Christian W. Günther,Researcher,e254,e1295,1,1
 Christina Rensinghof,Researcher,e1518,e1518,1,1
 Christine Dobbert,Researcher,e1518,e1518,1,1
 Christof Weinhardt,Researcher,e1447,e2029,1,1
-Christoph Bußler,Researcher,e207,e459,1,1
+Christoph Bußler,Researcher,e194,e459,1,1
 Christoph M. Flath,Researcher,e1893,e2095,1,1
 Christoph Quix,Researcher,e1768,e1980,1,1
-Christopher Klinkmüller,Researcher,e1477,e2087,1,1
-Christopher T. Schwanen,Researcher,e2024,e2101,1,1
+Christopher Klinkmüller,Researcher,e1470,e2087,1,1
+Christopher T. Schwanen,Researcher,e2024,e2116,1,1
 Christopher Turner,Researcher,e853,e853,1,1
 Chun Ouyang,Researcher,e229,e1786,1,1
-Clarence A. Ellis,Researcher,e87,e118,1,1
-Claude Godart,Researcher,e331,e298,1,1
+Clarence A. Ellis,Researcher,e81,e118,1,1
+Claude Godart,Researcher,e298,e332,1,1
 Claudia Diamantini,Researcher,e1099,e1228,1,1
 Claudia Graf,Researcher,e1518,e1518,1,1
 Claudia Wagner,Researcher,e1855,e1963,1,1
 Claudio Di Ciccio,Researcher,e1296,e2084,1,1
 Clemens Szyperski,Researcher,e917,e977,1,1
 Cláudia Bauzer Medeiros,Researcher,e382,e794,1,1
-Colin Fidge,Researcher,e507,e1288,1,1
+Colin Fidge,Researcher,e446,e1288,1,1
 Colin McMillen,Researcher,e584,e584,1,1
 Cong Liu,Researcher,e1224,e1510,1,1
-Constantin Houy,Researcher,e649,e810,1,1
-Constantin Häfner,Researcher,e1870,e1976,1,1
+Constantin Houy,Researcher,e649,e811,1,1
+Constantin Häfner,Researcher,e1863,e1976,1,1
 Cristina Cabanillas,Researcher,e1296,e1380,1,1
 Cristina Mihale-Wilson,Researcher,e1769,e1769,1,1
 Cüneyt Uğur,Researcher,e1957,e2010,1,1
@@ -2068,7 +2068,7 @@ Daniel Tacke Genannt Unterberg,Researcher,e1574,e1574,1,1
 Daniela Grigori,Researcher,e1003,e1003,1,1
 David Benedikt Georgi,Researcher,e1682,e1682,1,1
 David Bolonio,Researcher,e492,e492,1,1
-David Edmond,Researcher,e201,e596,1,1
+David Edmond,Researcher,e200,e596,1,1
 David Hutchison,Researcher,e492,e492,1,1
 David Zang,Researcher,e1572,e1604,1,1
 Davide Aloini,Researcher,e1460,e2050,1,1
@@ -2084,9 +2084,9 @@ Dieter König,Researcher,e364,e364,1,1
 Dimitris Karagiannis,Researcher,e1447,e1447,1,1
 Dina Kretzschmann,Researcher,e1984,e2156,1,1
 Diogo R. Ferreira,Researcher,e705,e853,1,1
-Dirk Fahland,Researcher,e738,e2084,1,1
+Dirk Fahland,Researcher,e714,e2084,1,1
 Dirk Hauschildt,Researcher,e38,e41,1,1
-Dmitry I. Ignatov,Researcher,e1329,e1627,1,1
+Dmitry I. Ignatov,Researcher,e1329,e1635,1,1
 Dolf Grünbauer,Researcher,e221,e221,1,1
 Domenico Potena,Researcher,e1099,e1228,1,1
 Domenico Saccà,Researcher,e448,e1003,1,1
@@ -2103,14 +2103,14 @@ Eduardo Alves Portela Santos,Researcher,e978,e978,1,1
 Eduardo González López de Murillas,Researcher,e1096,e1783,1,1
 Eduardo Goulart Rocha,Researcher,e1873,e2152,1,1
 Edyta Brzychczy,Researcher,e2037,e2037,1,1
-Eike Best,Researcher,e170,e1420,1,1
+Eike Best,Researcher,e161,e1420,1,1
 Ekaterina Vasilyeva,Researcher,e616,e616,1,1
 Ekkart Kindler,Researcher,e50,e529,1,1
 Elena Belkina,Researcher,e1429,e1429,1,1
-Elena Tutubalina,Researcher,e1558,e1627,1,1
-Elham Ramezani,Researcher,e849,e1012,1,1
+Elena Tutubalina,Researcher,e1558,e1635,1,1
+Elham Ramezani,Researcher,e825,e1012,1,1
 Elham Ramezani Taghiabadi,Researcher,e932,e1055,1,1
-Elisa Iacomini,Researcher,e1870,e1976,1,1
+Elisa Iacomini,Researcher,e1863,e1976,1,1
 Elisabetta Benevento,Researcher,e1460,e2050,1,1
 Elsayed A. Elsayed,Researcher,e13,e13,1,1
 Else Markslag,Researcher,e1412,e1452,1,1
@@ -2141,7 +2141,7 @@ Felix Mannhardt,Researcher,e1016,e1763,1,1
 Fernanda Gonzalez-Lopez,Researcher,e1763,e1763,1,1
 Fernando Seoane,Researcher,e1763,e1763,1,1
 Firas Gharbi,Researcher,e1728,e1866,1,1
-Florian Brillowski,Researcher,e1870,e1976,1,1
+Florian Brillowski,Researcher,e1863,e1976,1,1
 Florian Daniel,Researcher,e1296,e1380,1,1
 Florian Gottschalk,Researcher,e235,e614,1,1
 Flávia Maria Santoro,Researcher,e1043,e1592,1,1
@@ -2150,7 +2150,7 @@ Francesco Vinci,Researcher,e2144,e2173,1,1
 Francesco Vitale,Researcher,e2125,e2125,1,1
 Francisco Curbera,Researcher,e239,e853,1,1
 Franco Arcieri,Researcher,e853,e853,1,1
-Frank J.H.M. van den Biggelaar,Researcher,e1186,e1170,1,1
+Frank J.H.M. van den Biggelaar,Researcher,e1170,e1186,1,1
 Frank Leymann,Researcher,e306,e1380,1,1
 Frank T. Piller,Researcher,e1716,e1977,1,1
 Frank van Geffen,Researcher,e853,e853,1,1
@@ -2161,7 +2161,7 @@ Frederik Wangelik,Researcher,e1795,e2142,1,1
 Fredrik Milani,Researcher,e920,e1283,1,1
 Friedemann Mattern,Researcher,e492,e492,1,1
 Frits Vaandrager,Researcher,e938,e938,1,1
-Fábio Bezerra,Researcher,e588,e613,1,1
+Fábio Bezerra,Researcher,e581,e613,1,1
 Félix García,Researcher,e1568,e1568,1,1
 G. Franceschinis,Researcher,e846,e878,1,1
 G. Katzenstein,Researcher,e262,e262,1,1
@@ -2193,9 +2193,9 @@ Guangming Li,Researcher,e1256,e1507,1,1
 Guido Governatori,Researcher,e1296,e1380,1,1
 Guido Schimm,Researcher,e182,e182,1,1
 Guido Wirtz,Researcher,e173,e188,1,1
-Gustaf Neumann,Researcher,e325,e424,1,1
+Gustaf Neumann,Researcher,e290,e424,1,1
 Gyunam Park,Researcher,e1573,e2168,1,1
-Günther Schuh,Researcher,e1579,e1978,1,1
+Günther Schuh,Researcher,e1555,e1979,1,1
 H. Koppelman,Researcher,e32,e32,1,1
 H. M. N. Dilum Bandara,Researcher,e1637,e2087,1,1
 H. M. W. Verbeek,Researcher,e38,e2084,1,1
@@ -2205,7 +2205,7 @@ Haiping Zha,Researcher,e675,e675,1,1
 Hajo A. Reijers,Researcher,e89,e2179,1,1
 Hamid Reza Motahari‐Nezhad,Researcher,e853,e853,1,1
 Hannes Werthner,Researcher,e542,e1219,1,1
-Hans Aoyang Zhou,Researcher,e1870,e1976,1,1
+Hans Aoyang Zhou,Researcher,e1863,e1976,1,1
 Hans Ulrich Buhl,Researcher,e1447,e1447,1,1
 Hans Wamelink,Researcher,e140,e177,1,1
 Hans Weigand,Researcher,e1003,e1003,1,1
@@ -2219,7 +2219,7 @@ Heiko Maus,Researcher,e244,e244,1,1
 Helen Schonenberg,Researcher,e371,e933,1,1
 Helmut Krcmar,Researcher,e262,e262,1,1
 Hendrik Bockrath,Researcher,e1637,e1637,1,1
-Henk Corporaal,Researcher,e444,e938,1,1
+Henk Corporaal,Researcher,e440,e938,1,1
 Henrik Leopold,Researcher,e1081,e1592,1,1
 Henrike Berthold,Researcher,e1082,e1082,1,1
 Hilda Klasky,Researcher,e1763,e1763,1,1
@@ -2245,7 +2245,7 @@ Inge van de Weerd,Researcher,e1763,e1763,1,1
 Ingo Weber,Researcher,e1296,e2087,1,1
 Inyoung Choi,Researcher,e483,e483,1,1
 Irene Vanderfeesten,Researcher,e232,e1145,1,1
-Irina A. Lomazova,Researcher,e1004,e1627,1,1
+Irina A. Lomazova,Researcher,e1004,e1635,1,1
 Irina Ailenei,Researcher,e706,e826,1,1
 Iris Beerepoot,Researcher,e1763,e1763,1,1
 Irwin King,Researcher,e705,e705,1,1
@@ -2253,22 +2253,22 @@ Isabelle Augenstein,Researcher,e1855,e1963,1,1
 Isabelle Terrier,Researcher,e1692,e1959,1,1
 István Koren,Researcher,e1643,e2150,1,1
 Ivan Stojmenović,Researcher,e44,e44,1,1
-J. Buurman,Researcher,e1076,e1251,1,1
+J. Buurman,Researcher,e1075,e1258,1,1
 J. H. M. Rigter,Researcher,e54,e187,1,1
 J. Leon Zhao,Researcher,e1118,e1118,1,1
 J. Martjushev,Researcher,e1064,e1137,1,1
 J.C. Wortmann,Researcher,e138,e168,1,1
 Jaco van de Pol,Researcher,e1065,e1540,1,1
-Jacques Wainer,Researcher,e87,e581,1,1
+Jacques Wainer,Researcher,e81,e588,1,1
 Jae‐Yoon Jung,Researcher,e442,e456,1,1
 Jafari,Researcher,e13,e13,1,1
 Jan Claes,Researcher,e853,e1616,1,1
 Jan Hidders,Researcher,e225,e225,1,1
-Jan Martijn E. M. van der Werf,Researcher,e570,e1518,1,1
-Jan Mendling,Researcher,e259,e2060,1,1
+Jan Martijn E. M. van der Werf,Researcher,e543,e1518,1,1
+Jan Mendling,Researcher,e227,e2060,1,1
 Jan Niklas Adams,Researcher,e1638,e2071,1,1
 Jan Pennekamp,Researcher,e1550,e1768,1,1
-Jan Recker,Researcher,e268,e1648,1,1
+Jan Recker,Researcher,e227,e1648,1,1
 Jan Van Leeuwen,Researcher,e492,e492,1,1
 Jan Vanthienen,Researcher,e711,e1864,1,1
 Jan Verelst,Researcher,e225,e225,1,1
@@ -2296,7 +2296,7 @@ Jianmin Wang,Researcher,e415,e853,1,1
 Jianming Yong,Researcher,e1381,e1381,1,1
 Jim Sinur,Researcher,e853,e853,1,1
 Jing Yang,Researcher,e1619,e1812,1,1
-Jingxian Jian,Researcher,e654,e674,1,1
+Jingxian Jian,Researcher,e638,e674,1,1
 Jingxin Xu,Researcher,e644,e1275,1,1
 Jinhui Huang,Researcher,e1939,e1961,1,1
 Jinjun Chen,Researcher,e401,e401,1,1
@@ -2305,19 +2305,19 @@ Joachim Herbst,Researcher,e182,e182,1,1
 Joaquim Filipe,Researcher,e358,e882,1,1
 Joaquín Ezpeleta,Researcher,e1095,e1197,1,1
 Jochen De Weerdt,Researcher,e945,e1959,1,1
-Johannes De Smedt,Researcher,e1488,e1864,1,1
-Johannes Henrich Schleifenbaum,Researcher,e1870,e1976,1,1
+Johannes De Smedt,Researcher,e1465,e1864,1,1
+Johannes Henrich Schleifenbaum,Researcher,e1863,e1976,1,1
 Johannes Herforth,Researcher,e1846,e1937,1,1
 John C. Mitchell,Researcher,e492,e492,1,1
 John Domingue,Researcher,e365,e492,1,1
-John Krogstie,Researcher,e649,e810,1,1
+John Krogstie,Researcher,e649,e811,1,1
 John L. Hoogland,Researcher,e853,e853,1,1
 John Mylopoulos,Researcher,e917,e977,1,1
 Jon Espen Ingvaldsen,Researcher,e853,e853,1,1
 Jon Kleinberg,Researcher,e492,e492,1,1
 Jonas Bienzeisler,Researcher,e2068,e2068,1,1
 Jonas Fegert,Researcher,e2029,e2029,1,1
-Jonathan Billington,Researcher,e451,e450,1,1
+Jonathan Billington,Researcher,e450,e451,1,1
 Jonathan Chan,Researcher,e705,e705,1,1
 Jonathan Cook,Researcher,e853,e853,1,1
 Jonathan Schneider,Researcher,e1823,e1859,1,1
@@ -2327,7 +2327,7 @@ Jorge Muñoz-Gama,Researcher,e853,e1763,1,1
 Josef Kittler,Researcher,e492,e492,1,1
 Josep Carmona,Researcher,e853,e1763,1,1
 José Antônio Cordeiro,Researcher,e358,e882,1,1
-Joyce Nakatumba,Researcher,e467,e834,1,1
+Joyce Nakatumba,Researcher,e467,e852,1,1
 Joël Ribeiro,Researcher,e853,e853,1,1
 Juan J. Garza Gonzalez,Researcher,e1611,e1611,1,1
 Judith Michael,Researcher,e1703,e2021,1,1
@@ -2355,16 +2355,16 @@ Katharina Schütt,Researcher,e1983,e1983,1,1
 Kathrin Hausmann,Researcher,e1638,e1667,1,1
 Ke Li,Researcher,e44,e44,1,1
 Kees M. Van Hee,Researcher,e211,e211,1,1
-Kees van Hee,Researcher,e18,e691,1,1
+Kees van Hee,Researcher,e17,e691,1,1
 Kees vanHee,Researcher,e110,e110,1,1
 Keith D. Swenson,Researcher,e853,e853,1,1
 Kevin Bauer,Researcher,e1654,e1936,1,1
 Klaus Wehrle,Researcher,e1550,e1768,1,1
 Kleber Stroeh,Researcher,e1692,e2097,1,1
 Koki Kato,Researcher,e853,e853,1,1
-Kristian Bisgaard Lassen,Researcher,e250,e560,1,1
+Kristian Bisgaard Lassen,Researcher,e247,e560,1,1
 Kuo‐Ming Chao,Researcher,e1381,e1381,1,1
-Kurt Jensen,Researcher,e451,e908,1,1
+Kurt Jensen,Researcher,e450,e908,1,1
 Kurt Sandkuhl,Researcher,e459,e459,1,1
 L. Cabral,Researcher,e365,e365,1,1
 L. Verspui,Researcher,e27,e27,1,1
@@ -2372,39 +2372,39 @@ Lachlan Aldred,Researcher,e197,e633,1,1
 Lakmali Jayarathna,Researcher,e1692,e1730,1,1
 Landelin Delcoucq,Researcher,e1589,e1589,1,1
 Lara Quack,Researcher,e1638,e1667,1,1
-Lars Gleim,Researcher,e1870,e1976,1,1
+Lars Gleim,Researcher,e1863,e1976,1,1
 Lars Michael Kristensen,Researcher,e846,e878,1,1
 Laura Bocchi,Researcher,e209,e209,1,1
 Laura Genga,Researcher,e1099,e1228,1,1
-Laura Măruşter,Researcher,e104,e2058,1,1
+Laura Măruşter,Researcher,e102,e2058,1,1
 Leah Tacke Genannt Unterberg,Researcher,e2014,e2024,1,1
 Leo Anthony Celi,Researcher,e2062,e2062,1,1
 Leo Auhagen,Researcher,e2068,e2068,1,1
-Leon Gorißen,Researcher,e1870,e1976,1,1
-Leon Reinsch,Researcher,e1870,e2118,1,1
+Leon Gorißen,Researcher,e1863,e1976,1,1
+Leon Reinsch,Researcher,e1863,e2118,1,1
 Leonard L Verspui,Researcher,e28,e28,1,1
 Leonard Lensink,Researcher,e1407,e1440,1,1
 Leopold Von Waldthausen,Researcher,e1342,e1557,1,1
-Liam Tirpitz,Researcher,e1870,e1976,1,1
+Liam Tirpitz,Researcher,e1863,e1976,1,1
 Lien Bosmans,Researcher,e2084,e2084,1,1
 Lijie Wen,Researcher,e415,e853,1,1
 Liming Zhu,Researcher,e1296,e1380,1,1
 Linh Thao Ly,Researcher,e964,e1150,1,1
-Lisa Luise Mannel,Researcher,e1472,e2141,1,1
+Lisa Luise Mannel,Researcher,e1469,e2141,1,1
 Ljupčo Todorovski,Researcher,e445,e445,1,1
 Long Cheng,Researcher,e1271,e1501,1,1
 Lotte Vugs,Researcher,e2084,e2084,1,1
 Lou Somers,Researcher,e938,e938,1,1
 Louis Huebser,Researcher,e1851,e1978,1,1
 Luca Barbaro,Researcher,e2144,e2173,1,1
-Luca Liehner,Researcher,e1870,e1976,1,1
+Luca Liehner,Researcher,e1863,e1976,1,1
 Luca de Alfaro,Researcher,e1624,e1624,1,1
 Lucia Sacchi,Researcher,e1763,e1763,1,1
 Luciana Barbieri,Researcher,e1692,e2097,1,1
 Luciano García‐Bañuelos,Researcher,e651,e1380,1,1
 Luigi Pontieri,Researcher,e853,e853,1,1
 Luis F. R. Santos,Researcher,e1644,e1753,1,1
-Luisa Vervier,Researcher,e1870,e1976,1,1
+Luisa Vervier,Researcher,e1863,e1976,1,1
 Luise Pufahl,Researcher,e1568,e1763,1,1
 Lukas Helm,Researcher,e349,e349,1,1
 Lukas Liß,Researcher,e1847,e2173,1,1
@@ -2421,11 +2421,11 @@ M. Robinson,Researcher,e262,e262,1,1
 M. Sadegh,Researcher,e651,e1136,1,1
 M. Schopen,Researcher,e1851,e1978,1,1
 M. Stoffele,Researcher,e140,e177,1,1
-M.C.A. van de Graaf,Researcher,e167,e159,1,1
+M.C.A. van de Graaf,Researcher,e159,e167,1,1
 MH Monique Jansen-Vullers,Researcher,e572,e572,1,1
 MH Weske,Researcher,e601,e601,1,1
 Maarten van Asseldonk,Researcher,e2084,e2084,1,1
-Maciej Koutny,Researcher,e450,e908,1,1
+Maciej Koutny,Researcher,e450,e944,1,1
 Madhavi Bangalore Shankara Narayana,Researcher,e1562,e1777,1,1
 Madhu Sudan,Researcher,e492,e492,1,1
 Magdalena A. K. Lang,Researcher,e1572,e1604,1,1
@@ -2434,26 +2434,26 @@ Mahnaz Sadat Qafari,Researcher,e1484,e1937,1,1
 Mahsa Pourbafrani,Researcher,e1489,e2142,1,1
 Maikel L. van Eck,Researcher,e1087,e1547,1,1
 Maikel Leemans,Researcher,e1053,e1440,1,1
-Maja Pešić,Researcher,e261,e978,1,1
+Maja Pešić,Researcher,e230,e978,1,1
 Majid Rafiei,Researcher,e1342,e2177,1,1
 Malte Heithoff,Researcher,e1703,e2021,1,1
 Malú Castellanos,Researcher,e492,e853,1,1
-Manfred Reichert,Researcher,e330,e1568,1,1
+Manfred Reichert,Researcher,e309,e1568,1,1
 Manuel Resinas,Researcher,e1592,e1592,1,1
 Manuela Dalibor,Researcher,e1768,e1768,1,1
-Manuela Veloso,Researcher,e501,e584,1,1
+Manuela Veloso,Researcher,e454,e584,1,1
 Mar Marcos,Researcher,e1763,e1763,1,1
 Mara Tews,Researcher,e1823,e1859,1,1
 Marc Geilen,Researcher,e938,e938,1,1
 Marc Verdonk,Researcher,e543,e853,1,1
-Marc Voorhoeve,Researcher,e30,e938,1,1
+Marc Voorhoeve,Researcher,e29,e938,1,1
 Marcel Amberg,Researcher,e262,e262,1,1
 Marcella Rovani,Researcher,e998,e1155,1,1
 Marcello La Rosa,Researcher,e353,e1704,1,1
-Marcello Pelillo,Researcher,e1340,e1627,1,1
+Marcello Pelillo,Researcher,e1340,e1635,1,1
 Marco Ajmone Marsan,Researcher,e846,e878,1,1
 Marco Comuzzi,Researcher,e1568,e1775,1,1
-Marco Grochowski,Researcher,e1870,e1976,1,1
+Marco Grochowski,Researcher,e1863,e1976,1,1
 Marco Kemmerling,Researcher,e1851,e1978,1,1
 Marco Montali,Researcher,e657,e2164,1,1
 Marco Pegoraro,Researcher,e1560,e2183,1,1
@@ -2461,7 +2461,7 @@ Marco Zapletal,Researcher,e542,e1219,1,1
 Marcos Sepúlveda,Researcher,e853,e1763,1,1
 Marcus Brenscheidt,Researcher,e2084,e2084,1,1
 Marcus Dees,Researcher,e1020,e2182,1,1
-Marcus Völker,Researcher,e1870,e1976,1,1
+Marcus Völker,Researcher,e1863,e1976,1,1
 Marie-Christine Fauvet,Researcher,e651,e1136,1,1
 Mario Stefanelli,Researcher,e355,e355,1,1
 Mark Huisman,Researcher,e1065,e1065,1,1
@@ -2473,7 +2473,7 @@ Markus Stolze,Researcher,e262,e262,1,1
 Marlo Verket,Researcher,e1983,e1983,1,1
 Marlon Dumas,Researcher,e120,e1704,1,1
 Martijn Hendriks,Researcher,e938,e938,1,1
-Martin Bellgardt,Researcher,e1870,e1976,1,1
+Martin Bellgardt,Researcher,e1863,e1976,1,1
 Martin Bichler,Researcher,e1208,e1447,1,1
 Martin Kabierski,Researcher,e1909,e1993,1,1
 Martin Liebenberg,Researcher,e1768,e1976,1,1
@@ -2486,7 +2486,7 @@ Marvin Porsil,Researcher,e1986,e2100,1,1
 Marwan Hassani,Researcher,e1536,e1541,1,1
 Marwane El Kharbili,Researcher,e475,e475,1,1
 Massimiliano de Leoni,Researcher,e495,e2182,1,1
-Mathias Funk,Researcher,e444,e583,1,1
+Mathias Funk,Researcher,e440,e583,1,1
 Mathias Weske,Researcher,e97,e1763,1,1
 Mathilde Boltenhagen,Researcher,e1544,e1569,1,1
 Matthew B. A. McDermott,Researcher,e2062,e2062,1,1
@@ -2504,27 +2504,27 @@ Maximilian Röglinger,Researcher,e1648,e2060,1,1
 Mehmed Kantardzic,Researcher,e705,e705,1,1
 Mehrnoosh Vahdat,Researcher,e1317,e1317,1,1
 Meike Ullrich,Researcher,e881,e881,1,1
-Melanie Padberg,Researcher,e1874,e1977,1,1
-Merih Seran Uysal,Researcher,e1560,e2118,1,1
+Melanie Padberg,Researcher,e1854,e1979,1,1
+Merih Seran Uysal,Researcher,e1550,e2118,1,1
 Mervin Chiang,Researcher,e260,e260,1,1
 Michael Adams,Researcher,e266,e963,1,1
 Michael Arias,Researcher,e1763,e1763,1,1
 Michael Beisiegel,Researcher,e364,e364,1,1
 Michael J. Shaw,Researcher,e917,e977,1,1
-Michael Khachay,Researcher,e1329,e1627,1,1
-Michael Leyer,Researcher,e1019,e1667,1,1
+Michael Khachay,Researcher,e1329,e1635,1,1
+Michael Leyer,Researcher,e1003,e1667,1,1
 Michael Martini,Researcher,e1742,e1915,1,1
 Michael Nofer,Researcher,e1936,e1936,1,1
 Michael Rosemann,Researcher,e162,e2060,1,1
 Michael Simon,Researcher,e1692,e1725,1,1
-Michael Westergaard,Researcher,e708,e914,1,1
+Michael Westergaard,Researcher,e708,e930,1,1
 Michael zur Muehlen,Researcher,e853,e853,1,1
-Michaël Herty,Researcher,e1870,e1976,1,1
+Michaël Herty,Researcher,e1863,e1976,1,1
 Michel A. Westenberg,Researcher,e1336,e1336,1,1
 Michiel A. Odijk,Researcher,e15,e26,1,1
 Mieke Jans,Researcher,e1518,e1518,1,1
-Minh Phan Nghia,Researcher,e1745,e1771,1,1
-Minh Trinh,Researcher,e1870,e1976,1,1
+Minh Phan Nghia,Researcher,e1737,e1771,1,1
+Minh Trinh,Researcher,e1863,e1976,1,1
 Minseok Song,Researcher,e202,e2163,1,1
 Miriam Wagner,Researcher,e1559,e1867,1,1
 Mitsyuk Alexey,Researcher,e1018,e1018,1,1
@@ -2532,7 +2532,7 @@ Moe Thandar Wynn,Researcher,e201,e2084,1,1
 Mohamed Behery,Researcher,e1801,e1976,1,1
 Mohammad Reza Harati Nik,Researcher,e1476,e1476,1,1
 Mohammadreza Fani Sani,Researcher,e1249,e1993,1,1
-Mohsen Rouached,Researcher,e331,e298,1,1
+Mohsen Rouached,Researcher,e298,e332,1,1
 Molly Douglas,Researcher,e2062,e2062,1,1
 Moni Naor,Researcher,e492,e492,1,1
 Monique Jaspers,Researcher,e622,e677,1,1
@@ -2550,14 +2550,14 @@ Mārīte Kirikova,Researcher,e917,e977,1,1
 Nadia Busi,Researcher,e363,e363,1,1
 Nadine Ogonek,Researcher,e1592,e1592,1,1
 Natalia Kliewer,Researcher,e1447,e1447,1,1
-Natalia Loukachevitch,Researcher,e1329,e1627,1,1
-Natalia Sidorova,Researcher,e392,e1547,1,1
-Nataliya Mulyar,Researcher,e253,e805,1,1
+Natalia Loukachevitch,Researcher,e1329,e1635,1,1
+Natalia Sidorova,Researcher,e370,e1547,1,1
+Nataliya Mulyar,Researcher,e234,e805,1,1
 Nathalie Bertrand,Researcher,e1624,e1624,1,1
 Nelson F. F. Ebecken,Researcher,e705,e705,1,1
 Nicholas Berente,Researcher,e2060,e2060,1,1
 Nicholas T. L. Tam,Researcher,e1878,e1961,1,1
-Nick Russell,Researcher,e208,e1199,1,1
+Nick Russell,Researcher,e200,e1199,1,1
 Nico Elbert,Researcher,e2056,e2095,1,1
 Nicola Costantini,Researcher,e853,e853,1,1
 Nicola Mazzocca,Researcher,e2125,e2125,1,1
@@ -2569,7 +2569,7 @@ Niels Martin,Researcher,e1704,e1763,1,1
 Niklas Föcking,Researcher,e1752,e1909,1,1
 Nikola Kasabov,Researcher,e705,e705,1,1
 Nikola Trecka,Researcher,e617,e617,1,1
-Nikola Trčka,Researcher,e486,e938,1,1
+Nikola Trčka,Researcher,e461,e938,1,1
 Nikolaus Marx,Researcher,e1983,e1983,1,1
 Nina Graves,Researcher,e1916,e2153,1,1
 Nitesh V. Chawla,Researcher,e705,e705,1,1
@@ -2577,14 +2577,14 @@ Nobuko Yoshida,Researcher,e1624,e1624,1,1
 Nour Assy,Researcher,e1224,e1496,1,1
 Noura Joudieh,Researcher,e2103,e2103,1,1
 Oleg Gusikhin,Researcher,e1852,e2053,1,1
-Olessia Koltsova,Researcher,e1340,e1627,1,1
+Olessia Koltsova,Researcher,e1340,e1635,1,1
 Oliver Hinz,Researcher,e1447,e2179,1,1
 Omar Makke,Researcher,e1852,e2053,1,1
 Oscar Nierstrasz,Researcher,e492,e492,1,1
 Owen Johnson,Researcher,e1763,e1763,1,1
 P. J. M. Bakker,Researcher,e698,e698,1,1
 P. J. S. Berens,Researcher,e99,e103,1,1
-P. M. Dixit,Researcher,e1076,e1460,1,1
+P. M. Dixit,Researcher,e1075,e1460,1,1
 P.A.C. Verkoulen,Researcher,e62,e77,1,1
 Panos Constantopoulos,Researcher,e882,e882,1,1
 Paola Mello,Researcher,e657,e988,1,1
@@ -2592,18 +2592,18 @@ Paolo Ceravolo,Researcher,e1247,e2005,1,1
 Paolo Ciancarini,Researcher,e23,e209,1,1
 Patrick C. K. Hung,Researcher,e400,e400,1,1
 Patrick Delfmann,Researcher,e492,e492,1,1
-Patrick Mukala,Researcher,e1097,e1079,1,1
+Patrick Mukala,Researcher,e1079,e1103,1,1
 Paul Balfanz,Researcher,e1795,e1860,1,1
 Paul Barborka,Researcher,e349,e349,1,1
 Paul De Bra,Researcher,e11,e616,1,1
 Paul Grefen,Researcher,e219,e219,1,1
 Paul Harmon,Researcher,e853,e853,1,1
-Paulo Barthelmess,Researcher,e87,e118,1,1
+Paulo Barthelmess,Researcher,e81,e118,1,1
 Paulo Lisböa,Researcher,e705,e705,1,1
 Paulo Rupino da Cunha,Researcher,e1082,e1082,1,1
 Pavlos Delias,Researcher,e853,e853,1,1
-Peter Fettke,Researcher,e649,e810,1,1
-Peter Loos,Researcher,e649,e810,1,1
+Peter Fettke,Researcher,e649,e811,1,1
+Peter Loos,Researcher,e649,e811,1,1
 Peter Massuthe,Researcher,e471,e570,1,1
 Peter Mertens,Researcher,e1447,e1447,1,1
 Peter Schlegel,Researcher,e1851,e1978,1,1
@@ -2612,17 +2612,17 @@ Peter van den Brand,Researcher,e466,e853,1,1
 Petia Wohed,Researcher,e120,e801,1,1
 Philipp Brauner,Researcher,e1768,e1976,1,1
 Philipp Liegl,Researcher,e542,e630,1,1
-Philipp Walderich,Researcher,e1870,e1976,1,1
+Philipp Walderich,Researcher,e1863,e1976,1,1
 Philippe Fortemps,Researcher,e1589,e1589,1,1
 Pierre Gorissen,Researcher,e970,e1259,1,1
-Piet Bakker,Researcher,e491,e886,1,1
-Piet van der Putten,Researcher,e444,e583,1,1
+Piet Bakker,Researcher,e449,e886,1,1
+Piet van der Putten,Researcher,e440,e583,1,1
 Pieter J. Toussaint,Researcher,e1157,e1763,1,1
 Pieter van der Wolf,Researcher,e91,e91,1,1
 Pnina Soffer,Researcher,e853,e1003,1,1
 Poul J. N. de Crom,Researcher,e89,e89,1,1
 Pouya Soudmand,Researcher,e1795,e1867,1,1
-Pãnos M. Pardalos,Researcher,e1329,e1627,1,1
+Pãnos M. Pardalos,Researcher,e1329,e1635,1,1
 Qasim Sajid,Researcher,e1777,e1777,1,1
 Qing Li,Researcher,e492,e492,1,1
 R. A. Crooy,Researcher,e469,e469,1,1
@@ -2634,7 +2634,7 @@ R.R.H. Schiffelers,Researcher,e1407,e1440,1,1
 R.S. Mans,Researcher,e658,e658,1,1
 R.V. Schuwer,Researcher,e32,e32,1,1
 Rafael Accorsi,Researcher,e881,e1730,1,1
-Raffaele Conforti,Researcher,e922,e1056,1,1
+Raffaele Conforti,Researcher,e893,e1056,1,1
 Rahim Bin Shahid,Researcher,e1777,e1777,1,1
 Rahul Sharma,Researcher,e1550,e1550,1,1
 Raimund Hensen,Researcher,e2138,e2150,1,1
@@ -2655,17 +2655,17 @@ Riccardo De Masellis,Researcher,e1265,e1906,1,1
 Riccardo Galanti,Researcher,e1609,e1609,1,1
 Richard Hobeck,Researcher,e1637,e2087,1,1
 Richard Hull,Researcher,e1296,e1380,1,1
-Richard Müller,Researcher,e929,e918,1,1
+Richard Müller,Researcher,e918,e930,1,1
 Rob J. B. Vanwersch,Researcher,e650,e1763,1,1
 Rob van Glabbeek,Researcher,e1121,e1121,1,1
 Robert Andrews,Researcher,e1267,e1763,1,1
 Robert Engel,Researcher,e729,e1219,1,1
 Robert Meersman,Researcher,e194,e194,1,1
-Robert Schmitt,Researcher,e1870,e1978,1,1
+Robert Schmitt,Researcher,e1851,e1978,1,1
 Robert Winter,Researcher,e1447,e1447,1,1
 Roberto Gatta,Researcher,e1763,e1763,1,1
 Roberto Vigo,Researcher,e853,e853,1,1
-Robin Bergenthum,Researcher,e1110,e2141,1,1
+Robin Bergenthum,Researcher,e1074,e2141,1,1
 Robin Chiara,Researcher,e1518,e1518,1,1
 Robin Weidlich,Researcher,e2007,e2181,1,1
 Roland Kaschek,Researcher,e57,e57,1,1
@@ -2685,7 +2685,7 @@ S. S. Lau,Researcher,e1878,e1961,1,1
 S. Tritini,Researcher,e1243,e1243,1,1
 S.Y. Ivanov,Researcher,e1077,e1077,1,1
 Sabine Folz-Weinstein,Researcher,e2117,e2141,1,1
-Sami Bhiri,Researcher,e331,e298,1,1
+Sami Bhiri,Researcher,e298,e332,1,1
 Samia Rouibah,Researcher,e434,e434,1,1
 Samuel Nowakowski,Researcher,e2103,e2103,1,1
 Sana Akbar Khan,Researcher,e226,e231,1,1
@@ -2693,18 +2693,18 @@ Sander J. J. Leemans,Researcher,e888,e2178,1,1
 Sandhya Vasudevan,Researcher,e1653,e1653,1,1
 Satish R. Thatté,Researcher,e306,e306,1,1
 Schahram Dustdar,Researcher,e271,e1380,1,1
-Sebastiaan J. van Zelst,Researcher,e1095,e2091,1,1
+Sebastiaan J. van Zelst,Researcher,e1070,e2091,1,1
 Sebastian A. Kaiser,Researcher,e1692,e1757,1,1
 Sebastian Junglas,Researcher,e1555,e1555,1,1
 Sebastian Stein,Researcher,e475,e475,1,1
-Sebastian Trimpe,Researcher,e1870,e1976,1,1
+Sebastian Trimpe,Researcher,e1863,e1976,1,1
 Sebastian de Smet,Researcher,e938,e938,1,1
 Selma Limam,Researcher,e186,e186,1,1
-Selma Limam Mansar,Researcher,e362,e463,1,1
+Selma Limam Mansar,Researcher,e362,e492,1,1
 Seppe vanden Broucke,Researcher,e1047,e1959,1,1
-Sergei O. Kuznetsov,Researcher,e1329,e1627,1,1
+Sergei O. Kuznetsov,Researcher,e1329,e1635,1,1
 Sergej Goerzen,Researcher,e1795,e1867,1,1
-Sergej Levich,Researcher,e1755,e1808,1,1
+Sergej Levich,Researcher,e1717,e1808,1,1
 Sergio Hernández,Researcher,e1095,e1197,1,1
 Sergio Storari,Researcher,e657,e657,1,1
 Seth Schmitz,Researcher,e1579,e1827,1,1
@@ -2721,18 +2721,18 @@ Simon Cramer,Researcher,e1851,e1978,1,1
 Simon Kloker,Researcher,e1601,e1601,1,1
 Simon Poon,Researcher,e1763,e1763,1,1
 Simon Remy,Researcher,e1763,e1763,1,1
-Simone Jablonski,Researcher,e83,e78,1,1
+Simone Jablonski,Researcher,e78,e83,1,1
 Sofia Schöbel,Researcher,e2157,e2157,1,1
 Song,Researcher,e391,e667,1,1
 Song Minseok,Researcher,e376,e376,1,1
-Song Zhang,Researcher,e1870,e1976,1,1
+Song Zhang,Researcher,e1863,e1976,1,1
 Sovin Manuel,Researcher,e2051,e2081,1,1
 Stanley Wasserman,Researcher,e1329,e1490,1,1
-Stefan Decker,Researcher,e1870,e1976,1,1
-Stefan Kowalewski,Researcher,e1870,e1976,1,1
+Stefan Decker,Researcher,e1863,e1976,1,1
+Stefan Kowalewski,Researcher,e1863,e1976,1,1
 Stefan Krämer,Researcher,e445,e445,1,1
-Stefan Schulte,Researcher,e1296,e1465,1,1
-Stefan Seidel,Researcher,e1488,e1465,1,1
+Stefan Schulte,Researcher,e1296,e1488,1,1
+Stefan Seidel,Researcher,e1465,e1488,1,1
 Stefan Voß,Researcher,e1447,e1447,1,1
 Stefan Zickler,Researcher,e584,e584,1,1
 Stefanie Rinderle,Researcher,e309,e489,1,1
@@ -2751,7 +2751,7 @@ Swami Sankaranarayanan,Researcher,e2062,e2062,1,1
 Sylvie Norre,Researcher,e1400,e1400,1,1
 Sylvio Barbon,Researcher,e1921,e2005,1,1
 Søren Debois,Researcher,e1296,e1380,1,1
-Tahir Emre Kalaycı,Researcher,e1357,e1343,1,1
+Tahir Emre Kalaycı,Researcher,e1343,e1357,1,1
 Takeo Kanade,Researcher,e492,e492,1,1
 Tamara G. Kolda,Researcher,e705,e705,1,1
 Tan Hui-xin,Researcher,e342,e342,1,1
@@ -2761,16 +2761,16 @@ Teun A. C. Wagemakers,Researcher,e574,e592,1,1
 Thomas Baier,Researcher,e853,e853,1,1
 Thomas Bauer,Researcher,e882,e882,1,1
 Thomas Chatain,Researcher,e1468,e1468,1,1
-Thomas Gries,Researcher,e1870,e2118,1,1
+Thomas Gries,Researcher,e1851,e2118,1,1
 Thomas Grisold,Researcher,e1648,e2060,1,1
-Thomas Henn,Researcher,e1870,e1976,1,1
+Thomas Henn,Researcher,e1863,e1976,1,1
 Thomas Hoffmann,Researcher,e271,e271,1,1
 Thomas Kordtokrax,Researcher,e2118,e2118,1,1
-Thomas Käster,Researcher,e1870,e1976,1,1
+Thomas Käster,Researcher,e1863,e1976,1,1
 Thomas O. Boucher,Researcher,e13,e13,1,1
 Thomas Prinz,Researcher,e2115,e2115,1,1
 Thomas Rose,Researcher,e1638,e1887,1,1
-Thomas Schemmer,Researcher,e1870,e1976,1,1
+Thomas Schemmer,Researcher,e1863,e1976,1,1
 Tian Li,Researcher,e1998,e1998,1,1
 Tijs Slaats,Researcher,e1296,e1380,1,1
 Till Post,Researcher,e1592,e1592,1,1
@@ -2780,13 +2780,13 @@ Timm Teubner,Researcher,e1893,e1893,1,1
 Timo Pohl,Researcher,e1795,e1923,1,1
 Timo Rohrer,Researcher,e1801,e1801,1,1
 Tobias Blickle,Researcher,e853,e853,1,1
-Tobias Brockhoff,Researcher,e1555,e2098,1,1
+Tobias Brockhoff,Researcher,e1550,e2118,1,1
 Tobias Schulze,Researcher,e1851,e1978,1,1
 Tom Davenport,Researcher,e492,e492,1,1
 Tom-Hendrik Hülsmann,Researcher,e1736,e1835,1,1
 Toon Calders,Researcher,e445,e445,1,1
 Toon Jouck,Researcher,e1408,e1408,1,1
-Torsten Kuhlen,Researcher,e1870,e1976,1,1
+Torsten Kuhlen,Researcher,e1863,e1976,1,1
 Tsung-Hao Huang,Researcher,e1718,e2183,1,1
 Tugsan Vural,Researcher,e2118,e2118,1,1
 Twan Basten,Researcher,e33,e938,1,1
@@ -2811,20 +2811,20 @@ Viki Peeva,Researcher,e1726,e2100,1,1
 Vincent Bloemen,Researcher,e1331,e1540,1,1
 Vincent C. S. Lee,Researcher,e705,e705,1,1
 Vincenzo Pasquadibisceglie,Researcher,e1787,e1787,1,1
-Vladimir Batagelj,Researcher,e1340,e1627,1,1
+Vladimir Batagelj,Researcher,e1340,e1635,1,1
 Vladimir Gennadievich Gromov,Researcher,e1002,e1002,1,1
-Vladimir Rubin,Researcher,e387,e1316,1,1
+Vladimir Rubin,Researcher,e380,e1316,1,1
 Víctor Galvez-Yanjari,Researcher,e1763,e1763,1,1
 Wai Lam,Researcher,e705,e705,1,1
 Wai Lam Jonathan Lee,Researcher,e1242,e1474,1,1
 Waldemar Kremser,Researcher,e1648,e2060,1,1
-Walid Gaaloul,Researcher,e331,e1518,1,1
-Walter Daelemans,Researcher,e104,e130,1,1
+Walid Gaaloul,Researcher,e298,e1518,1,1
+Walter Daelemans,Researcher,e102,e130,1,1
 Wanyi He,Researcher,e1878,e1942,1,1
 Wei Tan,Researcher,e853,e853,1,1
 Wei Zhe Low,Researcher,e945,e1292,1,1
 Weiming Shen,Researcher,e1381,e1381,1,1
-Wied Pakusa,Researcher,e2056,e2106,1,1
+Wied Pakusa,Researcher,e2056,e2116,1,1
 Wil M. P. van der Aalst,Researcher,e1,e2183,1,1
 Wil Van,Researcher,e1518,e1518,1,1
 Wilhelm Schäfer,Researcher,e387,e387,1,1
@@ -2852,7 +2852,7 @@ Yuan Xingran,Researcher,e1653,e1653,1,1
 Yue Pan,Researcher,e44,e44,1,1
 Yun Yang,Researcher,e1381,e1381,1,1
 Zahir Tari,Researcher,e194,e194,1,1
-Zahirul Hoque,Researcher,e939,e909,1,1
+Zahirul Hoque,Researcher,e909,e939,1,1
 Zahra Sadeghibogar,Researcher,e1933,e2110,1,1
 Zahra Toosinezhad,Researcher,e1609,e1610,1,1
 Zakaria Maamar,Researcher,e1333,e1333,1,1
@@ -2867,7 +2867,7 @@ van der Tf Avoort,Researcher,e911,e911,1,1
 Óscar Pastor,Researcher,e1003,e1003,1,1
 Özge Altun Köroğlu,Researcher,e1610,e1610,1,1
 А. В. Бузмаков,Researcher,e1627,e1627,1,1
-Владимир Самсонов,Researcher,e1870,e1978,1,1
+Владимир Самсонов,Researcher,e1851,e1978,1,1
 Сонг,Researcher,e214,e214,1,1
 송민석,Researcher,e216,e531,1,1
 정재윤,Researcher,e502,e531,1,1

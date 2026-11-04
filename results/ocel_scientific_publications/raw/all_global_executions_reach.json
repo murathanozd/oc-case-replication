@@ -6,7 +6,7 @@
   "note": "rows (and lists inside rows) sorted by us; the queries define no order",
   "write_counters": {
     "labels_added": 4838,
-    "relationships_created": 3777403,
+    "relationships_created": 3777667,
     "nodes_created": 4838,
     "properties_set": 4838
   },

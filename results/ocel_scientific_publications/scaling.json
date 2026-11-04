@@ -5,9 +5,9 @@
     "df_edges": 28772,
     "global_start_events": 59,
     "global_end_events": 6,
-    "df_paths_log10": 1205.1,
+    "df_paths_log10": 1200.5,
     "executions": 4838,
-    "corr_edges": 3755639
+    "corr_edges": 3758315
   },
   "timeout_s": 600.0,
   "queries": [
@@ -17,7 +17,7 @@
       "same_executions_as_python": null,
       "runs": 0,
       "warmup_runs": 1,
-      "failed_after_s": 600.5,
+      "failed_after_s": 601.3,
       "error": "The transaction has been terminated. Retry your operation in a new transaction, and you should see a successful result. The transaction has not completed within the timeout specified at its start by the client. You may want to retry with a longer timeout. "
     },
     {
@@ -26,14 +26,14 @@
       "same_executions_as_python": true,
       "runs": 5,
       "warmup_runs": 1,
-      "median_ms": 70594.6,
-      "min_ms": 68709.5,
+      "median_ms": 90428.8,
+      "min_ms": 87512.5,
       "runs_ms": [
-        89337.5,
-        69337.0,
-        70594.6,
-        72486.0,
-        68709.5
+        89709.0,
+        87512.5,
+        90428.8,
+        97127.1,
+        97763.8
       ]
     }
   ]

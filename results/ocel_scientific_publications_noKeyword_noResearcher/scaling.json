@@ -7,18 +7,18 @@
     "global_end_events": 1612,
     "df_paths_log10": 8.7,
     "executions": 1264,
-    "corr_edges": 10511
+    "corr_edges": 10509
   },
   "timeout_s": 600.0,
   "queries": [
     {
       "query": "all_global_executions",
-      "status": "timeout",
+      "status": "out of memory",
       "same_executions_as_python": null,
       "runs": 0,
       "warmup_runs": 1,
-      "failed_after_s": 600.5,
-      "error": "The transaction has been terminated. Retry your operation in a new transaction, and you should see a successful result. The transaction has not completed within the timeout specified at its start by the client. You may want to retry with a longer timeout. "
+      "failed_after_s": 0.2,
+      "error": "The allocation of an extra 2.0 MiB would use more than the limit 716.8 MiB. Currently using 716.0 MiB. dbms.memory.transaction.total.max threshold reached"
     },
     {
       "query": "all_global_executions_reach",
@@ -26,14 +26,14 @@
       "same_executions_as_python": true,
       "runs": 5,
       "warmup_runs": 1,
-      "median_ms": 819.2,
-      "min_ms": 775.7,
+      "median_ms": 621.1,
+      "min_ms": 566.6,
       "runs_ms": [
-        819.2,
-        782.5,
-        775.7,
-        909.2,
-        828.6
+        621.1,
+        566.6,
+        774.6,
+        650.0,
+        607.3
       ]
     }
   ]
