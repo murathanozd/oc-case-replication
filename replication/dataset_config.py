@@ -29,5 +29,18 @@ DATASETS = {
         "expected_events": None,
         "expected_entities": None,
         "authors_prepared": None,
+        # timing in 03_executions.py / 06_scaling.py (running example: 5 warm-up + 30 timed runs)
+        "warmup": 1,
+        "runs": 5,
     },
 }
+
+# Same log with fewer object types, for the scaling experiment (06_scaling.py). Results go to
+# results/<name>/; each variant needs its own 01_build_ekg.py + 02_materialize.py run.
+_SCI = DATASETS["ocel_scientific_publications"]
+for _name, _drop in {
+    "ocel_scientific_publications_noKeyword": {"Keyword"},
+    "ocel_scientific_publications_noKeyword_noResearcher": {"Keyword", "Researcher"},
+    "ocel_scientific_publications_venues": {"Keyword", "Researcher", "Paper"},
+}.items():
+    DATASETS[_name] = {**_SCI, "entities": [e for e in _SCI["entities"] if e[0] not in _drop]}

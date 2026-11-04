@@ -11,3 +11,7 @@ data/ocel/*
 # neo4j / tmp
 *.log
 results/tmp/
+# paper PDF (copyrighted, never commit)
+docs/paper/
+# executions of real logs in the common format: hundreds of MB, regenerate with 03_executions.py
+results/ocel_*/all_global_executions.json

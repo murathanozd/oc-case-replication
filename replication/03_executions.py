@@ -19,12 +19,13 @@ import sys
 import time
 from collections import defaultdict
 
+from neo4j import Query
 from neo4j.graph import Node, Path, Relationship
 
-from common import DATASET, RESULTS_DIR, Runner, get_driver, load_cypher, notifications_of
+from common import CFG, DATASET, RESULTS_DIR, Runner, get_driver, load_cypher, notifications_of
 
-RUNS = 30
-WARMUP = 5
+RUNS = CFG.get("runs", 30)
+WARMUP = CFG.get("warmup", 5)
 RAW_DIR = RESULTS_DIR / "raw"
 
 
@@ -79,10 +80,11 @@ class Step4:
         for q in load_cypher("executions/00_wipe_executions"):
             self.log.run(q)
 
-    def run_once(self, query):
+    def run_once(self, query, timeout=None):
+        """timeout (s): the server aborts the transaction after this time (raises Neo4jError)."""
         t0 = time.perf_counter()
         with self.driver.session() as session:
-            result = session.run(query)
+            result = session.run(Query(query, timeout=timeout))
             records = [r.values() for r in result]
             keys = result.keys()
             summary = result.consume()
@@ -142,10 +144,14 @@ class Step4:
                 "events": events, "objects": self.objects_of(events)}
 
     def extract(self, start_type=None, end_type=None, xid=None):
-        [q] = load_cypher("executions/extract_executions")
-        rows = self.log.run(q, startType=start_type, endType=end_type, id=xid)
+        q_heads, q_events = load_cypher("executions/extract_executions")
+        rows = self.log.run(q_heads, startType=start_type, endType=end_type, id=xid)
+        events = defaultdict(list)
+        with self.driver.session() as session:  # streamed, not collected on the server
+            for r in session.run(q_events):
+                events[r["execution_id"]].append(r["event"])
         out = [self.common(r["execution_id"], r["start_object"], r["end_object"],
-                           r["start_event"], r["end_event"], r["events"]) for r in rows]
+                           r["start_event"], r["end_event"], events[r["execution_id"]]) for r in rows]
         return sorted(out, key=lambda x: x["execution_id"])
 
     def objects_with(self, kind, event, etype=None):
@@ -234,7 +240,10 @@ def run_paper_queries(s4):
         save(name, s4.from_path_groups(recs, group_by, "Order"))
 
 def run_generic(s4):
-    s4.run_timed("all_global_executions", "materialize", materializing=True)
+    # The published all_global_executions query enumerates every DF path and does not finish on
+    # real logs (see 06_scaling.py); the reachability version gives the same executions.
+    s4.run_timed("all_global_executions_reach", "ours, same result as OCPM 3.1 §4 (materialize)",
+                 materializing=True)
     s4.run_timed("all_global_executions_view", "view")
     save("all_global_executions", s4.extract())
 

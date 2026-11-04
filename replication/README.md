@@ -57,6 +57,20 @@ Set `DATASET=ocel_scientific_publications` to build the scientific-publications 
 contains event, object-only, and object-relation rows; Step 1 imports only timestamped events and reports
 the excluded row counts. Steps 1–3 are dataset-generic. Steps 4–5 check claims and render figures for the
 paper's `running_example` only, so they print a skip message and exit successfully for other datasets.
+For other datasets, Step 3 uses `all_global_executions_reach.cypher` instead of the published
+`all_global_executions.cypher`, which does not finish on real logs (see `06_scaling.py` below), and
+runs each query 1 + 5 times instead of 5 + 30 (`warmup` / `runs` in `dataset_config.py`).
+
+**Scaling (R3).** `06_scaling.py` compares the published global-executions query with our reachability
+version on the current dataset. It needs Steps 1–2 for that dataset. `dataset_config.py` also defines
+the publications log with fewer object types (`ocel_scientific_publications_noKeyword`,
+`…_noKeyword_noResearcher`, `…_venues` = City, Conference, Country); run 01, 02, 06 for each:
+```bash
+DATASET=ocel_scientific_publications_venues python replication/01_build_ekg.py
+DATASET=ocel_scientific_publications_venues python replication/02_materialize.py
+DATASET=ocel_scientific_publications_venues python replication/06_scaling.py
+```
+The published query gets a time limit of `SCALING_TIMEOUT_S` seconds (default 600).
 
 ## Scripts
 
@@ -68,6 +82,7 @@ paper's `running_example` only, so they print a skip message and exit successful
 | `03_executions.py`     | 4         | OCPM 3.1 / 3.3 execution and case queries, each 1 warm-up + 5 timed runs; materializing queries start without `:Execution` nodes                                                                                       | `<name>.json` (common format), `raw/<name>.json`, `runtimes.csv` |
 | `04_check_claims.py`   | 5         | checks the paper's 14 claims against the saved results (no DB access)                                                                                                                                                  | `claims_table.md`, `claims.json`                                 |
 | `05_render_figures.py` | 6         | renders Fig. 4–12 from the saved results and `df_edges.csv` with matplotlib (no DB access)                                                                                                                             | `figures/fig<N>.pdf`, `figures/fig<N>.png`                       |
+| `06_scaling.py`        | R3        | counts the DF paths the published global-executions query enumerates and the expected executions (Python, from the DF graph); runs the published query (time limit) and the reachability version; checks both results | `scaling.json`; one row in `results/scaling.csv`                 |
 
 Each script can be rerun on its own (02–05 need the output of the previous ones). Rerunning the chain
 gives byte-identical result files, except `runtimes.csv` and `environment.json`. The figure PDFs are
@@ -79,11 +94,16 @@ versions give slightly different font rendering and image sizes.
 
 All Cypher is in [`queries/`](queries/) and cites its source in a header comment:
 
-- `ekg/` – EKG construction (from the authors' Python scripts; f-string parts as `<<placeholder>>`)
+- `ekg/` – EKG construction (from the authors' Python scripts; f-string parts as `<<placeholder>>`);
+  `00_wipe` deletes in batches (same result) because the DB can hold millions of relationships after
+  the executions of a real log, more than Neo4j's default transaction memory allows
 - `materialize/` – OCPM 1 and OCPM 2 queries, verbatim
 - `executions/` – OCPM 3.1 / 3.3 queries, verbatim unless marked: `notion_SO_Order_paths_fixed.cypher`
   (fix of the `"Order "` typo) and `notion_Order_Invoice.cypher` (§4.3, built from the text);
-  `00_wipe_executions`, `extract_executions`, `ekg_lookup` are ours
+  `00_wipe_executions`, `extract_executions`, `ekg_lookup` are ours (the first two batch / stream for the
+  same reason); `all_global_executions_reach.cypher`
+  is ours: same executions as `all_global_executions.cypher`, computed as descendants(eStart) ∩
+  ancestors(eEnd) with APOC breadth-first search instead of enumerating every `[:DF*]` path
 - `figures.cypher` – Neo4j Browser queries for Fig. 4–12 (see below)
 
 ## Figures
