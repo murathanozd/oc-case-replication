@@ -1,0 +1,6 @@
+dataset,events,df_edges,global_start_events,global_end_events,df_paths_log10,executions,corr_edges,published_status,published_median_ms,published_correct,published_failed_after_s,reach_status,reach_median_ms,reach_correct
+running_example,21,29,5,3,1.4,13,57,ok,8.3,True,,ok,30.6,True
+ocel_scientific_publications_venues,2183,706,100,37,8.3,263,2801,out of memory,,,0.7,ok,468.1,True
+ocel_scientific_publications_noKeyword_noResearcher,2183,1326,1606,1612,8.7,1264,10509,out of memory,,,0.2,ok,621.1,True
+ocel_scientific_publications_noKeyword,2183,7285,59,6,262.4,3754,2692688,timeout,,,600.7,ok,39785.1,True
+ocel_scientific_publications,2183,28772,59,6,1200.5,4838,3758315,timeout,,,601.3,ok,90428.8,True

@@ -7630,13 +7630,6 @@
       "severity": "WARNING",
       "description": "warn: feature deprecated. CALL subquery without a variable scope clause is deprecated. Use CALL () { ... }",
       "query": "CALL {LOAD CSV WITH HEADERS FROM \"file:///ocel_scientific_publications_prepared.csv\" as line CREATE (e:Event { Log: \"order_process\", EventID: line.EventID, Activity: line.Activity, timestamp: datetime"
-    },
-    {
-      "gql_status": "01N01",
-      "classification": "DEPRECATION",
-      "severity": "WARNING",
-      "description": "warn: feature deprecated with replacement. id is deprecated. It is replaced by elementId or consider using an application-generated id.",
-      "query": "MATCH (n:Entity) MATCH (n)<-[:CORR]-(e) WITH n, e AS nodes ORDER BY e.timestamp, ID(e) WITH n, collect(nodes) AS event_node_list UNWIND range(0, size(event_node_list)-2) AS i WITH n, event_node_list[i"
     }
   ]
 }

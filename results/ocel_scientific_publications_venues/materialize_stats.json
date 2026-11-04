@@ -1,0 +1,1168 @@
+{
+  "related_rows_sect2": 546,
+  "related_pairs_undirected": 273,
+  "rel_edges": 239,
+  "rel_equals_tutorial_table": false,
+  "rel_missing_vs_tutorial": [
+    [
+      "A",
+      "X1"
+    ],
+    [
+      "A",
+      "X2"
+    ],
+    [
+      "A",
+      "X3"
+    ],
+    [
+      "B",
+      "Y1"
+    ],
+    [
+      "B",
+      "Y2"
+    ],
+    [
+      "I1",
+      "P1"
+    ],
+    [
+      "I2",
+      "P1"
+    ],
+    [
+      "O1",
+      "I1"
+    ],
+    [
+      "O1",
+      "X1"
+    ],
+    [
+      "O1",
+      "X2"
+    ],
+    [
+      "O1",
+      "Y1"
+    ],
+    [
+      "O2",
+      "B"
+    ],
+    [
+      "O2",
+      "I2"
+    ],
+    [
+      "O2",
+      "X3"
+    ],
+    [
+      "O2",
+      "Y2"
+    ]
+  ],
+  "rel_extra_vs_tutorial": [
+    [
+      "ADBIS 2019",
+      "Bled"
+    ],
+    [
+      "Aachen",
+      "ACSD 2019"
+    ],
+    [
+      "Aachen",
+      "Petri Nets 2019"
+    ],
+    [
+      "Australia",
+      "BPMDS 2021"
+    ],
+    [
+      "Australia",
+      "Melbourne"
+    ],
+    [
+      "Austria",
+      "EDOC 2024"
+    ],
+    [
+      "Austria",
+      "Graz"
+    ],
+    [
+      "Austria",
+      "SIMPDA 2016"
+    ],
+    [
+      "BDC 2015",
+      "Cyprus"
+    ],
+    [
+      "BDC 2015",
+      "Limassol"
+    ],
+    [
+      "BIOSTEC 2008",
+      "Funchal"
+    ],
+    [
+      "BIOSTEC 2008",
+      "Portugal"
+    ],
+    [
+      "BIR 2015",
+      "Tartu"
+    ],
+    [
+      "BIS 2009",
+      "Poland"
+    ],
+    [
+      "BIS 2009",
+      "Poznan"
+    ],
+    [
+      "BIS 2012",
+      "Lithuania"
+    ],
+    [
+      "BIS 2012",
+      "Vilnius"
+    ],
+    [
+      "BIS 2020",
+      "Colorado Springs"
+    ],
+    [
+      "BIS 2025",
+      "Pozna\u0144"
+    ],
+    [
+      "BPM 2022",
+      "M\u00fcnster"
+    ],
+    [
+      "BPM 2023",
+      "Utrecht"
+    ],
+    [
+      "BPM 2024",
+      "Krakow"
+    ],
+    [
+      "BPMDS 2009",
+      "Amsterdam"
+    ],
+    [
+      "BPMDS 2009",
+      "The Netherlands"
+    ],
+    [
+      "BPMDS 2015",
+      "Stockholm"
+    ],
+    [
+      "BPMDS 2015",
+      "Sweden"
+    ],
+    [
+      "BPMDS 2016",
+      "Ljubljana"
+    ],
+    [
+      "BPMDS 2016",
+      "Slovenia"
+    ],
+    [
+      "BPMDS 2017",
+      "Essen"
+    ],
+    [
+      "BPMDS 2021",
+      "Melbourne"
+    ],
+    [
+      "BPMDS 2023",
+      "Zaragoza"
+    ],
+    [
+      "CAiSE 2009",
+      "Amsterdam"
+    ],
+    [
+      "CAiSE 2009",
+      "The Netherlands"
+    ],
+    [
+      "CAiSE 2010",
+      "Hammamet"
+    ],
+    [
+      "CAiSE 2010",
+      "Tunisia"
+    ],
+    [
+      "CAiSE 2011",
+      "London"
+    ],
+    [
+      "CAiSE 2011",
+      "United Kingdom"
+    ],
+    [
+      "CAiSE 2014",
+      "Greece"
+    ],
+    [
+      "CAiSE 2014",
+      "Thessaloniki"
+    ],
+    [
+      "CAiSE 2015",
+      "Stockholm"
+    ],
+    [
+      "CAiSE 2015",
+      "Sweden"
+    ],
+    [
+      "CAiSE 2016",
+      "Ljubljana"
+    ],
+    [
+      "CAiSE 2016",
+      "Slovenia"
+    ],
+    [
+      "CAiSE 2020",
+      "Grenoble"
+    ],
+    [
+      "CBI 2017",
+      "Beni Mellal"
+    ],
+    [
+      "CBI 2017",
+      "Morocco"
+    ],
+    [
+      "CCGRID 2017",
+      "Madrid"
+    ],
+    [
+      "CCGRID 2017",
+      "Spain"
+    ],
+    [
+      "CIDM 2011",
+      "France"
+    ],
+    [
+      "CIDM 2011",
+      "Paris"
+    ],
+    [
+      "CIDM 2013",
+      "Singapore (City)"
+    ],
+    [
+      "CIDM 2013",
+      "Singapore (Country)"
+    ],
+    [
+      "CONCUR 2011",
+      "Aachen"
+    ],
+    [
+      "CONCUR 2011",
+      "Germany"
+    ],
+    [
+      "CSCWD 2015",
+      "Calabria"
+    ],
+    [
+      "Campione d'Italia",
+      "SIMPDA 2012"
+    ],
+    [
+      "Canada",
+      "ER 2021"
+    ],
+    [
+      "Canada",
+      "St. John's"
+    ],
+    [
+      "China",
+      "ICSSP 2014"
+    ],
+    [
+      "China",
+      "Nanjing"
+    ],
+    [
+      "CoopIS 2022",
+      "Bolzano"
+    ],
+    [
+      "Cyprus",
+      "BPMDS 2024"
+    ],
+    [
+      "Cyprus",
+      "CAiSE 2024"
+    ],
+    [
+      "Cyprus",
+      "RCIS 2020"
+    ],
+    [
+      "Cyprus",
+      "RCIS 2021"
+    ],
+    [
+      "DASFAA 2009",
+      "Australia"
+    ],
+    [
+      "DASFAA 2009",
+      "Brisbane"
+    ],
+    [
+      "ECAI 2024",
+      "Santiago de Compostela"
+    ],
+    [
+      "ECMS 2023",
+      "Florence"
+    ],
+    [
+      "ECOWS 2011",
+      "Lugano"
+    ],
+    [
+      "ECOWS 2011",
+      "Switzerland"
+    ],
+    [
+      "EDOC 2011",
+      "Finland"
+    ],
+    [
+      "EDOC 2011",
+      "Helsinki"
+    ],
+    [
+      "EDOC 2012",
+      "Beijing"
+    ],
+    [
+      "EDOC 2012",
+      "China"
+    ],
+    [
+      "EDOC 2013",
+      "Canada"
+    ],
+    [
+      "EDOC 2013",
+      "Vancouver"
+    ],
+    [
+      "EDOC 2022",
+      "Bolzano"
+    ],
+    [
+      "ENASE 2019",
+      "Heraklion"
+    ],
+    [
+      "ER 2021",
+      "St. John's"
+    ],
+    [
+      "ER 2023",
+      "Lisbon"
+    ],
+    [
+      "ESEM 2014",
+      "Torino"
+    ],
+    [
+      "Estonia",
+      "BIR 2015"
+    ],
+    [
+      "Estonia",
+      "CAiSE 2018"
+    ],
+    [
+      "Estonia",
+      "ICSSP 2015"
+    ],
+    [
+      "Estonia",
+      "Tartu"
+    ],
+    [
+      "FACS 2018",
+      "Korea"
+    ],
+    [
+      "FACS 2018",
+      "Pohang"
+    ],
+    [
+      "FASE 2012",
+      "Estonia"
+    ],
+    [
+      "FASE 2012",
+      "Tallinn"
+    ],
+    [
+      "France",
+      "CAiSE 2020"
+    ],
+    [
+      "France",
+      "Grenoble"
+    ],
+    [
+      "France",
+      "HCSE 2018"
+    ],
+    [
+      "France",
+      "IDA 2022"
+    ],
+    [
+      "France",
+      "Nantes"
+    ],
+    [
+      "France",
+      "Nice"
+    ],
+    [
+      "France",
+      "RCIS 2013"
+    ],
+    [
+      "France",
+      "RCIS 2018"
+    ],
+    [
+      "France",
+      "Rennes"
+    ],
+    [
+      "Germany",
+      "ACSD 2019"
+    ],
+    [
+      "Germany",
+      "BPM 2022"
+    ],
+    [
+      "Germany",
+      "BPMDS 2017"
+    ],
+    [
+      "Germany",
+      "Essen"
+    ],
+    [
+      "Germany",
+      "M\u00fcnster"
+    ],
+    [
+      "Germany",
+      "Petri Nets 2019"
+    ],
+    [
+      "Germany",
+      "Wadern"
+    ],
+    [
+      "Germany",
+      "eBISS 2013"
+    ],
+    [
+      "Greece",
+      "Athens"
+    ],
+    [
+      "Greece",
+      "Corfu"
+    ],
+    [
+      "Greece",
+      "ENASE 2019"
+    ],
+    [
+      "Greece",
+      "Heraklion"
+    ],
+    [
+      "Greece",
+      "ODBASE 2019"
+    ],
+    [
+      "Greece",
+      "RCIS 2023"
+    ],
+    [
+      "Greece",
+      "Rhodes"
+    ],
+    [
+      "Greece",
+      "SSCI 2016"
+    ],
+    [
+      "HCSE 2018",
+      "Nice"
+    ],
+    [
+      "ICPM 2021",
+      "Eindhoven"
+    ],
+    [
+      "ICPM 2022",
+      "Bolzano"
+    ],
+    [
+      "ICPM 2024",
+      "Copenhagen"
+    ],
+    [
+      "ICPM 2024",
+      "Denmark"
+    ],
+    [
+      "ICSOC 2020",
+      "Dubai"
+    ],
+    [
+      "ICSOC 2020",
+      "United Arab Emirates"
+    ],
+    [
+      "ICSOC 2024",
+      "Tunis"
+    ],
+    [
+      "ICSSP 2014",
+      "Nanjing"
+    ],
+    [
+      "ICT4S 2025",
+      "Dublin"
+    ],
+    [
+      "ICT4S 2025",
+      "Ireland"
+    ],
+    [
+      "ICTAC 2021",
+      "Astana"
+    ],
+    [
+      "ICTAC 2021",
+      "Kazakhstan"
+    ],
+    [
+      "ICWS 2018",
+      "Seattle"
+    ],
+    [
+      "ICWS 2018",
+      "USA"
+    ],
+    [
+      "IDA 2022",
+      "Rennes"
+    ],
+    [
+      "IE 2018",
+      "Rome"
+    ],
+    [
+      "INFUS 2025",
+      "Istanbul"
+    ],
+    [
+      "INFUS 2025",
+      "Turkey"
+    ],
+    [
+      "ISDA 2022",
+      "Online"
+    ],
+    [
+      "Italy",
+      "Amantea"
+    ],
+    [
+      "Italy",
+      "BPM 2021"
+    ],
+    [
+      "Italy",
+      "Bolzano"
+    ],
+    [
+      "Italy",
+      "CSCWD 2015"
+    ],
+    [
+      "Italy",
+      "Calabria"
+    ],
+    [
+      "Italy",
+      "Campobasso"
+    ],
+    [
+      "Italy",
+      "CoopIS 2022"
+    ],
+    [
+      "Italy",
+      "ECMS 2023"
+    ],
+    [
+      "Italy",
+      "EDOC 2022"
+    ],
+    [
+      "Italy",
+      "ESEM 2014"
+    ],
+    [
+      "Italy",
+      "Florence"
+    ],
+    [
+      "Italy",
+      "ICPM 2022"
+    ],
+    [
+      "Italy",
+      "ICSOC 2023"
+    ],
+    [
+      "Italy",
+      "IE 2018"
+    ],
+    [
+      "Italy",
+      "Milano"
+    ],
+    [
+      "Italy",
+      "ODBASE 2014"
+    ],
+    [
+      "Italy",
+      "Riva del Garda"
+    ],
+    [
+      "Italy",
+      "Rome"
+    ],
+    [
+      "Italy",
+      "SANER 2018"
+    ],
+    [
+      "Italy",
+      "SIMPDA 2012"
+    ],
+    [
+      "Italy",
+      "SIMPDA 2013"
+    ],
+    [
+      "Italy",
+      "SIMPDA 2014"
+    ],
+    [
+      "Italy",
+      "Torino"
+    ],
+    [
+      "Limassol",
+      "BPMDS 2024"
+    ],
+    [
+      "Limassol",
+      "CAiSE 2024"
+    ],
+    [
+      "Limassol",
+      "RCIS 2020"
+    ],
+    [
+      "Limassol",
+      "RCIS 2021"
+    ],
+    [
+      "Madrid",
+      "ICSME 2018"
+    ],
+    [
+      "Norway",
+      "SEFM 2019"
+    ],
+    [
+      "ODBASE 2014",
+      "Amantea"
+    ],
+    [
+      "ODBASE 2019",
+      "Rhodes"
+    ],
+    [
+      "OPODIS 2008",
+      "Egypt"
+    ],
+    [
+      "OPODIS 2008",
+      "Luxor"
+    ],
+    [
+      "Oslo",
+      "SEFM 2019"
+    ],
+    [
+      "PaCT 2011",
+      "Kazan"
+    ],
+    [
+      "PaCT 2011",
+      "Russia"
+    ],
+    [
+      "Paris",
+      "RCIS 2013"
+    ],
+    [
+      "PoEM 2011",
+      "Norway"
+    ],
+    [
+      "PoEM 2011",
+      "Oslo"
+    ],
+    [
+      "PoEM 2013",
+      "Latvia"
+    ],
+    [
+      "PoEM 2013",
+      "Riga"
+    ],
+    [
+      "Poland",
+      "BIS 2025"
+    ],
+    [
+      "Poland",
+      "BPM 2024"
+    ],
+    [
+      "Poland",
+      "Krakow"
+    ],
+    [
+      "Poland",
+      "Pozna\u0144"
+    ],
+    [
+      "Portugal",
+      "ER 2023"
+    ],
+    [
+      "Portugal",
+      "Guimar\u00e3es"
+    ],
+    [
+      "Portugal",
+      "Lisbon"
+    ],
+    [
+      "Portugal",
+      "RCIS 2024"
+    ],
+    [
+      "RCIS 2018",
+      "Nantes"
+    ],
+    [
+      "RCIS 2022",
+      "Barcelona"
+    ],
+    [
+      "RCIS 2023",
+      "Corfu"
+    ],
+    [
+      "RCIS 2024",
+      "Guimar\u00e3es"
+    ],
+    [
+      "Rome",
+      "BPM 2021"
+    ],
+    [
+      "Rome",
+      "ICSOC 2023"
+    ],
+    [
+      "SANER 2018",
+      "Campobasso"
+    ],
+    [
+      "SIMPDA 2011",
+      "Campione d'Italia"
+    ],
+    [
+      "SIMPDA 2011",
+      "Italy"
+    ],
+    [
+      "SIMPDA 2013",
+      "Riva del Garda"
+    ],
+    [
+      "SIMPDA 2014",
+      "Milano"
+    ],
+    [
+      "SIMPDA 2015",
+      "Austria"
+    ],
+    [
+      "SIMPDA 2015",
+      "Vienna"
+    ],
+    [
+      "SIMPDA 2016",
+      "Graz"
+    ],
+    [
+      "SIMPDA 2018",
+      "Seville"
+    ],
+    [
+      "SPIN 2010",
+      "Enschede"
+    ],
+    [
+      "SSCI 2016",
+      "Athens"
+    ],
+    [
+      "Seville",
+      "BPM 2025"
+    ],
+    [
+      "Seville",
+      "ICSOC 2022"
+    ],
+    [
+      "Seville",
+      "RCIS 2025"
+    ],
+    [
+      "Seville",
+      "WESOACS 2022"
+    ],
+    [
+      "Singapore (City)",
+      "EMNLP 2023"
+    ],
+    [
+      "Singapore (Country)",
+      "EMNLP 2023"
+    ],
+    [
+      "Slovenia",
+      "ADBIS 2019"
+    ],
+    [
+      "Slovenia",
+      "Bled"
+    ],
+    [
+      "Spain",
+      "BPM 2025"
+    ],
+    [
+      "Spain",
+      "BPMDS 2023"
+    ],
+    [
+      "Spain",
+      "Barcelona"
+    ],
+    [
+      "Spain",
+      "ECAI 2024"
+    ],
+    [
+      "Spain",
+      "ICSME 2018"
+    ],
+    [
+      "Spain",
+      "ICSOC 2022"
+    ],
+    [
+      "Spain",
+      "RCIS 2022"
+    ],
+    [
+      "Spain",
+      "RCIS 2025"
+    ],
+    [
+      "Spain",
+      "SIMPDA 2018"
+    ],
+    [
+      "Spain",
+      "Santiago de Compostela"
+    ],
+    [
+      "Spain",
+      "Seville"
+    ],
+    [
+      "Spain",
+      "WESOACS 2022"
+    ],
+    [
+      "Spain",
+      "Zaragoza"
+    ],
+    [
+      "Stockholm",
+      "EDOC 2018"
+    ],
+    [
+      "Sweden",
+      "EDOC 2018"
+    ],
+    [
+      "Tallinn",
+      "CAiSE 2018"
+    ],
+    [
+      "Tallinn",
+      "ICSSP 2015"
+    ],
+    [
+      "The Netherlands",
+      "BPM 2023"
+    ],
+    [
+      "The Netherlands",
+      "CoopIS 2023"
+    ],
+    [
+      "The Netherlands",
+      "Eindhoven"
+    ],
+    [
+      "The Netherlands",
+      "Enschede"
+    ],
+    [
+      "The Netherlands",
+      "ICPM 2021"
+    ],
+    [
+      "The Netherlands",
+      "SPIN 2010"
+    ],
+    [
+      "The Netherlands",
+      "Utrecht"
+    ],
+    [
+      "Tunisia",
+      "ICSOC 2024"
+    ],
+    [
+      "Tunisia",
+      "Tunis"
+    ],
+    [
+      "USA",
+      "BIS 2020"
+    ],
+    [
+      "USA",
+      "Colorado Springs"
+    ],
+    [
+      "Vienna",
+      "EDOC 2024"
+    ],
+    [
+      "eBISS 2013",
+      "Wadern"
+    ]
+  ],
+  "related_pairs_without_direction": [
+    [
+      "Aachen",
+      "Germany"
+    ],
+    [
+      "Amsterdam",
+      "The Netherlands"
+    ],
+    [
+      "Astana",
+      "Kazakhstan"
+    ],
+    [
+      "Australia",
+      "Brisbane"
+    ],
+    [
+      "Austria",
+      "Vienna"
+    ],
+    [
+      "Beijing",
+      "China"
+    ],
+    [
+      "Beni Mellal",
+      "Morocco"
+    ],
+    [
+      "Campione d'Italia",
+      "Italy"
+    ],
+    [
+      "Canada",
+      "Vancouver"
+    ],
+    [
+      "Copenhagen",
+      "Denmark"
+    ],
+    [
+      "Cyprus",
+      "Limassol"
+    ],
+    [
+      "Dubai",
+      "United Arab Emirates"
+    ],
+    [
+      "Dublin",
+      "Ireland"
+    ],
+    [
+      "Egypt",
+      "Luxor"
+    ],
+    [
+      "Estonia",
+      "Tallinn"
+    ],
+    [
+      "Finland",
+      "Helsinki"
+    ],
+    [
+      "France",
+      "Paris"
+    ],
+    [
+      "Funchal",
+      "Portugal"
+    ],
+    [
+      "Greece",
+      "Thessaloniki"
+    ],
+    [
+      "Hammamet",
+      "Tunisia"
+    ],
+    [
+      "Istanbul",
+      "Turkey"
+    ],
+    [
+      "Kazan",
+      "Russia"
+    ],
+    [
+      "Korea",
+      "Pohang"
+    ],
+    [
+      "Latvia",
+      "Riga"
+    ],
+    [
+      "Lithuania",
+      "Vilnius"
+    ],
+    [
+      "Ljubljana",
+      "Slovenia"
+    ],
+    [
+      "London",
+      "United Kingdom"
+    ],
+    [
+      "Lugano",
+      "Switzerland"
+    ],
+    [
+      "Madrid",
+      "Spain"
+    ],
+    [
+      "Norway",
+      "Oslo"
+    ],
+    [
+      "Poland",
+      "Poznan"
+    ],
+    [
+      "Seattle",
+      "USA"
+    ],
+    [
+      "Singapore (City)",
+      "Singapore (Country)"
+    ],
+    [
+      "Stockholm",
+      "Sweden"
+    ]
+  ],
+  "start_relationships": 209,
+  "end_relationships": 209,
+  "objects_not_exactly_one_start_and_end": [],
+  "server_notifications": []
+}
